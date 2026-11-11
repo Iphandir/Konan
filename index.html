@@ -14,6 +14,7 @@
   .scroll-thin::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:9999px}
 
   /* Bottoni e componenti base */
+  :where(button:not(:disabled),[data-action]:not(:disabled),[role=button]){cursor:pointer}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;font-weight:600;font-size:.875rem;border-radius:.75rem;padding:.6rem 1rem;transition:all .15s;cursor:pointer;border:1px solid transparent;line-height:1.2}
   .btn-primary{background:#2563eb;color:#fff;box-shadow:0 4px 12px -4px rgba(37,99,235,.55)}
   .btn-primary:hover{background:#1d4ed8}
@@ -2772,6 +2773,522 @@ const CASI_CLINICI = [
   },
   diagnosiDifferenziale: DX("Shock settico da urosepsi su calcolo ureterale ostruente","Pielonefrite acuta non complicata","Shock cardiogeno","Embolia polmonare"),
   spiegazioneClinica: "Febbre, confusione, ipotensione, cute fredda e marezzata, lattati 4.8, leucocitosi, piastrinopenia e danno renale in una paziente con catetere e dolore al fianco configurano uno shock settico da urosepsi. L'ecografia mostra l'ostruzione ureterale con idronefrosi: un'infezione a monte di un'ostruzione richiede un drenaggio urgente (stent o nefrostomia) oltre agli antibiotici. Una pielonefrite non complicata non dà shock né ostruzione, lo shock cardiogeno ha polmoni congesti e giugulari turgide, l'embolia non spiega piuria e febbre."
+},
+{
+  id: "case-071",
+  titolo: "Dolore alla schiena che scende lungo la gamba",
+  descrizioneBreve: "Magazziniere di 41 anni con lombalgia e dolore a scossa lungo la gamba destra dopo aver sollevato un peso, peggiorato da tosse e posizione seduta.",
+  difficolta: "Facile",
+  specialita: "Ortopedia / Neurologia",
+  schedaPaziente: { nome: "Luca Bianchetti", eta: 41, sesso: "M", motivo: "Lombalgia con dolore alla gamba destra", parametriVitali: { PA: "130/80 mmHg", FC: "76 bpm", Temp: "36.6 °C", SpO2: "99% in aria ambiente", FR: "14 atti/min" } },
+  anamnesi: Q(
+    ["Cosa la porta oggi qui?", "Da quattro giorni ho un forte dolore alla schiena che scende lungo la gamba destra fino al piede; è iniziato dopo aver sollevato uno scatolone pesante."],
+    ["Come è il dolore?", "Una scossa elettrica che parte dal gluteo e scende dietro la coscia e il polpaccio fino al piede; peggiora con la tosse."],
+    ["Cosa lo fa migliorare o peggiorare?", "Peggiora piegandomi in avanti, stando seduto e tossendo; sto meglio sdraiato con le ginocchia piegate."],
+    ["Ha formicolii o debolezza alla gamba o al piede?", "Formicolio al lato esterno del piede e sul dorso del piede; la forza mi sembra buona."],
+    ["Ha problemi a urinare o a evacuare, o intorpidimento nella zona genitale?", "No, nessun problema."],
+    ["Ha febbre, calo di peso o dolore notturno?", "No, niente del genere."],
+    ["Che lavoro fa?", "Il magazziniere: sollevo pesi tutto il giorno."]
+  ),
+  esameObiettivo: EO({
+    arti: [["Manovra di Lasègue","Positiva a destra a 40° con dolore irradiato alla gamba",0],["Forza e riflessi","Forza conservata; riflesso achilleo destro ridotto; ipoestesia nel territorio S1 destro",0]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Proteina C Reattiva","Indice di flogosi",2,"0.3 mg/dL","< 0.5 mg/dL",0,0)
+    ],
+    strumentali: [
+      S("RM colonna lombosacrale","Risonanza magnetica",10,1,"rm","Lombosciatalgia destra","Ernia discale posterolaterale destra L5-S1 con compressione della radice S1 destra; discopatia degenerativa L4-L5 senza stenosi significativa del canale."),
+      S("RX colonna lombosacrale in 2 proiezioni","Radiografia",5,0,"rx","Lombalgia acuta","Riduzione dello spazio discale L5-S1. Allineamento conservato, non fratture né lesioni litiche.")
+    ]
+  },
+  diagnosiDifferenziale: DX("Lombosciatalgia da ernia discale L5-S1","Stenosi del canale lombare","Sindrome della cauda equina","Sindrome del piriforme"),
+  spiegazioneClinica: "Dolore lombare con irradiazione a scossa fino al piede, scatenato da uno sforzo, peggiorato da tosse e posizione seduta, con Lasègue positivo, riflesso achilleo ridotto e ipoestesia nel territorio S1, indica una radicolopatia da ernia discale L5-S1. Non ci sono segni della cauda equina (ritenzione urinaria, anestesia a sella, deficit motorio progressivo) né sintomi di allarme. La RM conferma il conflitto disco-radicolare e la prima scelta resta il trattamento conservativo."
+},
+{
+  id: "case-072",
+  titolo: "Raffreddore che non passa, con dolore al viso",
+  descrizioneBreve: "Donna di 36 anni con raffreddore da dieci giorni, naso chiuso con secrezioni giallo-verdi, dolore e peso al viso e febbricola.",
+  difficolta: "Facile",
+  specialita: "Otorinolaringoiatria",
+  schedaPaziente: { nome: "Simona Pellegrini", eta: 36, sesso: "F", motivo: "Dolore al viso e naso chiuso", parametriVitali: { PA: "115/70 mmHg", FC: "82 bpm", Temp: "38.0 °C", SpO2: "99% in aria ambiente", FR: "16 atti/min" } },
+  anamnesi: Q(
+    ["Cosa la porta oggi qui?", "Da dieci giorni ho un raffreddore che non passa; ora ho dolore e peso al viso, naso chiuso con muco giallo-verde e un po' di febbre."],
+    ["Dove sente il dolore?", "Sulle guance e sopra le sopracciglia, a destra più che a sinistra; peggiora piegandomi in avanti."],
+    ["Come è il muco? Sente gli odori?", "Giallo-verdastro e denso; non sento quasi più gli odori."],
+    ["Ha mal di denti?", "Un po' di fastidio ai denti superiori a destra."],
+    ["Ha allergie, polipi o ha già avuto sinusiti?", "Una rinite allergica in primavera e due sinusiti negli ultimi anni."],
+    ["Ha avuto febbre alta, gonfiore intorno agli occhi o disturbi della vista?", "Febbre intorno ai 38; nessun gonfiore agli occhi e la vista è normale."],
+    ["Ha già preso qualche farmaco?", "Uno spray nasale decongestionante da una settimana e paracetamolo."]
+  ),
+  esameObiettivo: EO({
+    collo: [["Rinoscopia anteriore","Mucosa nasale iperemica con secrezione purulenta nel meato medio destro",0],["Palpazione dei seni","Dolorabilità alla pressione sui seni mascellare e frontale destri",0],["Linfonodi","Piccole adenopatie sottomandibolari mobili"]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Proteina C Reattiva","Indice di flogosi",2,"1.8 mg/dL","< 0.5 mg/dL",1,0)
+    ],
+    strumentali: [
+      S("TC del massiccio facciale","TC dei seni paranasali",10,0,"tc","Sinusite persistente","Livello idroaereo nel seno mascellare destro con ispessimento mucoso etmoidale omolaterale e ostruzione del complesso ostio-meatale. Non estensione orbitaria né endocranica."),
+      S("RX dei seni paranasali","Radiografia",5,0,"rx","Dolore al viso con rinorrea purulenta","Opacità del seno mascellare destro con livello idroaereo; seno frontale e mascellare sinistro liberi.")
+    ]
+  },
+  diagnosiDifferenziale: DX("Sinusite acuta batterica","Rinite allergica","Raffreddore comune (infezione virale delle alte vie)","Cefalea a grappolo"),
+  spiegazioneClinica: "Sintomi di raffreddore che persistono oltre 10 giorni, con secrezione purulenta, dolore e peso facciale monolaterale peggiorati chinandosi, febbre e dolorabilità dei seni, indicano una rinosinusite acuta batterica. La diagnosi è clinica: la TC si riserva alle complicanze o ai casi che non rispondono. Non ci sono segni di allarme (edema periorbitario, deficit visivi, cefalea intensa con alterazione dello stato mentale)."
+},
+{
+  id: "case-073",
+  titolo: "Bruciore allo stomaco che mi sveglia la notte",
+  descrizioneBreve: "Uomo di 47 anni, fumatore, con dolore epigastrico a digiuno e notturno che migliora mangiando, dopo uso di antinfiammatori.",
+  difficolta: "Facile",
+  specialita: "Gastroenterologia",
+  schedaPaziente: { nome: "Mario Fiorentini", eta: 47, sesso: "M", motivo: "Dolore alla bocca dello stomaco", parametriVitali: { PA: "130/82 mmHg", FC: "74 bpm", Temp: "36.6 °C", SpO2: "99% in aria ambiente", FR: "14 atti/min" } },
+  anamnesi: Q(
+    ["Cosa la porta oggi qui?", "Da tre settimane ho un bruciore alla bocca dello stomaco che mi sveglia di notte."],
+    ["Che rapporto ha con il cibo?", "Peggiora a digiuno e di notte; mangiando passa per un po'."],
+    ["Ha vomito, feci nere o vomito con sangue?", "No, niente sangue; qualche volta nausea."],
+    ["Prende antinfiammatori?", "Ogni tanto un antinfiammatorio per il mal di schiena."],
+    ["Fuma o beve alcolici?", "Fumo 10 sigarette al giorno e bevo qualche birra."],
+    ["Ha perso peso o ha difficoltà a deglutire?", "No, il peso è stabile e deglutisco bene."],
+    ["Ci sono familiari con ulcera o tumori dello stomaco?", "Mio padre ha avuto l'ulcera."]
+  ),
+  esameObiettivo: EO({
+    addome: [["Palpazione","Lieve dolorabilità in epigastrio, senza difesa né masse; Blumberg negativo",0]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Emocromo (emoglobina)","Esame emocromocitometrico",2,"Hb 14.2 g/dL","Hb 13.5-17.5 g/dL",0,0),
+      L("Test del respiro con urea (UBT) per Helicobacter pylori","Infezione da H. pylori",4,"Positivo","Negativo",1,1)
+    ],
+    strumentali: [
+      S("Esofagogastroduodenoscopia con biopsie","Endoscopia digestiva",8,1,"endo","Dolore epigastrico notturno","Ulcera duodenale di 8 mm sulla parete anteriore del bulbo con fondo fibrinoso pulito (Forrest III). Mucosa antrale iperemica. Biopsie: gastrite cronica attiva con Helicobacter pylori.")
+    ]
+  },
+  diagnosiDifferenziale: DX("Ulcera duodenale da Helicobacter pylori","Malattia da reflusso gastroesofageo","Pancreatite cronica","Dispepsia funzionale"),
+  spiegazioneClinica: "Dolore epigastrico a digiuno e notturno, attenuato dal cibo, in un fumatore che assume FANS e con familiarità, indica un'ulcera duodenale. L'EGDS la documenta e le biopsie, insieme al test del respiro positivo, dimostrano l'infezione da Helicobacter pylori, che si tratta con la terapia di eradicazione. Non ci sono segni di allarme (calo ponderale, anemia, disfagia, sanguinamento)."
+},
+{
+  id: "case-074",
+  titolo: "Un crac alla caviglia giocando a calcetto",
+  descrizioneBreve: "Uomo di 28 anni con trauma in torsione della caviglia durante il calcetto, tumefazione, dolore sui malleoli e impossibilità a caricare.",
+  difficolta: "Facile",
+  specialita: "Ortopedia",
+  schedaPaziente: { nome: "Andrea Vitale", eta: 28, sesso: "M", motivo: "Trauma alla caviglia destra", parametriVitali: { PA: "125/78 mmHg", FC: "88 bpm", Temp: "36.6 °C", SpO2: "99% in aria ambiente", FR: "16 atti/min" } },
+  anamnesi: Q(
+    ["Cosa le è successo?", "Giocando a calcetto ho messo male il piede e ho sentito un crac; la caviglia destra si è subito gonfiata e non riesco ad appoggiare."],
+    ["Dove sente il dolore?", "Sul lato esterno della caviglia e anche all'interno."],
+    ["Come è avvenuto il trauma?", "Una torsione con il piede bloccato a terra e la caviglia ruotata."],
+    ["Ha formicolii o perdita di sensibilità al piede?", "No, sento bene il piede e muovo le dita."],
+    ["Ha già avuto distorsioni?", "Una distorsione alla stessa caviglia due anni fa."],
+    ["Riesce a camminare?", "No, non riesco a caricare il peso, nemmeno per qualche passo."],
+    ["Ha altre malattie o prende farmaci?", "No, niente."]
+  ),
+  esameObiettivo: EO({
+    arti: [["Caviglia destra","Tumefazione ed ecchimosi sul malleolo laterale; dolorabilità sul malleolo laterale e mediale; impossibile caricare il peso",0],["Polsi e sensibilità","Polso pedidio e tibiale posteriore presenti; sensibilità e motilità delle dita conservate"]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Emocromo (leucociti)","Esame emocromocitometrico",2,"WBC 7.400 /µL; Hb 15.0 g/dL","WBC 4.000-10.000 /µL; Hb 13.5-17.5 g/dL",0,0)
+    ],
+    strumentali: [
+      S("RX caviglia destra in 2 proiezioni","Radiografia",5,1,"rx","Trauma in torsione con impossibilità a caricare","Frattura obliqua del malleolo laterale a livello della sindesmosi (Weber B), minimamente scomposta; spazio articolare mediale conservato. Mortaia tibio-astragalica congrua."),
+      S("TC caviglia destra","TC ossea",10,0,"tc","Frattura malleolare","Conferma della frattura del perone distale senza frammenti intraarticolari né lesione del pilone tibiale.")
+    ]
+  },
+  diagnosiDifferenziale: DX("Frattura del malleolo laterale (Weber B)","Distorsione di caviglia di grado II","Rottura del tendine d'Achille","Frattura della base del V metatarso"),
+  spiegazioneClinica: "Trauma in torsione con crac, tumefazione, dolorabilità ossea sui malleoli e impossibilità a caricare il peso soddisfano le regole di Ottawa per la caviglia: è indicata la radiografia, che mostra una frattura del malleolo laterale a livello della sindesmosi (Weber B). La distorsione di grado II permette di caricare con dolore e non ha dolorabilità ossea; nella rottura dell'Achille il segno di Thompson è positivo; la frattura del V metatarso ha il dolore sul bordo laterale del piede."
+},
+{
+  id: "case-075",
+  titolo: "Tremori, sudore freddo e confusione in un diabetico",
+  descrizioneBreve: "Uomo di 34 anni con diabete di tipo 1 in terapia insulinica, dopo dose senza colazione e corsa, con tremori, sudorazione, fame e confusione.",
+  difficolta: "Facile",
+  specialita: "Endocrinologia / Medicina d'Urgenza",
+  schedaPaziente: { nome: "Giulio Ferri", eta: 34, sesso: "M", motivo: "Tremori, sudorazione e confusione", parametriVitali: { PA: "130/80 mmHg", FC: "108 bpm", Temp: "36.5 °C", SpO2: "99% in aria ambiente", FR: "18 atti/min" } },
+  anamnesi: Q(
+    ["Cosa la porta oggi qui?", "Mi tremano le mani, sudo freddo e mi sento confuso; ho molta fame."],
+    ["Ha il diabete?", "Sì, di tipo 1; faccio insulina quattro volte al giorno."],
+    ["Cosa ha fatto oggi con la terapia e il cibo?", "Stamattina ho fatto la dose di insulina e poi non ho fatto colazione perché ero di fretta; ho anche fatto una lunga corsa."],
+    ["Ha già avuto episodi simili?", "Ogni tanto ho dei cali, ma mai così."],
+    ["Ha avuto vomito o febbre?", "No, niente."],
+    ["Ha assunto alcol o altri farmaci?", "No."],
+    ["Ha misurato la glicemia?", "Il sensore mostra 38."]
+  ),
+  esameObiettivo: EO({
+    snc: [["Stato mentale","Sudato, tremante, confuso e rallentato nelle risposte",0],["Pupille","Isocoriche, isocicliche, normoreagenti alla luce"]],
+    cute: [["Cute","Pallida, fredda e sudata",0],["Mucose","Rosee"]],
+    cuore: [["Toni cardiaci","Tachicardia ritmica, non soffi",0]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Glicemia capillare","Glicemia",2,"38 mg/dL","70 - 100 mg/dL",1,1)
+    ],
+    strumentali: [
+      S("ECG a 12 derivazioni","Tracciato elettrocardiografico",5,0,"ecg","Tachicardia e sudorazione","Tachicardia sinusale a 108 bpm. Non alterazioni ischemiche.",{ tipo:"ecg-tachi" })
+    ]
+  },
+  diagnosiDifferenziale: DX("Ipoglicemia da insulina","Chetoacidosi diabetica","Attacco di panico","Crisi epilettica"),
+  spiegazioneClinica: "Sintomi adrenergici (tremore, sudorazione, tachicardia, fame) e neuroglicopenici (confusione) in un diabetico di tipo 1 dopo dose di insulina, digiuno e sforzo fisico, con glicemia 38 mg/dL, soddisfano la triade di Whipple: ipoglicemia. La chetoacidosi ha iperglicemia, poliuria e respiro di Kussmaul; l'attacco di panico ha glicemia normale; la crisi epilettica non spiega il sudore freddo con la glicemia così bassa. Si tratta con glucosio per bocca o endovena."
+},
+{
+  id: "case-076",
+  titolo: "Nausea, stanchezza e occhi gialli dopo una festa",
+  descrizioneBreve: "Giovane donna di 25 anni con nausea, febbre iniziale, ittero, urine scure e feci chiare dopo aver mangiato cozze crude.",
+  difficolta: "Intermedio",
+  specialita: "Malattie Infettive / Gastroenterologia",
+  schedaPaziente: { nome: "Valentina Corsi", eta: 25, sesso: "F", motivo: "Ittero e nausea", parametriVitali: { PA: "110/70 mmHg", FC: "84 bpm", Temp: "37.9 °C", SpO2: "99% in aria ambiente", FR: "16 atti/min" } },
+  anamnesi: Q(
+    ["Cosa la porta oggi qui?", "Da quattro giorni nausea e stanchezza fortissima; da ieri sono ingiallita e ho le urine scure."],
+    ["Ha avuto febbre?", "Febbre intorno a 38 nei primi giorni, ora quasi passata."],
+    ["Ha mangiato cibi a rischio o viaggiato?", "Due settimane fa ho mangiato cozze crude a una festa; nessun viaggio."],
+    ["Come sono le feci?", "Più chiare del solito."],
+    ["Ha dolore addominale?", "Un fastidio in alto a destra, sotto le costole."],
+    ["Ha prurito?", "Un po', soprattutto la sera."],
+    ["Prende farmaci o beve alcolici? È vaccinata?", "Solo la pillola; alcol pochissimo; non sono vaccinata contro l'epatite."]
+  ),
+  esameObiettivo: EO({
+    occhi: [["Sclere","Itteriche",0],["Congiuntive","Normocromiche"]],
+    addome: [["Palpazione","Fegato palpabile a 2 cm dall'arco costale, liscio e lievemente dolente; milza non palpabile",0],["Peristalsi","Presente e normale"]],
+    cute: [["Cute","Ittero cutaneo",0],["Mucose","Itteriche",0]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Transaminasi (AST, ALT)","Funzionalità epatica",2,"AST 1.850 U/L; ALT 2.340 U/L","AST < 40 U/L; ALT < 40 U/L",1,1),
+      L("Bilirubina totale e frazionata","Funzionalità epatobiliare",3,"Bilirubina 6.2 mg/dL; bilirubina diretta 4.8 mg/dL","Bilirubina < 1.2 mg/dL",1,1),
+      L("Anticorpi anti-HAV IgM","Epatite A",3,"Positivi","Negativi",1,1),
+      L("HBsAg e anticorpi anti-HCV","Altre epatiti virali",3,"Negativi","Negativi",0,0)
+    ],
+    strumentali: [
+      S("Ecografia addome superiore","Ecografia epatobiliare",5,0,"eco","Ittero e ipertransaminasemia","Fegato lievemente aumentato di volume con ecostruttura ipoecogena e pareti portali iperecogene («cielo stellato»); colecisti con pareti ispessite; vie biliari non dilatate.")
+    ]
+  },
+  diagnosiDifferenziale: DX("Epatite A acuta","Epatite B acuta","Colecistite acuta","Mononucleosi infettiva"),
+  spiegazioneClinica: "Prodromo con nausea, astenia e febbre, seguito da ittero con urine scure e feci chiare, ipertransaminasemia di oltre 50 volte il limite e consumo di molluschi crudi due settimane prima (periodo di incubazione 2-6 settimane), indicano un'epatite acuta A. La conferma è la positività delle IgM anti-HAV. Epatiti B e C sono escluse dalla sierologia; l'ecografia non mostra dilatazione biliare. Il decorso è autolimitante e la prevenzione è la vaccinazione."
+},
+{
+  id: "case-077",
+  titolo: "Vomito e diarrea, poi quasi niente urina",
+  descrizioneBreve: "Uomo di 74 anni in terapia con ACE-inibitore e diuretico, con gastroenterite, antinfiammatorio, ipotensione, oliguria e creatinina elevata.",
+  difficolta: "Intermedio",
+  specialita: "Nefrologia",
+  schedaPaziente: { nome: "Bruno Cortese", eta: 74, sesso: "M", motivo: "Oliguria e debolezza", parametriVitali: { PA: "95/55 mmHg", FC: "102 bpm", Temp: "36.8 °C", SpO2: "97% in aria ambiente", FR: "18 atti/min" } },
+  anamnesi: Q(
+    ["Cosa la porta oggi qui?", "Da tre giorni vomito e diarrea; da ieri urino pochissimo e mi sento molto debole e stordito."],
+    ["Che farmaci prende?", "Un ACE-inibitore e un diuretico per la pressione; da qualche giorno ho preso anche un antinfiammatorio per la schiena."],
+    ["Quanto beve?", "Pochissimo, perché ho nausea."],
+    ["Ha dolore al fianco o sangue nelle urine?", "No, niente dolore né sangue."],
+    ["Ha malattie renali note o diabete?", "Ho la pressione alta e il diabete di tipo 2; i reni finora erano a posto."],
+    ["Ha difficoltà a urinare per la prostata?", "No, il getto parte bene ma l'urina è pochissima."],
+    ["Ha febbre?", "No, nessuna febbre."]
+  ),
+  esameObiettivo: EO({
+    cute: [["Mucose","Asciutte; plica cutanea persistente",0],["Cute","Fredda e disidratata"]],
+    cuore: [["Pressione","Ipotensione ortostatica con tachicardia",0]],
+    arti: [["Edemi","Assenti"],["Polsi periferici","Presenti e simmetrici"]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Creatinina sierica e azotemia","Funzionalità renale",2,"3.1 mg/dL (azotemia 112 mg/dL)","Creatinina 0.7-1.2 mg/dL",1,1),
+      L("Potassio sierico","Elettroliti",2,"5.8 mmol/L","3.5 - 5.0 mmol/L",1,1),
+      L("Frazione di escrezione del sodio (FeNa)","Diagnosi differenziale dell'insufficienza renale acuta",3,"FeNa 0.4% (sodio 12 mmol/L nelle prime urine)","FeNa > 2% nella necrosi tubulare acuta",1,1),
+      L("Esame urine completo","Esame chimico-fisico e microscopico",2,"Peso specifico 1.032; proteine assenti; emazie assenti; sedimento privo di cilindri","Peso specifico 1.005-1.030",0,0)
+    ],
+    strumentali: [
+      S("Ecografia reni e vie urinarie","Ecografia renale",5,1,"eco","Insufficienza renale acuta","Reni di dimensioni e ecostruttura normali, non idronefrosi né calcoli; vescica vuota dopo minzione.")
+    ]
+  },
+  diagnosiDifferenziale: DX("Insufficienza renale acuta prerenale","Necrosi tubulare acuta","Ostruzione delle vie urinarie (insufficienza renale postrenale)","Glomerulonefrite rapidamente progressiva"),
+  spiegazioneClinica: "Perdite gastrointestinali con scarso introito, ipotensione e l'associazione di ACE-inibitore, diuretico e FANS (la «tripla whammy») riducono la perfusione renale e causano una insufficienza renale acuta prerenale: urine concentrate con FeNa < 1%, sedimento bland ed ecografia normale. Nella necrosi tubulare il FeNa è > 2% con cilindri granulari, nell'uropatia ostruttiva c'è idronefrosi e nella glomerulonefrite ematuria con cilindri eritrocitari. Si tratta con reidratazione e sospensione dei farmaci nefrotossici."
+},
+{
+  id: "case-078",
+  titolo: "Ginocchio rosso, caldo e gonfio dopo un'infiltrazione",
+  descrizioneBreve: "Uomo di 58 anni diabetico con monoartrite acuta del ginocchio destro, febbre alta e brividi una settimana dopo un'infiltrazione di cortisone.",
+  difficolta: "Intermedio",
+  specialita: "Reumatologia / Ortopedia",
+  schedaPaziente: { nome: "Franco Esposito", eta: 58, sesso: "M", motivo: "Ginocchio gonfio e febbre", parametriVitali: { PA: "135/80 mmHg", FC: "100 bpm", Temp: "38.9 °C", SpO2: "98% in aria ambiente", FR: "18 atti/min" } },
+  anamnesi: Q(
+    ["Cosa la porta oggi qui?", "Da due giorni il ginocchio destro è gonfio, rosso, caldo e dolorosissimo; non riesco ad appoggiare il piede e ho la febbre."],
+    ["Come è iniziato?", "Dopo un'infiltrazione di cortisone fatta una settimana fa; il giorno dopo un po' di dolore, poi è peggiorato molto."],
+    ["Ha avuto febbre e brividi?", "Febbre fino a 39 con brividi."],
+    ["Ha altre articolazioni dolenti?", "No, solo questo ginocchio."],
+    ["Quali malattie ha e quali farmaci prende?", "Ho il diabete di tipo 2 e prendo la metformina."],
+    ["Ha avuto traumi o ferite alla pelle?", "Nessun trauma e nessuna ferita."],
+    ["Ha già avuto gotta o altri problemi articolari?", "Artrosi ai ginocchi da anni; mai avuto la gotta."]
+  ),
+  esameObiettivo: EO({
+    cuore: [["Toni cardiaci","Tachicardia ritmica, non soffi",0]],
+    arti: [["Ginocchio destro","Tumefatto, caldo, arrossato, con versamento (pallottolamento rotuleo positivo); movimenti passivi molto dolorosi e limitati",0],["Edemi","Assenti"]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Emocromo (leucociti)","Esame emocromocitometrico",2,"WBC 18.600 /µL; Hb 13.0 g/dL","WBC 4.000-10.000 /µL",1,1),
+      L("Proteina C Reattiva","Indice di flogosi",2,"18 mg/dL","< 0.5 mg/dL",1,1),
+      L("Artrocentesi con esame del liquido sinoviale","Analisi del liquido articolare",4,"Liquido torbido purulento; globuli bianchi 85.000/µL (90% neutrofili); glucosio ridotto; Gram: cocchi Gram-positivi in grappoli; coltura positiva per Staphylococcus aureus","Liquido limpido; meno di 2.000 globuli bianchi/µL; sterile",1,1)
+    ],
+    strumentali: [
+      S("RX ginocchio destro","Radiografia in 2 proiezioni",5,0,"rx","Monoartrite acuta","Gonartrosi con osteofiti e riduzione della rima articolare, con tumefazione dei tessuti molli. Non erosioni né segni di osteomielite."),
+      S("Ecografia del ginocchio","Ecografia articolare",5,0,"eco","Versamento articolare","Versamento ecogeno abbondante nel recesso sovrarotuleo con sinovite e iperemia al power Doppler.")
+    ]
+  },
+  diagnosiDifferenziale: DX("Artrite settica del ginocchio","Artrite gottosa","Artrite reattiva","Riacutizzazione di gonartrosi"),
+  spiegazioneClinica: "Monoartrite acuta con febbre alta, brividi, leucocitosi e PCR molto elevata in un diabetico dopo un'infiltrazione intrarticolare è un'artrite settica fino a prova contraria. La diagnosi si fa con l'artrocentesi: liquido torbido con più di 50.000 globuli bianchi, Gram positivo e coltura per Staphylococcus aureus. La gotta ha cristalli e febbre meno alta, l'artrite reattiva segue infezioni intestinali o uretrali e l'artrosi riacutizzata non ha febbre né un liquido infiammatorio. È un'urgenza: richiede drenaggio e antibiotici."
+},
+{
+  id: "case-079",
+  titolo: "Gambe, viso e pancia gonfi con urine schiumose",
+  descrizioneBreve: "Donna di 36 anni con edemi generalizzati e aumento di 8 kg in tre settimane, urine schiumose, proteinuria massiva, ipoalbuminemia e dislipidemia.",
+  difficolta: "Intermedio",
+  specialita: "Nefrologia",
+  schedaPaziente: { nome: "Sabrina Longo", eta: 36, sesso: "F", motivo: "Edemi e urine schiumose", parametriVitali: { PA: "125/80 mmHg", FC: "80 bpm", Temp: "36.6 °C", SpO2: "96% in aria ambiente", FR: "18 atti/min" } },
+  anamnesi: Q(
+    ["Cosa la porta oggi qui?", "Da tre settimane ho gonfiore a gambe, caviglie e viso, e la pancia più grossa; ho preso 8 chili."],
+    ["Come sono le urine?", "Molto schiumose."],
+    ["Quanto urina e di che colore?", "Il colore è normale, ma urino meno del solito."],
+    ["Ha malattie o prende farmaci?", "Nessuna malattia, e non prendo farmaci."],
+    ["Ha dolore, febbre o sangue nelle urine?", "No, niente del genere."],
+    ["Ha fiato corto?", "Un po' di fiato corto quando sono sdraiata."],
+    ["Ci sono malattie renali o diabete in famiglia?", "No, nessuna."]
+  ),
+  esameObiettivo: EO({
+    cute: [["Cute","Edema periorbitario e del dorso delle mani",0],["Mucose","Rosee"]],
+    torace: [["Percussione","Ipofonesi alle basi",0],["Auscultazione","Murmure ridotto alle basi bilateralmente (lievi versamenti pleurici)",0]],
+    addome: [["Palpazione","Trattabile; ascite lieve con onda liquida",0]],
+    arti: [["Edemi","Edema improntabile fino alle ginocchia bilaterale",0],["Polsi periferici","Presenti e simmetrici"]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Esame urine completo","Esame chimico-fisico e microscopico",2,"Proteine ++++ (Proteinuria 8.2 g/24 h); emazie assenti; cilindri ialini e corpi lipidici ovali","Assenza di proteine",1,1),
+      L("Proteine totali e albumina sierica","Funzionalità sintetica",2,"Proteine totali 4.4 g/dL; albumina 1.9 g/dL","Albumina 3.5-5.0 g/dL",1,1),
+      L("Profilo lipidico","Colesterolo",2,"Colesterolo totale 380 mg/dL; LDL 260 mg/dL; TG 310 mg/dL","Colesterolo totale < 200 mg/dL",1,0),
+      L("Creatinina sierica","Funzionalità renale",2,"0.8 mg/dL","0.5 - 1.0 mg/dL",0,0)
+    ],
+    strumentali: [
+      S("Ecografia reni e vie urinarie","Ecografia renale",5,0,"eco","Sindrome nefrosica","Reni di dimensioni normali con corticale lievemente iperecogena; non idronefrosi. Ascite lieve."),
+      S("Biopsia renale","Agobiopsia ecoguidata",10,1,"gen","Sindrome nefrosica dell'adulto","Glomerulopatia membranosa: ispessimento diffuso delle membrane basali, depositi granulari subepiteliali di IgG con «spikes» alla colorazione argentica; anticorpi anti-PLA2R positivi.",{ servizio:"Servizio di Anatomia Patologica" })
+    ]
+  },
+  diagnosiDifferenziale: DX("Sindrome nefrosica da glomerulopatia membranosa","Glomerulonefrite acuta post-streptococcica","Insufficienza cardiaca congestizia","Cirrosi epatica con ascite"),
+  spiegazioneClinica: "Edemi diffusi, proteinuria massiva (> 3.5 g/24 h), ipoalbuminemia e dislipidemia definiscono la sindrome nefrosica; nell'adulto la biopsia renale ne definisce la causa, qui una glomerulopatia membranosa (anti-PLA2R positivi). La sindrome nefritica post-streptococcica ha ematuria, ipertensione e C3 basso; lo scompenso cardiaco ha giugulari turgide e proteinuria assente; nella cirrosi mancano la proteinuria massiva e i segni epatici."
+},
+{
+  id: "case-080",
+  titolo: "Per dieci minuti non riuscivo a muovere il braccio",
+  descrizioneBreve: "Uomo di 68 anni iperteso e fumatore con episodio transitorio di debolezza al braccio destro e disturbo del linguaggio, già risolto, e un episodio di amaurosi.",
+  difficolta: "Intermedio",
+  specialita: "Neurologia",
+  schedaPaziente: { nome: "Ettore Bruni", eta: 68, sesso: "M", motivo: "Deficit neurologico transitorio", parametriVitali: { PA: "165/95 mmHg", FC: "78 bpm", Temp: "36.6 °C", SpO2: "98% in aria ambiente", FR: "16 atti/min" } },
+  anamnesi: Q(
+    ["Cosa la porta oggi qui?", "Un'ora fa per circa dieci minuti non riuscivo a muovere il braccio destro e parlavo in modo confuso; ora è tutto passato."],
+    ["Ha avuto disturbi alla vista?", "Nel pomeriggio un buio all'occhio destro per circa un minuto, come una tendina che scendeva."],
+    ["Ha avuto mal di testa, vomito o convulsioni?", "No, niente del genere."],
+    ["Quali fattori di rischio ha?", "Pressione alta, colesterolo alto e fumo 20 sigarette al giorno da 40 anni."],
+    ["Ha malattie del cuore o palpitazioni?", "Nessun problema al cuore."],
+    ["Quali farmaci prende?", "Un antipertensivo; niente anticoagulanti."],
+    ["Ha già avuto episodi simili?", "Una settimana fa un formicolio al braccio destro durato pochi minuti."]
+  ),
+  esameObiettivo: EO({
+    collo: [["Auscultazione","Soffio carotideo a destra",0],["Giugulari","Non turgide a 45°"]],
+    snc: [["Stato mentale","Vigile, orientato, linguaggio normale"],["Forza e sensibilità","Forza e sensibilità conservate ai quattro arti; nervi cranici nella norma al momento"]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Profilo lipidico","Colesterolo",2,"LDL 170 mg/dL; HDL 36 mg/dL; TG 200 mg/dL","LDL < 100 mg/dL",1,0),
+      L("Glicemia","Profilo glicemico",2,"Glicemia 98 mg/dL","70 - 100 mg/dL",0,0)
+    ],
+    strumentali: [
+      S("TC encefalo senza mezzo di contrasto","TC cerebrale",10,1,"tc","Deficit neurologico transitorio","Non emorragie né lesioni ischemiche acute. Lievi alterazioni croniche della sostanza bianca periventricolare."),
+      S("Eco-Doppler dei tronchi sovraortici","Ecocolor-Doppler carotideo",8,1,"eco","Soffio carotideo e TIA","Stenosi del 75% all'origine della carotide interna destra su placca ipoecogena ulcerata, con velocità di picco sistolico di 320 cm/s; carotide sinistra con stenosi del 30%."),
+      S("ECG a 12 derivazioni","Tracciato elettrocardiografico",5,0,"ecg","Ricerca di fibrillazione atriale","Ritmo sinusale a 78 bpm. Non fibrillazione atriale.",{ tipo:"ecg-normale" }),
+      S("RM encefalo con sequenze di diffusione","Risonanza magnetica",10,0,"rm","Deficit neurologico transitorio","Non lesioni con restrizione della diffusione: assenza di infarto acuto.")
+    ]
+  },
+  diagnosiDifferenziale: DX("Attacco ischemico transitorio da stenosi carotidea","Ictus ischemico","Emicrania con aura","Crisi epilettica focale"),
+  spiegazioneClinica: "Deficit focali (emiparesi destra e disturbo del linguaggio) con risoluzione completa in minuti, associati ad amaurosi fugax omolaterale e soffio carotideo in un iperteso fumatore, configurano un TIA da stenosi dell'arteria carotide interna destra. La TC esclude un'emorragia e l'eco-Doppler dimostra la stenosi serrata sintomatica, che richiede una endoarteriectomia precoce; la RM senza lesioni in diffusione distingue il TIA dall'ictus. Emicrania con aura e crisi focali hanno sintomi positivi e progressione."
+},
+{
+  id: "case-081",
+  titolo: "Pallida, lividi spontanei e sangue dal naso in una ragazza",
+  descrizioneBreve: "Ragazza di 22 anni con astenia, pallore, petecchie, epistassi e infezione persistente un mese dopo un'epatite di causa non nota, senza splenomegalia.",
+  difficolta: "Avanzato",
+  specialita: "Ematologia",
+  schedaPaziente: { nome: "Sofia Barone", eta: 22, sesso: "F", motivo: "Astenia, lividi ed epistassi", parametriVitali: { PA: "105/60 mmHg", FC: "112 bpm", Temp: "37.6 °C", SpO2: "98% in aria ambiente", FR: "18 atti/min" } },
+  anamnesi: Q(
+    ["Cosa la porta oggi qui?", "Da un mese sono sempre più stanca e pallida, mi vengono lividi senza motivo e le gengive sanguinano; ieri ho avuto un'epistassi che non si fermava."],
+    ["Ha avuto febbre o infezioni?", "Febbricola e un mal di gola che non passa da due settimane."],
+    ["Ha assunto farmaci o ha avuto malattie recenti?", "Nessun farmaco particolare; tre mesi fa un'epatite acuta, guarita, di cui non hanno trovato la causa."],
+    ["Ha dolori alle ossa, sudorazioni notturne o calo di peso?", "Niente dolori alle ossa; il peso è stabile."],
+    ["Ha fiato corto o palpitazioni?", "Fiato corto salendo le scale e il cuore va veloce."],
+    ["Ci sono malattie del sangue in famiglia?", "No, nessuna."],
+    ["È stata esposta a radiazioni, chemioterapia o solventi?", "No, mai."]
+  ),
+  esameObiettivo: EO({
+    cute: [["Cute","Pallore marcato; petecchie alle gambe ed ecchimosi spontanee agli arti",0],["Mucose","Pallide con sanguinamento gengivale",0]],
+    collo: [["Linfonodi","Non adenopatie laterocervicali"],["Orofaringe","Faringe iperemica con piccole ulcerazioni",0]],
+    cuore: [["Toni cardiaci","Tachicardia ritmica con soffio sistolico di flusso",0]],
+    addome: [["Palpazione","Trattabile; fegato e milza non palpabili"]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Emocromo con formula","Esame emocromocitometrico",2,"Hb 6.8 g/dL; WBC 1.600 /µL; piastrine 9.000 /µL","Hb 12-16 g/dL; WBC 4.000-10.000 /µL; piastrine 150.000-400.000 /µL",1,1),
+      L("Reticolociti","Valutazione della produzione midollare",2,"0.2% (conta assoluta 6.000/µL)","0.5 - 2.0%",1,1),
+      L("LDH","Indice di turnover cellulare",2,"190 U/L","< 250 U/L",0,0)
+    ],
+    strumentali: [
+      S("Biopsia osteomidollare con aspirato","Istologia midollare",8,1,"gen","Pancitopenia","Midollo marcatamente ipocellulare (cellularità 5%) con sostituzione adiposa, megacariociti assenti, assenza di fibrosi e di blasti, senza displasia.",{ servizio:"Servizio di Ematologia e Anatomia Patologica" }),
+      S("Cariotipo midollare","Citogenetica",8,0,"gen","Pancitopenia","46,XX, non anomalie clonali.",{ servizio:"Servizio di Citogenetica" }),
+      S("Ecografia addome","Ecografia addominale",5,0,"eco","Ricerca di splenomegalia e adenopatie","Milza di dimensioni normali (10 cm); non adenopatie addominali; fegato nei limiti.")
+    ]
+  },
+  diagnosiDifferenziale: DX("Anemia aplastica acquisita grave","Leucemia acuta","Sindrome mielodisplastica","Porpora trombocitopenica immune"),
+  spiegazioneClinica: "Pancitopenia (anemia, neutropenia, piastrinopenia) con reticolociti bassi, senza splenomegalia né adenopatie e con pregressa epatite sieronegativa, configura un'aplasia midollare. La biopsia osteomidollare mostra il midollo ipocellulare (5%) con sostituzione adiposa, senza blasti né displasia, e un cariotipo normale. La leucemia ha blasti, la mielodisplasia ha midollo ipercellulare con displasia, la porpora trombocitopenica è isolata alle piastrine con megacariociti aumentati."
+},
+{
+  id: "case-082",
+  titolo: "Pressione altissima nonostante tre farmaci e crampi alle gambe",
+  descrizioneBreve: "Uomo di 45 anni con ipertensione resistente da sei anni, ipokaliemia, debolezza muscolare e nicturia, con familiarità per ictus precoce.",
+  difficolta: "Avanzato",
+  specialita: "Endocrinologia",
+  schedaPaziente: { nome: "Raffaele Amato", eta: 45, sesso: "M", motivo: "Ipertensione resistente e debolezza", parametriVitali: { PA: "178/108 mmHg", FC: "70 bpm", Temp: "36.6 °C", SpO2: "99% in aria ambiente", FR: "15 atti/min" } },
+  anamnesi: Q(
+    ["Cosa la porta oggi qui?", "Ho la pressione altissima nonostante tre farmaci, e da mesi debolezza muscolare, crampi e formicolii; urino molto di notte."],
+    ["Da quanto ha la pressione alta?", "Da sei anni, e diventa sempre più difficile da controllare."],
+    ["Che farmaci prende?", "Un ACE-inibitore, un calcio-antagonista e un diuretico tiazidico."],
+    ["Ha crampi, debolezza o palpitazioni?", "Crampi alle gambe, debolezza ai muscoli e a volte palpitazioni."],
+    ["Ha mal di testa, sudorazioni o attacchi con pallore?", "Mal di testa ogni tanto; nessun attacco con sudore o pallore."],
+    ["Ci sono familiari ipertesi o con ictus?", "Mio padre era iperteso ed è morto d'ictus a 52 anni."],
+    ["Assume liquirizia o antinfiammatori?", "No, niente."]
+  ),
+  esameObiettivo: EO({
+    cuore: [["Toni cardiaci","Toni validi e ritmici, non soffi; pressione 178/108 mmHg",0]],
+    arti: [["Forza","Lieve ipostenia dei muscoli prossimali",0],["Edemi","Assenti"]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Potassio sierico","Elettroliti",2,"2.9 mmol/L","3.5 - 5.0 mmol/L",1,1),
+      L("Aldosterone e attività reninica plasmatica","Screening per iperaldosteronismo primitivo",3,"Aldosterone 38 ng/dL; renina 0.2 ng/mL/h (rapporto aldosterone/renina 190)","Rapporto aldosterone/renina < 30",1,1),
+      L("Creatinina sierica","Funzionalità renale",2,"0.9 mg/dL","0.7 - 1.2 mg/dL",0,0)
+    ],
+    strumentali: [
+      S("TC surreni con mezzo di contrasto","TC dell'addome superiore",10,1,"tc","Aldosterone elevato con renina soppressa","Nodulo surrenalico sinistro di 16 mm, ipodenso (8 UH nella fase senza contrasto) con rapido wash-out; surrene destro nella norma."),
+      S("ECG a 12 derivazioni","Tracciato elettrocardiografico",5,0,"gen","Ipokaliemia","Ritmo sinusale a 70 bpm; onde T appiattite con onde U evidenti in V2-V4; segni di ipertrofia ventricolare sinistra.",{ servizio:"Servizio di Cardiologia – Elettrocardiografia" }),
+      S("Cateterismo selettivo delle vene surrenaliche","Radiologia interventistica",10,0,"gen","Lateralizzazione dell'ipersecrezione","Indice di lateralizzazione 7.5 a sinistra: secrezione di aldosterone lateralizzata al surrene sinistro.",{ servizio:"Servizio di Radiologia Interventistica" })
+    ]
+  },
+  diagnosiDifferenziale: DX("Iperaldosteronismo primitivo da adenoma di Conn","Ipertensione essenziale resistente","Feocromocitoma","Stenosi dell'arteria renale"),
+  spiegazioneClinica: "Ipertensione resistente (tre farmaci incluso un diuretico), ipokaliemia con crampi, debolezza e nicturia, in un uomo con familiarità per ictus precoce, impone di cercare un iperaldosteronismo primitivo: aldosterone elevato con renina soppressa (rapporto > 30). La TC mostra l'adenoma surrenalico e il cateterismo venoso conferma la lateralizzazione, candidando il paziente alla surrenectomia. Nell'ipertensione essenziale la kaliemia è normale, il feocromocitoma dà crisi con sudore e pallore, e la stenosi renale ha renina elevata."
+},
+{
+  id: "case-083",
+  titolo: "Nausea, dolore in alto a destra e occhi gialli dopo troppo paracetamolo",
+  descrizioneBreve: "Donna di 27 anni con influenza e mal di denti che ha assunto 8-9 g/die di paracetamolo per tre giorni, con nausea, ittero, confusione e transaminasi altissime.",
+  difficolta: "Avanzato",
+  specialita: "Tossicologia / Medicina d'Urgenza",
+  schedaPaziente: { nome: "Federica Greco", eta: 27, sesso: "F", motivo: "Nausea, dolore epatico e ittero", parametriVitali: { PA: "110/70 mmHg", FC: "100 bpm", Temp: "37.5 °C", SpO2: "98% in aria ambiente", FR: "18 atti/min" } },
+  anamnesi: Q(
+    ["Cosa la porta oggi qui?", "Da ieri nausea, vomito e dolore in alto a destra; mi sento molto stanca."],
+    ["Ha preso farmaci?", "Per un mal di denti e l'influenza ho preso paracetamolo da 1000 mg ogni 3-4 ore per tre giorni, e in più delle bustine per l'influenza."],
+    ["Quanto paracetamolo in totale?", "Non ho contato: forse 8-9 grammi al giorno."],
+    ["Beve alcolici?", "Sì, nel weekend bevo spesso, e anche mercoledì sera."],
+    ["Ha ittero o urine scure?", "Un po' di giallo negli occhi da stamattina e urine scure."],
+    ["Ha confusione o sanguinamenti?", "Un po' di confusione e qualche livido."],
+    ["Ha altre malattie?", "No, nessuna."]
+  ),
+  esameObiettivo: EO({
+    snc: [["Stato mentale","Lievemente rallentata, orientata solo in parte",0],["Pupille","Isocoriche, isocicliche, normoreagenti alla luce"]],
+    occhi: [["Sclere","Subitteriche",0],["Congiuntive","Normocromiche"]],
+    addome: [["Palpazione","Dolorabilità in ipocondrio destro con fegato aumentato di volume e dolente",0],["Peristalsi","Presente e normale"]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Transaminasi (AST, ALT)","Funzionalità epatica",2,"AST 4.200 U/L; ALT 3.800 U/L","AST < 40 U/L; ALT < 40 U/L",1,1),
+      L("PT / INR","Funzione di sintesi epatica",2,"INR 2.4; PT 28 s","INR 0.8-1.2",1,1),
+      L("Paracetamolemia","Dosaggio del paracetamolo",3,"85 µg/mL a 14 ore dall'ultima assunzione (livello epatotossico)","< 20 µg/mL",1,1),
+      L("Bilirubina totale","Funzionalità epatobiliare",2,"Bilirubina 3.4 mg/dL","Bilirubina < 1.2 mg/dL",1,0),
+      L("Glicemia","Profilo glicemico",2,"Glicemia 62 mg/dL","70 - 100 mg/dL",1,0),
+      L("Lattati","Indice di ipoperfusione",2,"3.5 mmol/L","< 2.0 mmol/L",1,0)
+    ],
+    strumentali: [
+      S("Ecografia epatica","Ecografia addominale",5,0,"eco","Ipertransaminasemia","Fegato lievemente aumentato di volume con ecostruttura ipoecogena e flussi portali conservati; non ascite né lesioni focali.")
+    ]
+  },
+  diagnosiDifferenziale: DX("Epatotossicità acuta da paracetamolo","Epatite virale acuta","Epatite alcolica acuta","Colecistite acuta"),
+  spiegazioneClinica: "L'assunzione di 8-9 g/die di paracetamolo per tre giorni, con alcol, determina un'intossicazione con necrosi epatica centrolobulare: nausea e vomito iniziali, poi ittero, transaminasi di migliaia, INR elevato, ipoglicemia ed encefalopatia. La paracetamolemia a 14 ore supera la linea di trattamento del nomogramma: va iniziata la N-acetilcisteina. Nell'epatite virale manca l'esposizione, nell'epatite alcolica le AST sono < 300-500 U/L, nella colecistite c'è colestasi e febbre."
+},
+{
+  id: "case-084",
+  titolo: "Sangue con la tosse e urine rosse in un ragazzo fumatore",
+  descrizioneBreve: "Uomo di 23 anni con emottisi, dispnea, ematuria e insufficienza renale rapidamente progressiva, esposto a solventi e fumatore.",
+  difficolta: "Avanzato",
+  specialita: "Pneumologia / Nefrologia",
+  schedaPaziente: { nome: "Leonardo Serra", eta: 23, sesso: "M", motivo: "Emottisi e urine scure", parametriVitali: { PA: "150/95 mmHg", FC: "104 bpm", Temp: "37.2 °C", SpO2: "91% in aria ambiente", FR: "24 atti/min" } },
+  anamnesi: Q(
+    ["Cosa la porta oggi qui?", "Da una settimana tosse con sangue, fiato corto e stanchezza; le urine sono rosse come coca-cola."],
+    ["Quanto sangue c'è nella tosse?", "Cucchiaini di sangue rosso da cinque giorni."],
+    ["Ha avuto febbre, dolori articolari o eruzioni?", "Un po' di febbricola; niente dolori articolari né eruzioni."],
+    ["Fuma o è esposto a solventi?", "Fumo 15 sigarette al giorno e lavoro in officina con solventi e idrocarburi."],
+    ["Ha avuto infezioni respiratorie di recente?", "Un'influenza due settimane fa."],
+    ["Come urina?", "Meno del solito e scuro."],
+    ["Ci sono malattie renali in famiglia?", "No, nessuna."]
+  ),
+  esameObiettivo: EO({
+    torace: [["Auscultazione","Crepitii diffusi bilaterali",0],["Respiro","Tachipnea a riposo",0]],
+    cuore: [["Toni cardiaci","Tachicardia ritmica; pressione 150/95 mmHg",0]],
+    cute: [["Cute","Pallore; lieve edema palpebrale e malleolare",0],["Mucose","Pallide"]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Creatinina sierica","Funzionalità renale",2,"4.2 mg/dL","0.7 - 1.2 mg/dL",1,1),
+      L("Esame urine completo","Esame chimico-fisico e microscopico",2,"Emazie ++++ con emazie dismorfiche e cilindri eritrocitari; Proteinuria 1.8 g/24 h","Assenza di emazie, proteine e cilindri",1,1),
+      L("Anticorpi anti-membrana basale glomerulare (anti-GBM)","Malattia da anticorpi anti-GBM",3,"Positivi (anti-GBM IgG 148 U/mL)","Negativi (< 20 U/mL)",1,1),
+      L("ANCA (anti-MPO e anti-PR3)","Vasculiti ANCA-associate",3,"Negativi","Negativi",0,0),
+      L("Emocromo (emoglobina)","Esame emocromocitometrico",2,"Hb 8.1 g/dL; MCV 72 fL","Hb 13.5-17.5 g/dL",1,0)
+    ],
+    strumentali: [
+      S("RX Torace in 2 proiezioni","Radiografia del torace",5,0,"rx","Emottisi e dispnea","Infiltrati alveolari bilaterali simmetrici perilari con risparmio degli apici e dei seni costofrenici."),
+      S("TC torace ad alta risoluzione","TC ad alta risoluzione",10,0,"tc","Emottisi e infiltrati","Opacità a vetro smerigliato bilaterali diffuse con ispessimento dei setti interlobulari, compatibili con emorragia alveolare diffusa."),
+      S("Biopsia renale","Agobiopsia con immunofluorescenza",10,1,"gen","Glomerulonefrite rapidamente progressiva","Glomerulonefrite a semilune diffusa con deposizione lineare di IgG lungo le membrane basali glomerulari all'immunofluorescenza.",{ servizio:"Servizio di Anatomia Patologica" })
+    ]
+  },
+  diagnosiDifferenziale: DX("Sindrome di Goodpasture (malattia da anticorpi anti-GBM)","Granulomatosi con poliangioite (Wegener)","Lupus eritematoso sistemico con nefrite","Polmonite da Legionella con insufficienza renale"),
+  spiegazioneClinica: "Emorragia alveolare (emottisi, infiltrati bilaterali perilari, dispnea) e glomerulonefrite rapidamente progressiva (ematuria dismorfica, cilindri eritrocitari, creatinina 4.2) in un giovane fumatore esposto a idrocarburi indicano la sindrome polmone-rene da anticorpi anti-GBM, cioè Goodpasture. La biopsia mostra le semilune e il deposito lineare di IgG. La granulomatosi con poliangioite ha ANCA positivi, il lupus ha ANA e C3 bassi con altre manifestazioni, la legionella ha febbre alta e polmonite lobare."
+},
+{
+  id: "case-085",
+  titolo: "Fiato corto che peggiora da un anno e tosse secca",
+  descrizioneBreve: "Uomo di 68 anni ex fumatore con dispnea da sforzo ingravescente, tosse secca, crepitii a velcro alle basi, ippocratismo digitale e restrizione con DLCO ridotta.",
+  difficolta: "Avanzato",
+  specialita: "Pneumologia",
+  schedaPaziente: { nome: "Domenico Vella", eta: 68, sesso: "M", motivo: "Dispnea da sforzo e tosse secca", parametriVitali: { PA: "135/80 mmHg", FC: "88 bpm", Temp: "36.6 °C", SpO2: "91% in aria ambiente", FR: "22 atti/min" } },
+  anamnesi: Q(
+    ["Cosa la porta oggi qui?", "Da un anno ho il fiato sempre più corto camminando e una tosse secca che non passa."],
+    ["Come è la tosse?", "Secca, stizzosa, senza catarro; peggiora con lo sforzo."],
+    ["Ha febbre o dolore al petto?", "No, niente del genere."],
+    ["Fuma o ha esposizioni, o usa certi farmaci?", "Sono ex fumatore (30 pacchetti/anno); lavoro in ufficio; non prendo amiodarone né nitrofurantoina."],
+    ["Ha animali, come uccelli, o muffe in casa?", "No, nessun animale."],
+    ["Ha dolori articolari, secchezza di occhi e bocca o fenomeno di Raynaud?", "No, niente di tutto questo."],
+    ["Ha perso peso?", "Ho perso 4 chili in un anno."]
+  ),
+  esameObiettivo: EO({
+    torace: [["Auscultazione","Crepitii teleinspiratori «a velcro» bilaterali alle basi",0],["Respiro","Tachipnea lieve a riposo",0]],
+    arti: [["Mani","Ippocratismo digitale (dita a bacchetta di tamburo)",0],["Edemi","Assenti"]],
+    cuore: [["Toni cardiaci","Toni validi e ritmici; rinforzo del secondo tono sul focolaio polmonare",0]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Emogasanalisi arteriosa","Scambi gassosi",3,"pH 7.43; pO2 62 mmHg; pCO2 36 mmHg","pO2 80-100 mmHg",1,0),
+      L("LDH","Indice di turnover cellulare",2,"310 U/L","< 250 U/L",1,0),
+      L("Fattore reumatoide","Autoanticorpi",2,"6 UI/mL (negativo)","< 14 UI/mL",0,0)
+    ],
+    strumentali: [
+      S("TC torace ad alta risoluzione","TC ad alta risoluzione",10,1,"tc","Dispnea progressiva con crepitii a velcro","Pattern di polmonite interstiziale usuale (UIP): reticolazioni subpleuriche basali con bronchiectasie da trazione e «favo d'api», distribuzione subpleurica e basale, scarso vetro smerigliato."),
+      S("Spirometria con DLCO","Prove di funzionalità respiratoria",8,1,"gen","Restrizione polmonare","FVC 62% del predetto, FEV1/FVC 0.84 (quadro restrittivo), DLCO 41% del predetto.",{ servizio:"Servizio di Fisiopatologia Respiratoria" }),
+      S("Test del cammino dei 6 minuti","Test funzionale",5,0,"gen","Valutazione della desaturazione da sforzo","Percorsi 320 m con desaturazione fino all'84% e dispnea severa.",{ servizio:"Servizio di Fisiopatologia Respiratoria" }),
+      S("Biopsia polmonare chirurgica","Videotoracoscopia",10,0,"gen","Conferma istologica nei casi dubbi","Polmonite interstiziale usuale con eterogeneità temporale, focolai fibroblastici e aree di favo d'api.",{ servizio:"Servizio di Anatomia Patologica" })
+    ]
+  },
+  diagnosiDifferenziale: DX("Fibrosi polmonare idiopatica","Polmonite da ipersensibilità cronica","Scompenso cardiaco cronico","BPCO enfisematosa"),
+  spiegazioneClinica: "Dispnea progressiva con tosse secca in un over-60 ex fumatore, crepitii teleinspiratori a velcro, ippocratismo digitale, restrizione con DLCO ridotta e pattern UIP alla TC ad alta risoluzione, in assenza di cause note (farmaci, esposizioni, connettiviti), configurano una fibrosi polmonare idiopatica; con questo pattern la biopsia non serve. La polmonite da ipersensibilità ha esposizioni e vetro smerigliato, lo scompenso ha edemi e BNP, la BPCO è ostruttiva (FEV1/FVC ridotto)."
 }
 ];
 </script>
@@ -2813,10 +3330,10 @@ const CASI = validaCasi(typeof CASI_CLINICI !== 'undefined' ? CASI_CLINICI : [])
 const LS_KEY = 'detecto_user_progress';
 const LIVELLI = [
   { nome:'Studente', min:0, ic:'graduation-cap' },
-  { nome:'Tirocinante', min:600, ic:'clipboard-list' },
-  { nome:'Specializzando', min:1800, ic:'microscope' },
-  { nome:'Strutturato', min:3400, ic:'award' },
-  { nome:'Primario', min:5200, ic:'crown' }
+  { nome:'Tirocinante', min:1000, ic:'clipboard-list' },
+  { nome:'Specializzando', min:3000, ic:'microscope' },
+  { nome:'Strutturato', min:5800, ic:'award' },
+  { nome:'Primario', min:8800, ic:'crown' }
 ];
 const livelloDi = pt => [...LIVELLI].reverse().find(l => pt >= l.min) || LIVELLI[0];
 function caricaProgresso() {
@@ -3005,7 +3522,22 @@ const MOTIVI_DIFF = {
 'case-067': { d2:"Ha flapping tremor e segni di epatopatia senza oftalmoplegia; qui oftalmoplegia, nistagmo e atassia con lesioni talamiche e dei corpi mammillari.", d3:"Compare con agitazione e iperattività autonomica 48-96 ore dopo l'ultimo bicchiere; qui oftalmoplegia, atassia e malnutrizione con tiamina bassa.", d4:"Dà deficit asimmetrici ad esordio improvviso; qui sintomi simmetrici con lesioni simmetriche di talami e corpi mammillari." },
 'case-068': { d2:"Ha lesioni midollari longitudinali estese e anticorpi anti-AQP4; qui lesioni cerebrali tipiche della SM e bande oligoclonali.", d3:"Colpisce dopo i 50 anni con cefalea temporale e VES molto elevata; qui giovane con RM e bande oligoclonali.", d4:"Ha occhio rosso con dolore intenso, cornea edematosa e midriasi; qui occhio bianco con difetto pupillare afferente e papilla normale." },
 'case-069': { d2:"Il dolore è sproporzionato con compartimenti tesi non compressibili e deficit neurovascolare; qui compartimenti compressibili senza deficit, con mioglobinuria e CK altissima.", d3:"Ha febbre e infezione prodromica con CK meno elevata; qui sforzo estremo con CK 48.500, mioglobinuria e insufficienza renale.", d4:"Ha ematuria glomerulare con emazie dismorfiche, ipertensione e proteinuria; qui emoglobina senza emazie (mioglobinuria) e CK altissima." },
-'case-070': { d2:"Non causa shock con lattati elevati e piastrinopenia; qui idronefrosi con calcolo ostruente e sepsi da E. coli ESBL con catetere.", d3:"Ha giugulari turgide, edemi e polmoni congesti; qui cute fredda, febbre alta, leucocitosi, piastrinopenia e fonte urinaria.", d4:"Non spiega piuria, nitriti positivi, dolore al fianco e febbre alta con batteriemia." }
+'case-070': { d2:"Non causa shock con lattati elevati e piastrinopenia; qui idronefrosi con calcolo ostruente e sepsi da E. coli ESBL con catetere.", d3:"Ha giugulari turgide, edemi e polmoni congesti; qui cute fredda, febbre alta, leucocitosi, piastrinopenia e fonte urinaria.", d4:"Non spiega piuria, nitriti positivi, dolore al fianco e febbre alta con batteriemia." },
+'case-071': { d2:"Nella stenosi lombare il dolore compare camminando (claudicazione neurogena) e migliora piegandosi in avanti; qui peggiora da seduto e piegato, con Lasègue positivo.", d3:"Mancano ritenzione urinaria, anestesia a sella e deficit motorio bilaterale progressivo; sfinteri normali e forza conservata.", d4:"Nel piriforme il dolore è glutaeo con Lasègue negativo e senza deficit radicolari; qui riflesso achilleo ridotto e ipoestesia S1 con ernia alla RM." },
+'case-072': { d2:"Nella rinite allergica la secrezione è chiara, con prurito e starnuti, senza febbre né dolore facciale monolaterale.", d3:"Nel raffreddore i sintomi regrediscono entro 7-10 giorni; qui persistono con peggioramento, secrezione purulenta, dolore facciale e febbre.", d4:"La cefalea a grappolo è periorbitaria, di breve durata, con lacrimazione e agitazione, senza rinorrea purulenta né febbre." },
+'case-073': { d2:"Nel reflusso il bruciore è retrosternale e post-prandiale, peggiora da sdraiati; qui epigastrico, a digiuno e notturno, migliorato dal cibo.", d3:"Mancano dolore a barra verso la schiena, steatorrea e abuso di alcol importante; l'endoscopia mostra un'ulcera.", d4:"Nella dispepsia funzionale l'endoscopia è normale; qui ulcera duodenale con H. pylori alle biopsie." },
+'case-074': { d2:"Nella distorsione di grado II non c'è dolorabilità ossea sui malleoli e il paziente riesce a caricare; qui l'RX mostra la frattura.", d3:"Nella rottura dell'Achille il dolore è posteriore, con segno di Thompson positivo e impossibilità a flettere il piede; qui dolore malleolare.", d4:"Nella frattura del V metatarso il dolore è sul bordo laterale del piede, non sui malleoli, e l'RX mostra la frattura del perone." },
+'case-075': { d2:"La chetoacidosi ha iperglicemia, poliuria e respiro di Kussmaul; qui glicemia 38 mg/dL dopo insulina, digiuno e sforzo.", d3:"L'attacco di panico ha glicemia normale e non migliora col glucosio; qui sintomi con triade di Whipple.", d4:"La crisi epilettica non spiega sudore freddo e fame con glicemia 38 mg/dL; qui sintomi adrenergici e neuroglicopenici reversibili con glucosio." },
+'case-076': { d2:"L'epatite B ha sierologia positiva per HBsAg e IgM anti-HBc; qui HBsAg negativo e IgM anti-HAV positive con ingestione di molluschi crudi.", d3:"Nella colecistite c'è dolore in ipocondrio destro con colestasi e Murphy positivo, non transaminasi di migliaia; qui vie biliari non dilatate.", d4:"La mononucleosi ha tonsillite, adenopatie e linfocitosi atipica con transaminasi più modeste; qui ittero con transaminasi > 1.800 e IgM anti-HAV positive." },
+'case-077': { d2:"Nella necrosi tubulare il FeNa è > 2% con cilindri granulari; qui FeNa 0.4%, urine concentrate e sedimento privo di cilindri.", d3:"Nell'ostruzione ci sono idronefrosi o globo vescicale all'ecografia; qui reni normali e vescica vuota.", d4:"Nella glomerulonefrite c'è ematuria glomerulare con cilindri eritrocitari e proteinuria; qui sedimento bland e causa prerenale evidente." },
+'case-078': { d2:"Nella gotta la febbre è meno alta, il liquido è giallo-torbido con cristalli di urato; qui pus con cocchi Gram-positivi e coltura per S. aureus.", d3:"L'artrite reattiva segue un'infezione intestinale o uretrale con altre manifestazioni; qui liquido purulento con germi.", d4:"L'artrosi riacutizzata non ha febbre alta, leucocitosi né liquido con 85.000 globuli bianchi." },
+'case-079': { d2:"La post-streptococcica è una sindrome nefritica con ematuria, ipertensione e C3 basso; qui proteinuria massiva senza emazie e normotensione.", d3:"Nello scompenso cardiaco i giugulari sono turgide e la proteinuria assente; qui proteinuria di 8.2 g/24 h con ipoalbuminemia.", d4:"Nella cirrosi mancano proteinuria massiva e dislipidemia, e ci sono segni epatici (ragnetti, splenomegalia, ipertensione portale)." },
+'case-080': { d2:"Nell'ictus il deficit persiste; qui sintomi risolti in dieci minuti e RM senza restrizione della diffusione.", d3:"L'emicrania con aura ha sintomi positivi che si propagano e cefalea; qui deficit negativi (debolezza, afasia) e soffio carotideo.", d4:"Le crisi focali hanno sintomi positivi (scosse, clonie) e spesso un periodo post-critico; qui deficit di forza con stenosi carotidea del 75%." },
+'case-081': { d2:"Nella leucemia ci sono blasti circolanti o midollari e spesso splenomegalia; qui midollo ipocellulare senza blasti né fibrosi.", d3:"Nella mielodisplasia il midollo è ipercellulare con displasia e cariotipo spesso alterato; qui cellularità 5% e cariotipo normale.", d4:"La porpora trombocitopenica immune è limitata alle piastrine, con megacariociti aumentati; qui pancitopenia con reticolociti bassi." },
+'case-082': { d2:"Nell'ipertensione essenziale la kaliemia è normale e la renina non è soppressa; qui ipokaliemia e rapporto aldosterone/renina 190.", d3:"Il feocromocitoma dà crisi con sudore, cefalea e pallore e catecolamine elevate; qui ipertensione stabile con ipokaliemia e renina soppressa.", d4:"Nella stenosi dell'arteria renale la renina è elevata (iperaldosteronismo secondario); qui renina soppressa e adenoma surrenalico." },
+'case-083': { d2:"Nell'epatite virale manca l'esposizione a una dose epatotossica; qui paracetamolemia 85 µg/mL a 14 ore e AST/ALT di migliaia con andamento tipico.", d3:"Nell'epatite alcolica le AST superano le ALT ma restano < 300-500 U/L, con GGT molto elevata; qui transaminasi di migliaia e paracetamolo alto.", d4:"Nella colecistite c'è colestasi e febbre alta con Murphy positivo; qui necrosi epatocellulare con INR 2.4 e ipoglicemia." },
+'case-084': { d2:"La granulomatosi con poliangioite ha ANCA positivi (PR3), sintomi delle vie aeree superiori e granulomi; qui anti-GBM positivi e ANCA negativi.", d3:"Il lupus ha ANA/anti-dsDNA e C3 bassi con altre manifestazioni (rash, artrite); qui nessun segno sistemico e depositi lineari di IgG.", d4:"La legionella dà polmonite lobare con febbre alta, iponatriemia e sintomi gastrointestinali; qui infiltrati alveolari simmetrici, ematuria dismorfica e anti-GBM." },
+'case-085': { d2:"La polmonite da ipersensibilità cronica ha esposizione ad antigeni, vetro smerigliato e perfusione a mosaico; qui nessuna esposizione e pattern UIP tipico.", d3:"Lo scompenso ha edemi, giugulari turgide e BNP elevato; qui crepitii a velcro, ippocratismo e restrizione con DLCO ridotta.", d4:"Nella BPCO enfisematosa il quadro è ostruttivo (FEV1/FVC ridotto) con iperinflazione; qui FEV1/FVC 0.84 e fibrosi basale subpleurica." }
 };
 
 /* ---------- ANAMNESI COERENTE PER CASO ----------
@@ -3965,6 +4497,206 @@ const ANAM_CASO = {
   rem_interventi:"Sì, l'intervento per la frattura di femore un mese fa.",
   rem_ricoveri:"Sì, un mese fa per la frattura di femore.",
   sis_ginec:"È in menopausa da molti anni.", sis_gravid:"No, è in menopausa."
+}, app:[] },
+'case-071': { ids: {
+  apr_motivo:1, apr_carattere:2, apr_modulazione:3, sis_neuro:4, sis_gen:6, sti_lavoro:7,
+  apr_esordio:"Quattro giorni fa, subito dopo aver sollevato uno scatolone pesante.",
+  apr_evoluzione:"È peggiorato nei giorni: ora il dolore arriva fino al piede e la tosse lo scatena.",
+  apr_sede:"Zona lombare bassa, con irradiazione al gluteo, alla coscia e al polpaccio destri fino al piede.",
+  apr_precedenti:"Qualche lombalgia lieve ogni tanto, ma mai così con il dolore alla gamba.",
+  apr_scatenante:"Sì: ho sollevato uno scatolone pesante piegato in avanti.",
+  sis_muscolo:"Mal di schiena e dolore lungo la gamba destra; altre articolazioni no."
+}, app:[] },
+'case-072': { ids: {
+  apr_motivo:1, apr_sede:2, apr_precedenti:5, apr_trattamenti:7, apr_altri:4,
+  apr_esordio:"Dieci giorni fa con un raffreddore; da tre giorni il dolore al viso e il muco giallo-verde.",
+  apr_evoluzione:"Il raffreddore non è passato e da qualche giorno è peggiorato con dolore al viso e un po' di febbre.",
+  apr_carattere:"Dolore e senso di peso al viso, 5 su 10, con naso chiuso.",
+  apr_modulazione:"Peggiora piegandomi in avanti; lo spray decongestionante dà solo un sollievo breve.",
+  apr_scatenante:"Un raffreddore dieci giorni fa che non è guarito.",
+  sis_febbre:"Sì, febbre intorno ai 38.",
+  sis_resp:"Naso chiuso con muco giallo-verdastro e denso; non sento quasi più gli odori; tosse no.",
+  sis_neuro:"Un mal di testa sordo sulla fronte; vista normale.",
+  rem_croniche:"Ho una rinite allergica e due sinusiti negli ultimi anni.",
+  farm_abit:"Nessuno regolare; da una settimana uno spray nasale decongestionante e paracetamolo.",
+  farm_allergie:"Rinite allergica in primavera; allergie ai farmaci no."
+}, app:[] },
+'case-073': { ids: {
+  sis_psico:"Mi sveglio di notte per il bruciore; l'umore è nella norma.",
+  apr_motivo:1, apr_modulazione:2, sis_nv:3, sis_gen:6, farm_automed:4, fam_gen:7,
+  apr_esordio:"Circa tre settimane fa, in modo graduale.",
+  apr_evoluzione:"Il bruciore è diventato più frequente e ora mi sveglia di notte.",
+  apr_sede:"Alla bocca dello stomaco, un po' a destra; non si irradia.",
+  apr_carattere:"Un bruciore sordo, intensità 5 su 10.",
+  apr_scatenante:"Forse gli antinfiammatori che prendo ogni tanto per la schiena, e il fumo.",
+  sis_alvo:"Le feci sono normali, mai nere.",
+  sti_fumo:"Fumo 10 sigarette al giorno.", sti_alcol:"Qualche birra durante la settimana.",
+  sis_muscolo:"Ogni tanto mal di schiena, per cui prendo l'antinfiammatorio."
+}, app:[] },
+'case-074': { ids: {
+  apr_motivo:1, apr_sede:2, apr_scatenante:3, sis_neuro:4, rem_traumi:5,
+  apr_esordio:"Poco fa, durante la partita, con un crac alla caviglia.",
+  apr_evoluzione:"La caviglia si è gonfiata sempre di più nelle ore successive.",
+  apr_carattere:"Dolore forte e pulsante, 8 su 10, con la caviglia gonfia e viola.",
+  apr_modulazione:"Peggiora se provo ad appoggiare o muovere il piede; fermo, con ghiaccio e rialzato, va un po' meglio.",
+  apr_precedenti:"Una distorsione alla stessa caviglia due anni fa, ma senza un dolore così.",
+  apr_trattamenti:"No, ho solo messo del ghiaccio.",
+  sis_muscolo:"Il dolore è alla caviglia destra; altre articolazioni no.",
+  sis_cute:"La caviglia è gonfia e con un livido sul lato esterno.",
+  rem_croniche:"No, nessuna malattia.", farm_abit:"No, nessun farmaco."
+}, app:[] },
+'case-075': { ids: {
+  apr_motivo:1, apr_precedenti:4, apr_scatenante:3, rem_croniche:2, sis_febbre:5,
+  apr_esordio:"Da circa mezz'ora, in modo improvviso, dopo la corsa.",
+  apr_evoluzione:"È peggiorato in pochi minuti: tremori, sudore freddo e confusione.",
+  apr_sede:"Non ho un dolore: tremano le mani e mi sento confuso.",
+  apr_carattere:"Tremori, sudore freddo, fame, cuore veloce e confusione.",
+  apr_modulazione:"Non cambia con niente; sto peggio se resto senza mangiare.",
+  apr_trattamenti:"Non ho ancora mangiato né preso zuccheri.",
+  sis_gen:"Ho molta fame e mi sento debole.",
+  sis_cardio:"Il cuore batte veloce; dolore al petto no.",
+  sis_neuro:"Sono confuso e tremo; la vista è un po' offuscata.",
+  sis_cute:"Sudo freddo e sono pallido.",
+  farm_abit:"Insulina quattro volte al giorno.", farm_automed:"No, nessun altro farmaco.", sti_alcol:"No, oggi niente alcol.",
+  fis_attivita:"Corro regolarmente; oggi una lunga corsa."
+}, app:[] },
+'case-076': { ids: {
+  apr_motivo:1, apr_sede:5, apr_scatenante:3, sis_febbre:2, sis_alvo:4, farm_abit:"Solo la pillola anticoncezionale.",
+  apr_esordio:"Quattro giorni fa, con nausea e stanchezza; l'ittero da ieri.",
+  apr_evoluzione:"Sono sempre più stanca e da ieri sono ingiallita.",
+  apr_carattere:"Nausea continua, stanchezza enorme e un fastidio sordo in alto a destra; 3 su 10.",
+  apr_modulazione:"Non cambia con niente; il cibo grasso mi dà più nausea.",
+  sis_gen:"Sono stanchissima e ho poco appetito; il peso è stabile.",
+  sis_nv:"Nausea sì, vomito no; deglutisco bene.",
+  sis_uro:"Le urine sono scure come il tè.",
+  sis_cute:"Sì, sono ingiallita e ho un po' di prurito, soprattutto la sera.",
+  sti_alcol:"Pochissimo.", epi_viaggi:"No, nessun viaggio.", rem_infezioni:"Non sono vaccinata contro l'epatite.",
+  sis_gravid:"Non credo; prendo la pillola."
+}, app:[] },
+'case-077': { ids: {
+  apr_motivo:1, sis_febbre:7, rem_croniche:5,
+  apr_esordio:"Tre giorni fa con vomito e diarrea; da ieri urino pochissimo.",
+  apr_evoluzione:"Vomito e diarrea sono migliorati, ma l'urina è quasi sparita e sono sempre più debole.",
+  apr_sede:"Non ho un dolore preciso: è una debolezza generale; niente dolore al fianco.",
+  apr_carattere:"Debolezza, stordimento e pochissima urina scura.",
+  apr_modulazione:"Alzarmi in piedi mi fa girare la testa; da sdraiato sto meglio.",
+  apr_scatenante:"Vomito e diarrea di tre giorni con poco bere; in più ACE-inibitore, diuretico e un antinfiammatorio.",
+  apr_trattamenti:"Ho continuato i farmaci per la pressione e ho preso un antinfiammatorio per la schiena.",
+  sis_nv:"Nausea e vomito da tre giorni.", sis_alvo:"Diarrea da tre giorni, senza sangue.",
+  sis_uro:"Urino pochissimo e scuro da ieri; nessun sangue né dolore.",
+  sis_neuro:"Mi sento stordito e debole; mal di testa no.",
+  sis_gen:"Sono debolissimo e non mangio quasi da tre giorni.",
+  sis_cardio:"Il cuore batte un po' veloce; dolore al petto no; mi gira la testa quando mi alzo.",
+  farm_abit:"Un ACE-inibitore e un diuretico per la pressione, e i farmaci per il diabete.",
+  farm_automed:"Un antinfiammatorio per la schiena da qualche giorno."
+}, app:[] },
+'case-078': { ids: {
+  apr_motivo:1, apr_evoluzione:2, apr_precedenti:7, sis_febbre:3,
+  apr_esordio:"Due giorni fa, una settimana dopo un'infiltrazione di cortisone al ginocchio.",
+  apr_sede:"Solo il ginocchio destro: gonfio, rosso e caldo.",
+  apr_carattere:"Dolore pulsante fortissimo, 9 su 10, con il ginocchio caldo e gonfio.",
+  apr_modulazione:"Peggiora al minimo movimento o appoggio; non c'è posizione che lo migliori.",
+  apr_scatenante:"Sì, l'infiltrazione di cortisone di una settimana fa.",
+  apr_trattamenti:"Solo del paracetamolo, che non ha fatto effetto.",
+  sis_muscolo:"Solo il ginocchio destro; ho l'artrosi ai ginocchi da anni, mai la gotta.",
+  sis_cardio:"Il cuore batte veloce per la febbre; dolore al petto no.",
+  sis_gen:"Mi sento molto stanco e senza appetito; il peso è stabile.",
+  sis_cute:"La pelle del ginocchio è rossa e calda; nessuna ferita.",
+  rem_croniche:"Ho il diabete di tipo 2.", farm_abit:"Metformina."
+}, app:[] },
+'case-079': { ids: {
+  apr_motivo:1, sis_uro:[2,3], rem_croniche:4, fam_gen:7, fam_cv:7,
+  apr_esordio:"Circa tre settimane fa, in modo graduale, con gonfiore alle caviglie.",
+  apr_evoluzione:"Il gonfiore è salito fino a viso e pancia, e ho preso 8 chili.",
+  apr_sede:"Gambe, caviglie, viso e pancia; non c'è dolore.",
+  apr_carattere:"Gonfiore generalizzato con senso di pesantezza e urine schiumose; non è un dolore.",
+  apr_modulazione:"Il viso è più gonfio la mattina e le gambe la sera; sdraiata ho un po' di fiato corto.",
+  apr_scatenante:"No, nessuna infezione, farmaco o malattia che io ricordi.",
+  sis_febbre:"No, nessuna febbre.",
+  sis_resp:"Un po' di fiato corto quando sono sdraiata; tosse no.",
+  sis_cardio:"Gambe e caviglie gonfie; dolore al petto o palpitazioni no.",
+  sis_gen:"Ho preso 8 chili in tre settimane per il gonfiore; sono un po' stanca.",
+  sis_cute:"Il viso è gonfio e la pelle tesa; nessuna eruzione.",
+  farm_abit:"No, non prendo farmaci.", sis_gravid:"No, non credo."
+}, app:[] },
+'case-080': { ids: {
+  apr_motivo:1, apr_precedenti:7, sis_cardio:5, farm_abit:6,
+  apr_esordio:"Un'ora fa, all'improvviso, per circa dieci minuti.",
+  apr_evoluzione:"Si è risolto del tutto in dieci minuti; adesso mi sento normale.",
+  apr_sede:"Il braccio destro e la parola; prima, un buio all'occhio destro.",
+  apr_carattere:"Perdita di forza al braccio destro e parola confusa, senza dolore.",
+  apr_modulazione:"Non è cambiato con niente: è passato da solo.",
+  apr_scatenante:"No, ero a riposo; nessuno sforzo né trauma.",
+  sis_neuro:"Prima debolezza al braccio destro e parola confusa per dieci minuti, e nel pomeriggio un buio all'occhio destro come una tendina; mal di testa no.",
+  sti_fumo:"Fumo 20 sigarette al giorno da 40 anni.", rem_croniche:"Pressione alta e colesterolo alto."
+}, app:[] },
+'case-081': { ids: {
+  apr_motivo:1, sis_febbre:2, apr_precedenti:3, sis_gen:4, fam_gen:6,
+  apr_esordio:"Circa un mese fa, in modo progressivo.",
+  apr_evoluzione:"Sono sempre più pallida e stanca; ieri un'epistassi che non si fermava.",
+  apr_sede:"Non ha una sede: lividi sulle gambe e sulle braccia, gengive e naso che sanguinano.",
+  apr_carattere:"Stanchezza forte, pallore, lividi spontanei e sanguinamenti; fiato corto salendo le scale.",
+  apr_modulazione:"Peggiora con lo sforzo; riposando il cuore si calma.",
+  apr_scatenante:"Forse l'epatite acuta di tre mesi fa, di cui non hanno trovato la causa.",
+  sis_resp:"Fiato corto salendo le scale; tosse no.",
+  sis_cardio:"Il cuore va veloce, soprattutto sotto sforzo; dolore al petto no.",
+  sis_cute:"Lividi senza motivo, puntini rossi sulle gambe, gengive che sanguinano e pallore.",
+  sis_neuro:"Capogiri quando mi alzo; mal di testa no.",
+  rem_infezioni:"Un mal di gola che non passa da due settimane.",
+  rem_croniche:"Tre mesi fa un'epatite acuta, guarita."
+}, app:[] },
+'case-082': { ids: {
+  apr_motivo:1, apr_evoluzione:2, apr_trattamenti:3, sis_cardio:4, sis_neuro:5, sis_muscolo:4, fam_gen:6, fam_cv:6,
+  apr_esordio:"Da sei anni la pressione alta; da alcuni mesi debolezza e crampi.",
+  apr_sede:"Non è un dolore: debolezza ai muscoli di cosce e braccia, crampi alle gambe.",
+  apr_carattere:"Debolezza muscolare e crampi, con formicolii e pressione che non scende; urino molto di notte.",
+  apr_modulazione:"Non cambia con niente; i farmaci non controllano la pressione.",
+  apr_scatenante:"No, niente liquirizia né antinfiammatori.",
+  sis_uro:"Urino molto, soprattutto di notte.", sis_gen:"Mi sento debole; il peso è stabile.",
+  rem_croniche:"Ipertensione da sei anni.", farm_abit:3
+}, app:[] },
+'case-083': { ids: {
+  apr_motivo:1, apr_trattamenti:2, sti_alcol:4, sis_uro:5, rem_croniche:7,
+  apr_esordio:"Da ieri, dopo tre giorni di paracetamolo ad alte dosi.",
+  apr_evoluzione:"È peggiorato: vomito, dolore, occhi gialli e confusione da stamattina.",
+  apr_sede:"In alto a destra, sotto le costole; non si irradia.",
+  apr_carattere:"Dolore sordo con nausea e stanchezza enorme; 5 su 10.",
+  apr_modulazione:"Non cambia con niente; il cibo mi dà nausea.",
+  apr_scatenante:"Sì, il paracetamolo da 1000 mg ogni 3-4 ore per tre giorni, forse 8-9 grammi al giorno, più delle bustine per l'influenza.",
+  sis_febbre:"Un po' di febbricola per l'influenza.",
+  sis_gen:"Sono stanchissima e senza appetito.", sis_nv:"Sì, nausea e vomito da ieri.",
+  sis_cute:"Sì, un po' di giallo negli occhi e qualche livido.",
+  sis_neuro:"Un po' di confusione; mal di testa no.",
+  farm_automed:"Paracetamolo 1000 mg ogni 3-4 ore per tre giorni e bustine per l'influenza.",
+  sis_gravid:"Non credo."
+}, app:[] },
+'case-084': { ids: {
+  sis_cute:"Sono molto pallido e le palpebre sono un po' gonfie.",
+  apr_motivo:1, fam_gen:7,
+  apr_esordio:"Circa una settimana fa con tosse e stanchezza; le urine rosse da quattro giorni.",
+  apr_evoluzione:"Sono peggiorato: più sangue con la tosse, più fiato corto e urine quasi sparite.",
+  apr_sede:"Il petto per la tosse con sangue e il fiato corto; le urine rosse; non ho dolore.",
+  apr_carattere:"Tosse con sangue rosso, fiato corto, stanchezza e urine rosse come coca-cola.",
+  apr_modulazione:"Il fiato corto peggiora con ogni sforzo; non migliora con niente.",
+  apr_scatenante:"Un'influenza due settimane fa; fumo e lavoro con solventi.",
+  sis_febbre:"Un po' di febbricola.",
+  sis_resp:"Sì, tosse con cucchiaini di sangue rosso da cinque giorni e fiato corto anche a riposo.",
+  sis_uro:"Urino meno del solito e le urine sono scure, come coca-cola.",
+  sis_gen:"Sono molto stanco e pallido; il peso è stabile.",
+  sti_fumo:"Fumo 15 sigarette al giorno.", sti_lavoro:"Lavoro in officina con solventi e idrocarburi."
+}, app:[] },
+'case-085': { ids: {
+  apr_motivo:1, sis_febbre:3, sis_gen:7, epi_animali:5, sis_muscolo:6,
+  apr_esordio:"Circa un anno fa, in modo graduale.",
+  apr_evoluzione:"Il fiato corto è peggiorato lentamente: ora mi fermo dopo pochi passi in piano.",
+  apr_sede:"Il fiato corto è in tutto il petto; non ho dolore.",
+  apr_carattere:"Fiato corto da sforzo con tosse secca e stizzosa, senza catarro.",
+  apr_modulazione:"Peggiora con lo sforzo e salendo le scale; da fermo sto meglio.",
+  sis_resp:"Sì, tosse secca persistente e fiato corto da sforzo; catarro e sangue no.",
+  sis_cardio:"Il fiato corto sì; dolore al petto no; le gambe non sono gonfie.",
+  sis_cute:"Le punte delle dita sono diventate più arrotondate da qualche mese.",
+  sti_fumo:"Sono ex fumatore (30 pacchetti/anno).", sti_lavoro:"Lavoro in ufficio; nessuna esposizione particolare.",
+  farm_abit:"Nessun farmaco regolare; non prendo amiodarone né nitrofurantoina."
 }, app:[] }
 };
 /* Defaults in terza persona (risponde un familiare, es. case-029) */
@@ -4074,6 +4806,7 @@ const LAB_EXTRA = {
   'case-049':'alb=3.1,na=133,plt=440,ferritin=380,mono=10',
   'case-053':'hba1c=7.8','case-055':'azot=36','case-056':'alp=140','case-062':'hba1c=6.9,colT=238,ldl=150','case-064':'ast=58,alt=50',
   'case-066':'alp=420,bilD=6.9','case-069':'ast=980,alt=420,ldh=2600,azot=88','case-070':'gluc=220,azot=78,na=131,pcr=24',
+  'case-076':'bilD=4.8','case-079':'colT=380,alb=1.9','case-082':'aldo=38,renin=0.2','case-084':'azot=96',
   'case-050':'wbc=3.6,neut=74,lymph=14,mono=8,eos=3,hgb=11.8,hct=35.4,plt=128,pcr=6.5,ves=65,alb=3.0,ast=52,alt=44,ferritin=420'
 };
 function costruisciLab(caso, PL) {

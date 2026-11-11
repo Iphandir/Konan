@@ -4911,10 +4911,7 @@ function renderLibrary() {
           <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-600/30">${icon('stethoscope','w-5 h-5')}</div>
           <div><h1 class="text-xl font-extrabold tracking-tight leading-none">KONAN</h1><p class="text-[11px] text-slate-500 leading-tight mt-1">Simulatore di casi clinici</p></div>
         </div>
-        <div class="flex items-center gap-2"><button type="button" data-action="apri-statistiche" class="flex items-center gap-1.5 bg-white border border-slate-200 hover:bg-slate-50 rounded-full px-3 py-1.5 text-xs font-bold text-slate-700 cursor-pointer" title="Statistiche, ripasso, esporta/importa">${icon('trending-up','w-4 h-4 text-blue-600')}<span class="hidden sm:inline">Statistiche</span></button><button type="button" data-action="apri-livelli" class="flex items-center gap-2 bg-blue-50 border border-blue-100 hover:bg-blue-100 rounded-full pl-2.5 pr-3 py-1.5 cursor-pointer" title="Vedi tutti i livelli">
-          ${icon(lv.ic,'w-4 h-4 text-blue-600')}<span class="text-xs font-bold text-blue-800">${lv.nome}</span><span class="text-xs text-blue-600 font-semibold">· ${pt} pt${next ? ` · −${next.min - pt} a «${next.nome}»` : ''}</span>
-        </button></div>
-      </div>
+              </div>
       ${ui.vista === 'lista' ? `<div class="mt-3 flex flex-col gap-2 md:flex-row">
         <div class="relative flex-1">
           <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">${icon('search','w-4 h-4')}</span>
@@ -5822,7 +5819,7 @@ AZIONI['apri-livelli'] = () => {
   }).join('');
   const perc = next ? Math.round((pt - lv.min) / (next.min - lv.min) * 100) : 100;
   apriModal(`<div class="modal-card" style="max-width:30rem">
-    <div class="px-5 pt-5 pb-4 border-b border-slate-100"><div class="flex items-center justify-between"><h3 class="text-lg font-extrabold">Livelli</h3><button class="btn btn-sm" data-action="chiudi-modal">Chiudi</button></div>
+    <div class="px-5 pt-5 pb-4 border-b border-slate-100"><div class="flex items-center justify-between"><h3 class="text-lg font-extrabold">Livelli</h3><div class="flex items-center gap-2"><button class="btn-icon" data-action="apri-statistiche" title="Statistiche" aria-label="Statistiche">${icon('trending-up','w-5 h-5')}</button><button class="btn btn-sm" data-action="chiudi-modal">Chiudi</button></div></div>
     <p class="text-xs text-slate-500 mt-1">Hai ${pt} pt. Conta il miglior punteggio di ogni caso risolto correttamente (il massimo dipende dagli esami essenziali del caso).</p>
     <div class="h-2 bg-slate-100 rounded-full mt-3 overflow-hidden"><div class="h-full bg-blue-600 rounded-full" style="width:${perc}%"></div></div>
     <p class="text-[11px] text-slate-500 mt-1.5">${next ? `${next.min - pt} pt a «${next.nome}»` : 'Livello massimo raggiunto'}</p></div>

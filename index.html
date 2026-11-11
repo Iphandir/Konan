@@ -5699,6 +5699,14 @@ function toast(msg) {
   setTimeout(() => { el.classList.add('out'); setTimeout(() => el.remove(), 300); }, 2200);
 }
 
+function apriOverlay(html) {
+  const overlay = document.createElement('div');
+  overlay.className = 'stats-overlay';
+  overlay.style.cssText = 'position:fixed;inset:0;z-index:9999;background:rgba(15,23,42,.45);display:flex;align-items:center;justify-content:center;padding:1rem;';
+  overlay.innerHTML = html;
+  document.body.appendChild(overlay);
+}
+
 /* ---------- Azioni ---------- */
 AZIONI['apri-caso'] = d => avviaCaso(d.id);
 AZIONI['reset-filtri'] = () => { ui = { search:'', spec:'', diff:'', stato:'', vista:'lista' }; renderLibrary(); };
@@ -5744,6 +5752,11 @@ AZIONI['apri-immagine'] = d => {
   document.body.classList.add('overflow-hidden'); refreshIcons();
 };
 AZIONI['zoom-img'] = (d, el) => el.classList.toggle('zoom');
+AZIONI['chiudi-statistiche'] = () => {
+  const overlay = document.querySelector('.stats-overlay');
+  if (overlay) overlay.remove();
+};
+
 AZIONI['chiudi-lightbox'] = chiudiLightbox;
 AZIONI['bg-lightbox'] = (d, el, ev) => { if (ev.target === el) chiudiLightbox(); };
 AZIONI['bg-modal'] = (d, el, ev) => { if (ev.target === el && el.dataset.dismissable === '1') chiudiModal(); };
@@ -5763,8 +5776,8 @@ AZIONI['apri-statistiche'] = () => {
   const diffs = ['Facile', 'Intermedio', 'Avanzato'].map(d => ({ nome:d, ...agg(casi.filter(c => c.difficolta === d)) }));
   const tot = agg(casi);
   const riga = x => `<li class="flex items-center justify-between gap-3 px-4 py-2 border-b border-slate-100"><div class="min-w-0"><div class="text-sm font-semibold truncate">${esc(x.nome)}</div><div class="text-[11px] text-slate-500">${x.compl}/${x.n} completati · ${x.t} tentativi</div></div>${barra(x.acc)}</li>`;
-  apriModal(`<div class="modal-card" style="max-width:34rem;max-height:90vh;display:flex;flex-direction:column">
-    <div class="px-5 pt-5 pb-3 border-b border-slate-100"><div class="flex items-center justify-between"><h3 class="text-lg font-extrabold">Statistiche</h3><button class="btn btn-sm" data-action="apri-livelli">Chiudi</button></div>
+  apriOverlay(`<div class="modal-card" style="max-width:34rem;max-height:90vh;display:flex;flex-direction:column">
+    <div class="px-5 pt-5 pb-3 border-b border-slate-100"><div class="flex items-center justify-between"><h3 class="text-lg font-extrabold">Statistiche</h3><button class="btn btn-sm" data-action="chiudi-statistiche">Chiudi</button></div>
     <p class="text-xs text-slate-500 mt-1">${tot.compl}/${tot.n} casi completati · precisione complessiva ${tot.acc == null ? '—' : tot.acc + '%'} (diagnosi corrette / tentativi)</p></div>
     <div class="overflow-y-auto">
       <div class="px-4 py-3 ${ripassi.length ? 'bg-violet-50' : 'bg-slate-50'} border-b border-slate-100 flex items-center justify-between gap-3">

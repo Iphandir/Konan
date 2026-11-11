@@ -5764,7 +5764,7 @@ AZIONI['apri-statistiche'] = () => {
   const tot = agg(casi);
   const riga = x => `<li class="flex items-center justify-between gap-3 px-4 py-2 border-b border-slate-100"><div class="min-w-0"><div class="text-sm font-semibold truncate">${esc(x.nome)}</div><div class="text-[11px] text-slate-500">${x.compl}/${x.n} completati · ${x.t} tentativi</div></div>${barra(x.acc)}</li>`;
   apriModal(`<div class="modal-card" style="max-width:34rem;max-height:90vh;display:flex;flex-direction:column">
-    <div class="px-5 pt-5 pb-3 border-b border-slate-100"><div class="flex items-center justify-between"><h3 class="text-lg font-extrabold">Statistiche</h3><button class="btn btn-sm" data-action="chiudi-modal">Chiudi</button></div>
+    <div class="px-5 pt-5 pb-3 border-b border-slate-100"><div class="flex items-center justify-between"><h3 class="text-lg font-extrabold">Statistiche</h3><button class="btn btn-sm" data-action="apri-livelli">Chiudi</button></div>
     <p class="text-xs text-slate-500 mt-1">${tot.compl}/${tot.n} casi completati · precisione complessiva ${tot.acc == null ? '—' : tot.acc + '%'} (diagnosi corrette / tentativi)</p></div>
     <div class="overflow-y-auto">
       <div class="px-4 py-3 ${ripassi.length ? 'bg-violet-50' : 'bg-slate-50'} border-b border-slate-100 flex items-center justify-between gap-3">

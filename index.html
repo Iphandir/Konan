@@ -3289,6 +3289,261 @@ const CASI_CLINICI = [
   },
   diagnosiDifferenziale: DX("Fibrosi polmonare idiopatica","Polmonite da ipersensibilità cronica","Scompenso cardiaco cronico","BPCO enfisematosa"),
   spiegazioneClinica: "Dispnea progressiva con tosse secca in un over-60 ex fumatore, crepitii teleinspiratori a velcro, ippocratismo digitale, restrizione con DLCO ridotta e pattern UIP alla TC ad alta risoluzione, in assenza di cause note (farmaci, esposizioni, connettiviti), configurano una fibrosi polmonare idiopatica; con questo pattern la biopsia non serve. La polmonite da ipersensibilità ha esposizioni e vetro smerigliato, lo scompenso ha edemi e BNP, la BPCO è ostruttiva (FEV1/FVC ridotto)."
+},
+{
+  id: "case-086",
+  titolo: "Difficoltà a urinare e risvegli notturni",
+  descrizioneBreve: "Uomo di 68 anni con getto urinario debole, attesa minzionale e necessità di alzarsi più volte di notte da circa un anno.",
+  difficolta: "Facile",
+  specialita: "Urologia",
+  schedaPaziente: { nome: "Luigi Verdi", eta: 68, sesso: "M", motivo: "Sintomi urinari ostruttivi", parametriVitali: { PA: "135/85 mmHg", FC: "72 bpm", Temp: "36.5 °C", SpO2: "98% in aria ambiente", FR: "14 atti/min" } },
+  anamnesi: Q(
+    ["Cosa la porta oggi dal medico?", "Dottore, da un anno urino male: il getto è debole e devo alzarmi tre o quattro volte a notte."],
+    ["Ha dolore o bruciore quando urina?", "No, nessun bruciore, solo fastidio perché devo spingere."],
+    ["Sente la vescica vuota dopo aver finito?", "No, ho sempre l'impressione che ne sia rimasta un po'."],
+    ["Ha visto sangue nelle urine?", "No, mai."],
+    ["Prende farmaci?", "Solo una pastiglia per la pressione."],
+    ["Ha mai avuto calcoli o infezioni?", "No, mai."]
+  ),
+  esameObiettivo: EO({
+    renale: [["Esplorazione rettale", "Prostata aumentata di volume (circa 50g), di consistenza fibroelastica, superficie liscia, margini netti, non dolente", 1], ["Manovra di Giordano", "Negativa bilateralmente"]],
+    addome: [["Palpazione", "Trattabile, non dolente; globo vescicale non apprezzabile"]]
+  }),
+  esami: {
+    laboratorio: [
+      L("PSA Totale", "Antigene prostatico specifico", 2, "4.2 ng/mL", "0.0 - 4.0 ng/mL", 1, 1),
+      L("Esame urine completo", "Stick e sedimento", 2, "Nella norma", "Negativo", 0, 0),
+      L("Creatinina sierica", "Funzionalità renale", 2, "0.95 mg/dL", "0.70 - 1.20 mg/dL", 0, 0)
+    ],
+    strumentali: [
+      S("Ecografia prostatica transrettale", "Studio volumetrico della prostata", 8, 1, "eco", "Sintomi ostruttivi", "Prostata aumentata di volume (diametri 52x48x45 mm, volume stimato 58 mL). Ecostruttura disomogenea per la presenza di noduli adenomatosi. Capsula integra. Residuo post-minzionale di 80 mL."),
+      S("Uroflussometria", "Studio dinamico della minzione", 5, 1, "gen", "Valutazione del flusso", "Flusso massimo (Qmax) 9.5 mL/s. Curva di tipo ostruttivo, prolungata.", { servizio: "Servizio di Urologia" })
+    ]
+  },
+  diagnosiDifferenziale: DX("Ipertrofia prostatica benigna", "Carcinoma della prostata", "Prostatite cronica", "Calcolosi vescicale"),
+  spiegazioneClinica: "Sintomi del basso tratto urinario (LUTS) di tipo ostruttivo e irritativo in un uomo anziano, con prostata aumentata di volume ma di consistenza elastica all'esplorazione rettale e PSA solo lievemente mosso, sono tipici dell'IPB. L'uroflussometria conferma l'ostruzione e l'ecografia valuta il volume e il residuo. Il carcinoma darebbe una prostata dura/nodulare e PSA spesso più elevato; la prostatite darebbe dolore e febbre."
+},
+{
+  id: "case-087",
+  titolo: "Dolore al ginocchio che peggiora camminando",
+  descrizioneBreve: "Donna di 72 anni con dolore sordo al ginocchio destro da due anni, rigidità mattutina di breve durata e scricchiolii articolari.",
+  difficolta: "Facile",
+  specialita: "Reumatologia / Ortopedia",
+  schedaPaziente: { nome: "Anna Bianchi", eta: 72, sesso: "F", motivo: "Gonalgia destra cronica", parametriVitali: { PA: "130/80 mmHg", FC: "76 bpm", Temp: "36.6 °C", SpO2: "99% in aria ambiente", FR: "16 atti/min" } },
+  anamnesi: Q(
+    ["Cosa la porta oggi qui?", "Ho un dolore al ginocchio destro che non mi dà tregua quando cammino, da quasi due anni."],
+    ["Il dolore è presente anche a riposo?", "No, se sto seduta o a letto passa, ma appena inizio a camminare ricomincia."],
+    ["Sente il ginocchio rigido al mattino?", "Sì, per circa dieci minuti, poi si scioglie."],
+    ["Sente dei rumori quando lo muove?", "Sì, come se ci fosse della sabbia dentro."],
+    ["Ha avuto traumi in passato?", "Una brutta caduta da giovane, mi dissero che avevo lesionato il menisco."],
+    ["Ha febbre o altre articolazioni gonfie?", "No, niente febbre e le mani sono a posto."]
+  ),
+  esameObiettivo: EO({
+    arti: [["Ginocchio destro", "Lieve tumefazione ossea, crepitii alla mobilizzazione attiva e passiva; dolore alla pressione sulla rima articolare mediale; ROM ridotto in flessione", 0], ["Ginocchio sinistro", "Crepitii modesti, non dolente"]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Proteina C Reattiva", "Indice di flogosi", 2, "0.2 mg/dL", "< 0.5 mg/dL", 0, 0),
+      L("VES", "Indice di flogosi", 2, "12 mm/h", "< 20 mm/h", 0, 0),
+      L("Emocromo", "Analisi cellulare", 2, "Nella norma", "Vedi tabella", 0, 0)
+    ],
+    strumentali: [
+      S("RX Ginocchio destro sotto carico", "Radiografia standard", 5, 1, "rx", "Gonalgia cronica", "Riduzione asimmetrica dello spazio articolare nel comparto femoro-tibiale mediale. Presenza di osteofiti marginali e sclerosi dell'osso subcondrale. Non lesioni ossee focali.")
+    ]
+  },
+  diagnosiDifferenziale: DX("Gonartrosi (osteoartrosi del ginocchio)", "Artrite settica", "Artrite reumatoide", "Gotta acuta"),
+  spiegazioneClinica: "Dolore meccanico (peggiorato dal carico, migliorato dal riposo), rigidità mattutina breve (< 30 min), crepitii e reperti radiografici tipici (osteofiti, riduzione rima) in una paziente anziana con pregresso trauma sono diagnostici per gonartrosi. L'assenza di indici di flogosi elevati esclude patologie infiammatorie sistemiche o infettive."
+},
+{
+  id: "case-088",
+  titolo: "Stanchezza e formicolii ai piedi",
+  descrizioneBreve: "Uomo di 75 anni, vegano da lungo tempo, con astenia progressiva, lingua arrossata e perdita di sensibilità vibratoria alle estremità.",
+  difficolta: "Facile",
+  specialita: "Ematologia / Medicina Interna",
+  schedaPaziente: { nome: "Pietro Neri", eta: 75, sesso: "M", motivo: "Astenia e parestesie", parametriVitali: { PA: "125/75 mmHg", FC: "82 bpm", Temp: "36.4 °C", SpO2: "98% in aria ambiente", FR: "14 atti/min" } },
+  anamnesi: Q(
+    ["Cosa la porta oggi dal medico?", "Dottore, mi sento sempre più stanco e ho dei formicolii ai piedi che non mi lasciano in pace."],
+    ["Da quanto tempo si sente così?", "Da qualche mese, ma nell'ultimo periodo è peggiorato."],
+    ["Com'è la sua alimentazione?", "Sono vegano da oltre vent'anni, mangio molta verdura e cereali."],
+    ["Prende integratori?", "No, cerco di prendere tutto dal cibo naturale."],
+    ["Ha disturbi alla lingua o allo stomaco?", "La lingua mi brucia spesso ed è molto rossa."],
+    ["Ha problemi di equilibrio?", "Sì, a volte mi sento un po' instabile quando cammino al buio."]
+  ),
+  esameObiettivo: EO({
+    snc: [["Sensibilità", "Ridotta sensibilità vibratoria (diapason) ai malleoli e ai polsi; senso di posizione dell'alluce alterato", 0], ["Riflessi", "Riflessi vivaci; segno di Romberg positivo", 0]],
+    occhi: [["Congiuntive", "Pallide", 0], ["Sclere", "Bianche"]],
+    cute: [["Lingua", "Lingua arrossata, depapillata e lucida (glossite di Hunter)", 0], ["Mucose", "Pallide"]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Emocromo completo", "Analisi cellulare", 2, "Hb 9.2 g/dL; MCV 115 fL", "Hb 13.5-17.5; MCV 80-100", 1, 1),
+      L("Vitamina B12", "Livelli sierici", 3, "85 pg/mL", "200 - 900 pg/mL", 1, 1),
+      L("Folati sierici", "Folati", 3, "12 ng/mL", "> 4 ng/mL", 0, 0),
+      L("LDH e Bilirubina indiretta", "Indici di emolisi", 2, "LDH 850 U/L; Bilirubina I 1.8 mg/dL", "LDH < 250; Bil I < 0.8", 1, 0)
+    ],
+    strumentali: [
+      S("Esofagogastroduodenoscopia", "EGDS con biopsie", 10, 0, "endo", "Astenia e glossite", "Mucosa gastrica assottigliata con visualizzazione del reticolo vascolare sottomucoso (gastrite atrofica). Biopsie in corso."),
+      S("RM midollo spinale", "Risonanza magnetica", 10, 0, "rm", "Parestesie e atassia", "Iperintensità di segnale in T2 a livello dei cordoni posteriori del midollo cervicale e dorsale.")
+    ]
+  },
+  diagnosiDifferenziale: DX("Anemia megaloblastica da carenza di Vitamina B12", "Anemia da carenza di folati", "Anemia sideropenica", "Sclerosi multipla"),
+  spiegazioneClinica: "L'anemia macrocitica (MCV 115) associata a sintomi neurologici (parestesie, perdita di sensibilità vibratoria e propriocettiva) e glossite in un paziente vegano di lunga data senza integrazione è patognomonica della carenza di Vitamina B12. La carenza di folati dà un quadro ematologico simile ma senza i sintomi neurologici dei cordoni posteriori. Il trattamento prevede la somministrazione di B12 (idrossicobalamina) intramuscolo o orale ad alte dosi."
+},
+{
+  id: "case-089",
+  titolo: "Tosse produttiva e febbricola",
+  descrizioneBreve: "Uomo di 45 anni con tosse che da secca è diventata produttiva con catarro giallo, dopo un raffreddore.",
+  difficolta: "Facile",
+  specialita: "Medicina Generale",
+  schedaPaziente: { nome: "Marco Riva", eta: 45, sesso: "M", motivo: "Tosse da 5 giorni", parametriVitali: { PA: "120/80 mmHg", FC: "78 bpm", Temp: "37.4 °C", SpO2: "98%", FR: "16 atti/min" } },
+  anamnesi: Q(["Cosa la porta oggi?", "Ho una tosse fastidiosa da 5 giorni."], ["Com'è la tosse?", "Prima era secca, ora ho catarro giallo."]),
+  esameObiettivo: EO({ torace: [["Auscultazione", "Rantoli a grosse bolle trasmessi", 0]] }),
+  esami: { laboratorio: [L("Proteina C Reattiva", "Indice flogosi", 2, "1.2 mg/dL", "< 0.5", 1, 0)], strumentali: [S("RX Torace", "Radiografia", 5, 1, "rx", "Tosse persistente", "Parenchima polmonare libero da addensamenti focali. Seni costofrenici pervi.")] },
+  diagnosiDifferenziale: DX("Bronchite acuta", "Polmonite lobare", "Asma bronchiale", "Reflusso gastroesofageo"),
+  spiegazioneClinica: "Tosse produttiva con catarro mucopurulento e febbricola dopo un'infezione virale delle alte vie, in assenza di addensamenti alla RX torace, orienta verso una bronchite acuta. La terapia è sintomatica; l'antibiotico è indicato solo in casi selezionati."
+},
+{
+  id: "case-090",
+  titolo: "Cefalea gravativa bilaterale",
+  descrizioneBreve: "Donna di 32 anni con dolore oppressivo a 'casco' che dura da ieri, senza nausea né fastidio alla luce.",
+  difficolta: "Facile",
+  specialita: "Neurologia",
+  schedaPaziente: { nome: "Elena Gialli", eta: 32, sesso: "F", motivo: "Mal di testa da ieri", parametriVitali: { PA: "115/75 mmHg", FC: "72 bpm", Temp: "36.5 °C", SpO2: "99%", FR: "14 atti/min" } },
+  anamnesi: Q(["Com'è il dolore?", "Come un peso che stringe tutta la testa."]),
+  esameObiettivo: EO({ collo: [["Muscolatura", "Contrattura dei muscoli trapezio e paracervicali", 0]] }),
+  esami: { laboratorio: [], strumentali: [S("TC Encefalo", "Tomografia", 10, 0, "tc", "Cefalea persistente", "Assenza di lesioni occupanti spazio o emorragie.")] },
+  diagnosiDifferenziale: DX("Cefalea tensiva", "Emicrania senza aura", "Cefalea a grappolo", "Tumore cerebrale"),
+  spiegazioneClinica: "Cefalea bilaterale, gravativa, non pulsante, senza sintomi associati (nausea, vomito, foto-fonofobia), spesso legata a stress e contrattura muscolare, è tipica della cefalea tensiva."
+},
+{
+  id: "case-091",
+  titolo: "Diarrea ematica e urgenza",
+  descrizioneBreve: "Uomo di 28 anni con numerose scariche di feci con sangue e muco, dolore addominale e calo di peso.",
+  difficolta: "Intermedio",
+  specialita: "Gastroenterologia",
+  schedaPaziente: { nome: "Stefano Belli", eta: 28, sesso: "M", motivo: "Diarrea ematica da 2 settimane", parametriVitali: { PA: "110/70 mmHg", FC: "88 bpm", Temp: "37.2 °C", SpO2: "98%", FR: "18 atti/min" } },
+  anamnesi: Q(["Quante scariche ha?", "Circa 6-8 al giorno, con sangue e muco."]),
+  esameObiettivo: EO({ addome: [["Palpazione", "Dolorabilità diffusa lungo il decorso del colon, più marcata a sinistra", 0]] }),
+  esami: { laboratorio: [L("Calprotectina fecale", "Marker infiammazione intestinale", 3, "850 µg/g", "< 50", 1, 1), L("Emocromo", "Anemia", 2, "Hb 11.5 g/dL", "13.5-17.5", 1, 0)], strumentali: [S("Colonscopia con biopsie", "Endoscopia", 10, 1, "endo", "Diarrea ematica cronica", "Mucosa del retto e del sigma diffusamente eritematosa, granulosa, con perdita del pattern vascolare e ulcere superficiali friabili. Biopsie: flogosi cronica limitata alla mucosa.")] },
+  diagnosiDifferenziale: DX("Rettocolite ulcerosa", "Morbo di Crohn", "Sindrome dell'intestino irritabile", "Gastroenterite infettiva"),
+  spiegazioneClinica: "Diarrea ematica cronica con urgenza e coinvolgimento rettale continuo alla colonscopia è diagnostica per Rettocolite Ulcerosa (RCU). A differenza del Crohn, l'infiammazione è superficiale e continua."
+},
+{
+  id: "case-092",
+  titolo: "Acne, irsutismo e irregolarità mestruale",
+  descrizioneBreve: "Donna di 22 anni con acne persistente, aumento della peluria e cicli mestruali molto distanziati.",
+  difficolta: "Intermedio",
+  specialita: "Ginecologia / Endocrinologia",
+  schedaPaziente: { nome: "Giulia Rossi", eta: 22, sesso: "F", motivo: "Irregolarità del ciclo e acne", parametriVitali: { PA: "120/75 mmHg", FC: "74 bpm", Temp: "36.6 °C", SpO2: "99%", FR: "14 atti/min" } },
+  anamnesi: Q(["Com'è il ciclo?", "Molto lungo, a volte salto 2-3 mesi."]),
+  esameObiettivo: EO({ cute: [["Ispezione", "Acne al volto e dorso; irsutismo (punteggio Ferriman-Gallwey 12)", 0]] }),
+  esami: { laboratorio: [L("Rapporto LH/FSH", "Assetto gonadotropico", 3, "LH 15 mUI/mL; FSH 5 mUI/mL (Rapporto 3)", "Rapporto < 2", 1, 1), L("Testosterone totale", "Androgeni", 3, "0.9 ng/mL", "0.1-0.8", 1, 0)], strumentali: [S("Ecografia pelvica transvaginale", "Ecografia", 8, 1, "eco", "Oligomenorrea", "Ovaie aumentate di volume con oltre 12 follicoli di 2-9 mm disposti in periferia ('a corona di rosario').")] },
+  diagnosiDifferenziale: DX("Sindrome dell'ovaio policistico (PCOS)", "Sindrome di Cushing", "Ipotiroidismo", "Gravidanza"),
+  spiegazioneClinica: "La presenza di iperandrogenismo clinico (acne, irsutismo), disfunzione ovulatoria (oligomenorrea) e aspetto ecografico tipico soddisfa i criteri di Rotterdam per la PCOS."
+},
+{
+  id: "case-093",
+  titolo: "Tremore e rallentamento motorio",
+  descrizioneBreve: "Uomo di 66 anni con tremore alla mano destra che scompare durante il movimento e sensazione di rigidità.",
+  difficolta: "Intermedio",
+  specialita: "Neurologia",
+  schedaPaziente: { nome: "Antonio Neri", eta: 66, sesso: "M", motivo: "Tremore da 6 mesi", parametriVitali: { PA: "135/80 mmHg", FC: "70 bpm", Temp: "36.5 °C", SpO2: "98%", FR: "16 atti/min" } },
+  anamnesi: Q(["Quando trema la mano?", "Quando sono fermo a guardare la TV."]),
+  esameObiettivo: EO({ snc: [["Motilità", "Bradicinesia; rigidità 'a ruota dentata' al polso destro", 0], ["Marcia", "A piccoli passi, riduzione del pendolarismo del braccio destro", 0]] }),
+  esami: { laboratorio: [], strumentali: [S("DaTSCAN", "Scintigrafia cerebrale", 10, 1, "gen", "Sospetto parkinsonismo", "Ridotta captazione del tracciante a livello dei nuclei della base (putamen), più marcata a sinistra.", { servizio: "Servizio di Medicina Nucleare" }), S("RM Encefalo", "Risonanza", 10, 0, "rm", "Tremore", "Assenza di lesioni vascolari o espansive significative.")] },
+  diagnosiDifferenziale: DX("Malattia di Parkinson", "Tremore essenziale", "Depressione maggiore", "Ictus cerebrale"),
+  spiegazioneClinica: "Tremore di riposo asimmetrico, rigidità a ruota dentata e bradicinesia sono i segni cardine della Malattia di Parkinson. Il DaTSCAN conferma la perdita di neuroni dopaminergici."
+},
+{
+  id: "case-094",
+  titolo: "Dispnea e sincope in un anziano",
+  descrizioneBreve: "Uomo di 78 anni con affanno per sforzi lievi e un episodio di perdita di coscienza mentre camminava.",
+  difficolta: "Intermedio",
+  specialita: "Cardiologia",
+  schedaPaziente: { nome: "Giovanni Bianchi", eta: 78, sesso: "M", motivo: "Sincope e dispnea", parametriVitali: { PA: "110/80 mmHg", FC: "82 bpm", Temp: "36.6 °C", SpO2: "96%", FR: "20 atti/min" } },
+  anamnesi: Q(["Cosa è successo?", "Mi è girata forte la testa e sono svenuto mentre camminavo."]),
+  esameObiettivo: EO({ cuore: [["Auscultazione", "Soffio sistolico 4/6 al focolaio aortico, irradiato alle carotidi; polso piccolo e tardo", 0]] }),
+  esami: { laboratorio: [L("NT-proBNP", "Scompenso", 3, "450 pg/mL", "< 125", 1, 0)], strumentali: [S("Ecocardiogramma", "Ecografia cuore", 10, 1, "ecocardio", "Soffio sistolico e sincope", "Valvola aortica calcifica con ridotta apertura dei lembi; Area valvolare 0.7 cm²; Gradiente medio 45 mmHg. Ipertrofia ventricolare sinistra.")] },
+  diagnosiDifferenziale: DX("Stenosi aortica serrata", "Scompenso cardiaco congestizio", "BPCO riacutizzata", "Anemia grave"),
+  spiegazioneClinica: "La triade dispnea, angina e sincope in presenza di un soffio sistolico eiettivo è tipica della stenosi aortica severa. L'ecocardio è l'esame dirimente per valutare l'area e i gradienti."
+},
+{
+  id: "case-095",
+  titolo: "Stanchezza, prurito e gonfiore",
+  descrizioneBreve: "Donna di 65 anni diabetica con astenia ingravescente, prurito diffuso e gonfiore alle caviglie.",
+  difficolta: "Intermedio",
+  specialita: "Nefrologia",
+  schedaPaziente: { nome: "Maria Verdi", eta: 65, sesso: "F", motivo: "Stanchezza e prurito", parametriVitali: { PA: "155/95 mmHg", FC: "76 bpm", Temp: "36.7 °C", SpO2: "97%", FR: "16 atti/min" } },
+  anamnesi: Q(["Soffre di altre malattie?", "Diabete da 15 anni e pressione alta."]),
+  esameObiettivo: EO({ arti: [["Edemi", "Edema improntabile malleolare bilaterale", 0], ["Cute", "Segni di grattamento diffusi", 0]] }),
+  esami: { laboratorio: [L("Creatinina e Azotemia", "Funzione renale", 2, "Creat 3.8 mg/dL; Azotemia 140 mg/dL", "Creat < 1.1", 1, 1), L("Emocromo", "Anemia", 2, "Hb 9.8 g/dL; normocitica", "12-16", 1, 0)], strumentali: [S("Ecografia reni", "Ecografia", 8, 1, "eco", "Insufficienza renale", "Reni di dimensioni ridotte (8.5 cm), con corticale assottigliata e iperecogena. Non idronefrosi.")] },
+  diagnosiDifferenziale: DX("Insufficienza renale cronica scompensata", "Scompenso cardiaco", "Cirrosi epatica", "Ipotiroidismo"),
+  spiegazioneClinica: "In una paziente diabetica e ipertesa, il riscontro di iperazotemia, anemia normocitica e reni piccoli all'ecografia depone per un'insufficienza renale cronica in stadio avanzato."
+},
+{
+  id: "case-096",
+  titolo: "Confusione e nausea in un fumatore",
+  descrizioneBreve: "Uomo di 62 anni, forte fumatore, con confusione mentale, nausea e sonnolenza; sodio plasmatico molto basso.",
+  difficolta: "Avanzato",
+  specialita: "Medicina Interna / Oncologia",
+  schedaPaziente: { nome: "Roberto Fumo", eta: 62, sesso: "M", motivo: "Confusione e nausea", parametriVitali: { PA: "130/80 mmHg", FC: "84 bpm", Temp: "36.8 °C", SpO2: "95%", FR: "18 atti/min" } },
+  anamnesi: Q(["Fuma?", "Sì, due pacchetti al giorno da sempre."]),
+  esameObiettivo: EO({ snc: [["Stato mentale", "Rallentamento psicomotorio, disorientamento", 0]] }),
+  esami: { laboratorio: [L("Elettroliti", "Sodio", 2, "Na 122 mEq/L", "136-145", 1, 1), L("Osmolarità plasmatica e urinaria", "Bilancio idrico", 3, "Osm plasmatica 255 mOsm/kg; Osm urinaria 450 mOsm/kg", "Osm pl 280-295", 1, 1)], strumentali: [S("TC Torace", "Tomografia", 10, 1, "tc", "Iponatriemia in fumatore", "Massa ilare polmonare destra di 4 cm con linfoadenopatie mediastiniche. Quadro compatibile con microcitoma.")] },
+  diagnosiDifferenziale: DX("SIADH paraneoplastica (da microcitoma)", "Disidratazione ipotonica", "Ictus ischemico", "Insufficienza surrenalica"),
+  spiegazioneClinica: "L'iponatriemia euvolemica con urine concentrate (Osm urinaria > Osm plasmatica) in un forte fumatore con massa polmonare è tipica della SIADH paraneoplastica da carcinoma a piccole cellule (microcitoma)."
+},
+{
+  id: "case-097",
+  titolo: "Debolezza progressiva e fascicolazioni",
+  descrizioneBreve: "Uomo di 55 anni con debolezza alla gamba e alla mano, crampi e piccoli guizzi muscolari visibili sotto la pelle.",
+  difficolta: "Avanzato",
+  specialita: "Neurologia",
+  schedaPaziente: { nome: "Massimo Forza", eta: 55, sesso: "M", motivo: "Debolezza arti da 6 mesi", parametriVitali: { PA: "130/85 mmHg", FC: "76 bpm", Temp: "36.6 °C", SpO2: "98%", FR: "18 atti/min" } },
+  anamnesi: Q(["Cosa ha notato?", "Inciampo spesso e la mano sinistra è debole."]),
+  esameObiettivo: EO({ snc: [["Forza", "Ipostenia distale arto superiore sinistro e inferiore destro", 0], ["Riflessi", "Riflessi vivaci; Babinski positivo a sinistra", 0], ["Muscoli", "Fascicolazioni diffuse ai quattro arti e lingua; atrofia eminenza tenar", 0]] }),
+  esami: { laboratorio: [L("CK totale", "Enzimi muscolari", 2, "280 U/L", "< 190", 1, 0)], strumentali: [S("Elettromiografia (EMG)", "Studio neurofisiologico", 10, 1, "emg", "Debolezza e fascicolazioni", "Segni di denervazione acuta e cronica in almeno tre distretti (bulbare, cervicale, lombosacrale). Velocità di conduzione sensitiva normale.")] },
+  diagnosiDifferenziale: DX("Sclerosi Laterale Amiotrofica (SLA)", "Miastenia Gravis", "Sclerosi Multipla", "Ernia discale cervicale"),
+  spiegazioneClinica: "La combinazione di segni del primo motoneurone (iperreflessia, Babinski) e del secondo motoneurone (atrofia, fascicolazioni) in più distretti corporei è fortemente suggestiva di SLA."
+},
+{
+  id: "case-098",
+  titolo: "Mani rigide e fenomeno di Raynaud",
+  descrizioneBreve: "Donna di 44 anni con dita che cambiano colore al freddo, pelle delle mani tesa e lucida e difficoltà a deglutire.",
+  difficolta: "Avanzato",
+  specialita: "Reumatologia",
+  schedaPaziente: { nome: "Elena Tesa", eta: 44, sesso: "F", motivo: "Pelle dura e mani bianche", parametriVitali: { PA: "140/90 mmHg", FC: "78 bpm", Temp: "36.7 °C", SpO2: "98%", FR: "16 atti/min" } },
+  anamnesi: Q(["Cosa succede alle mani?", "Diventano bianche e poi viola col freddo."]),
+  esameObiettivo: EO({ cute: [["Mani", "Sclerodattilia: pelle delle dita tesa, lucida, non pinzabile; teleangectasie al volto", 0]], addome: [["Disfagia", "Difficoltà a deglutire cibi solidi", 0]] }),
+  esami: { laboratorio: [L("Anticorpi ANA e anti-Scl70", "Autoimmunità", 4, "ANA positivi 1:640 (pattern nucleolare); anti-Scl70 positivi", "Negativi", 1, 1)], strumentali: [S("Capillaroscopia", "Studio microcircolo", 8, 1, "gen", "Fenomeno di Raynaud", "Presenza di megacapillari, aree avascolari e microemorragie (pattern sclerodermico 'active').", { servizio: "Servizio di Reumatologia" })] },
+  diagnosiDifferenziale: DX("Sclerosi sistemica (Sclerodermia)", "Lupus eritematoso sistemico", "Artrite Reumatoide", "Dermatomiosite"),
+  spiegazioneClinica: "Fenomeno di Raynaud, sclerodattilia, disfagia e positività per anti-Scl70 configurano una sclerosi sistemica diffusa."
+},
+{
+  id: "case-099",
+  titolo: "Sinusite, tosse con sangue e danno renale",
+  descrizioneBreve: "Uomo di 50 anni con sinusite cronica crostosa, tosse con sangue e peggioramento della funzione renale.",
+  difficolta: "Avanzato",
+  specialita: "Reumatologia / Nefrologia",
+  schedaPaziente: { nome: "Paolo Naso", eta: 50, sesso: "M", motivo: "Emottisi e sinusite", parametriVitali: { PA: "150/95 mmHg", FC: "92 bpm", Temp: "37.8 °C", SpO2: "94%", FR: "22 atti/min" } },
+  anamnesi: Q(["Ha altri disturbi?", "Ho perso 4 chili e ho sempre il naso chiuso con croste di sangue."]),
+  esameObiettivo: EO({ collo: [["Naso", "Ulcere della mucosa nasale e deformità a sella del naso", 0]], torace: [["Auscultazione", "Rantoli sparsi bilateralmente", 0]] }),
+  esami: { laboratorio: [L("ANCA (anti-PR3)", "Vasculite", 4, "c-ANCA (anti-PR3) fortemente positivi", "Negativi", 1, 1), L("Esame urine", "Sedimento", 2, "Ematuria macroscopica; cilindri eritrocitari", "Negativo", 1, 1)], strumentali: [S("TC Torace", "Tomografia", 10, 1, "tc", "Emottisi", "Multiple lesioni nodulari bilaterali, alcune cavitate. Infiltrati alveolari.")] },
+  diagnosiDifferenziale: DX("Granulomatosi con poliangioite (Wegener)", "Tubercolosi polmonare", "Sindrome di Churg-Strauss", "Lupus eritematoso sistemico"),
+  spiegazioneClinica: "La combinazione di coinvolgimento delle alte vie respiratorie (sinusite distruttiva), basse vie (noduli cavitati) e rene (glomerulonefrite) con c-ANCA positivi è tipica della Granulomatosi con Poliangioite."
+},
+{
+  id: "case-100",
+  titolo: "Febbre e dolore addominale in cirrotico",
+  descrizioneBreve: "Uomo di 58 anni con cirrosi epatica nota, febbre, dolore addominale diffuso e peggioramento dello stato mentale.",
+  difficolta: "Avanzato",
+  specialita: "Gastroenterologia / Infettivologia",
+  schedaPaziente: { nome: "Giacomo Fegato", eta: 58, sesso: "M", motivo: "Febbre e dolore addominale", parametriVitali: { PA: "100/60 mmHg", FC: "106 bpm", Temp: "38.5 °C", SpO2: "97%", FR: "20 atti/min" } },
+  anamnesi: Q(["Come si sente?", "Molto debole e mi fa male tutta la pancia."]),
+  esameObiettivo: EO({ addome: [["Ispezione", "Addome globoso per ascite; dolorabilità diffusa alla palpazione, Blumberg debolmente positivo", 0]], snc: [["Stato mentale", "Confuso, rallentato", 0]] }),
+  esami: { laboratorio: [L("Esame liquido ascitico", "Paracentesi", 4, "Linfociti 100/mm³; Neutrofili (PMN) 450/mm³; Coltura in corso", "PMN < 250", 1, 1), L("Proteina C Reattiva", "Flogosi", 2, "8.5 mg/dL", "< 0.5", 1, 0)], strumentali: [S("Ecografia addome", "Ecografia", 8, 1, "eco", "Dolore addominale in cirrotico", "Fegato cirrotico; ascite abbondante con fini echi interni. Non segni di colecistite né appendicite.")] },
+  diagnosiDifferenziale: DX("Peritonite batterica spontanea", "Appendicite acuta", "Pancreatite acuta", "Scompenso cardiaco destro"),
+  spiegazioneClinica: "In un paziente cirrotico con ascite, la comparsa di febbre e dolore addominale impone la paracentesi: un numero di neutrofili > 250/mm³ nel liquido ascitico è diagnostico per PBS."
 }
 ];
 </script>
@@ -3537,7 +3792,22 @@ const MOTIVI_DIFF = {
 'case-082': { d2:"Nell'ipertensione essenziale la kaliemia è normale e la renina non è soppressa; qui ipokaliemia e rapporto aldosterone/renina 190.", d3:"Il feocromocitoma dà crisi con sudore, cefalea e pallore e catecolamine elevate; qui ipertensione stabile con ipokaliemia e renina soppressa.", d4:"Nella stenosi dell'arteria renale la renina è elevata (iperaldosteronismo secondario); qui renina soppressa e adenoma surrenalico." },
 'case-083': { d2:"Nell'epatite virale manca l'esposizione a una dose epatotossica; qui paracetamolemia 85 µg/mL a 14 ore e AST/ALT di migliaia con andamento tipico.", d3:"Nell'epatite alcolica le AST superano le ALT ma restano < 300-500 U/L, con GGT molto elevata; qui transaminasi di migliaia e paracetamolo alto.", d4:"Nella colecistite c'è colestasi e febbre alta con Murphy positivo; qui necrosi epatocellulare con INR 2.4 e ipoglicemia." },
 'case-084': { d2:"La granulomatosi con poliangioite ha ANCA positivi (PR3), sintomi delle vie aeree superiori e granulomi; qui anti-GBM positivi e ANCA negativi.", d3:"Il lupus ha ANA/anti-dsDNA e C3 bassi con altre manifestazioni (rash, artrite); qui nessun segno sistemico e depositi lineari di IgG.", d4:"La legionella dà polmonite lobare con febbre alta, iponatriemia e sintomi gastrointestinali; qui infiltrati alveolari simmetrici, ematuria dismorfica e anti-GBM." },
-'case-085': { d2:"La polmonite da ipersensibilità cronica ha esposizione ad antigeni, vetro smerigliato e perfusione a mosaico; qui nessuna esposizione e pattern UIP tipico.", d3:"Lo scompenso ha edemi, giugulari turgide e BNP elevato; qui crepitii a velcro, ippocratismo e restrizione con DLCO ridotta.", d4:"Nella BPCO enfisematosa il quadro è ostruttivo (FEV1/FVC ridotto) con iperinflazione; qui FEV1/FVC 0.84 e fibrosi basale subpleurica." }
+'case-085': { d2:"La polmonite da ipersensibilità cronica ha esposizione ad antigeni, vetro smerigliato e perfusione a mosaico; qui nessuna esposizione e pattern UIP tipico.", d3:"Lo scompenso ha edemi, giugulari turgide e BNP elevato; qui crepitii a velcro, ippocratismo e restrizione con DLCO ridotta.", d4:"Nella BPCO enfisematosa il quadro è ostruttivo (FEV1/FVC ridotto) con iperinflazione; qui FEV1/FVC 0.84 e fibrosi basale subpleurica." },
+'case-086': { d2:"Il carcinoma darebbe una prostata dura o nodulare e PSA spesso più elevato; qui consistenza elastica.", d3:"La prostatite darebbe dolore pelvico e febbre; qui sintomi ostruttivi cronici indolori.", d4:"Il calcolo vescicale darebbe ematuria e dolore minzionale; qui quadro tipico di adenoma." },
+'case-087': { d2:"L'artrite settica ha esordio acuto con febbre alta e liquido purulento; qui dolore cronico meccanico.", d3:"L'artrite reumatoide è simmetrica, colpisce le piccole articolazioni e ha rigidità lunga; qui gonalgia asimmetrica.", d4:"La gotta ha attacchi acuti notturni con cristalli; qui dolore sordo legato al carico." },
+'case-088': { d2:"La carenza di folati non causa i sintomi neurologici dei cordoni posteriori (vibrazione/posizione); qui presenti.", d3:"L'anemia sideropenica è microcitica (MCV basso); qui macrocitica con MCV 115.", d4:"La SM colpisce giovani e ha lesioni RM diverse; qui quadro da carenza vitaminica in vegano." },
+'case-089': { d2:"La polmonite darebbe un addensamento focale alla RX; qui il parenchima è libero.", d3:"L'asma darebbe sibili diffusi e ostruzione reversibile; qui rantoli trasmessi e catarro giallo.", d4:"Il reflusso dà tosse secca cronica, non produttiva con febbricola dopo un raffreddore." },
+'case-090': { d2:"L'emicrania è pulsante, unilaterale e associata a nausea o foto-fonofobia; qui dolore a casco senza altri sintomi.", d3:"La cefalea a grappolo è brevissima, atroce e con lacrimazione oculare; qui dolore sordo prolungato.", d4:"Un tumore darebbe deficit focali o segni di ipertensione endocranica; la TC è negativa." },
+'case-091': { d2:"Nel Crohn le ulcere sono spesso 'a salto' e transmurali; qui coinvolgimento rettale continuo e superficiale.", d3:"L'intestino irritabile non causa mai sanguinamento, anemia o calprotectina elevata.", d4:"Le infezioni batteriche sono acute e si risolvono in pochi giorni; qui sintomi da 2 settimane con biopsia tipica." },
+'case-092': { d2:"Il Cushing darebbe strie rubre, obesità centrale e facies lunare; qui solo segni di iperandrogenismo.", d3:"L'ipotiroidismo dà stipsi e bradicardia; qui il quadro è dominato da acne e ovaio policistico.", d4:"La gravidanza causa amenorrea ma non acne o irsutismo; il test è comunque negativo." },
+'case-093': { d2:"Il tremore essenziale è d'azione o posturale, non di riposo, e spesso bilaterale; qui a riposo e asimmetrico.", d3:"La depressione può dare rallentamento, ma non rigidità a ruota dentata né tremore a conta monete.", d4:"L'ictus ha esordio improvviso; qui progressione lenta in 6 mesi con DaTSCAN positivo." },
+'case-094': { d2:"Lo scompenso è la conseguenza, ma la causa qui è l'ostruzione valvolare aortica serrata.", d3:"La BPCO non spiega il soffio sistolico irradiato né la sincope da sforzo; l'ecocardio è dirimente.", d4:"L'anemia può dare soffio, ma non gradienti così elevati né sincope con Hb normale." },
+'case-095': { d2:"Lo scompenso cardiaco non spiega l'iperazotemia marcata né il prurito uremico; i reni sono piccoli.", d3:"La cirrosi darebbe ittero e alterazione dei test epatici; qui prevale il danno renale cronico.", d4:"L'ipotiroidismo non causa iperazotemia né reni piccoli e iperecogeni all'ecografia." },
+'case-096': { d2:"La disidratazione darebbe iponatriemia con segni di ipovolemia; qui il paziente è euvolemico.", d3:"L'ictus non spiega il sodio a 122; la confusione è una conseguenza dello squilibrio elettrolitico.", d4:"L'insufficienza surrenalica darebbe iperkaliemia e cortisolo basso; qui cortisolo normale e massa polmonare." },
+'case-097': { d2:"La miastenia dà affaticabilità fluttuante senza fascicolazioni né segni piramidali; qui presenti.", d3:"La SM ha lesioni demielinizzanti alla RM; qui EMG mostra denervazione diffusa del motoneurone.", d4:"L'ernia darebbe un deficit limitato a un solo territorio radicolare; qui coinvolgimento di più distretti." },
+'case-098': { d2:"Il lupus non causa sclerodattilia né fibrosi cutanea così marcata; gli anti-Scl70 sono specifici.", d3:"L'artrite reumatoide non spiega il Raynaud né la disfagia o la pelle tesa del volto.", d4:"La dermatomiosite ha debolezza muscolare e papule di Gottron, non la fibrosi cutanea della sclerodermia." },
+'case-099': { d2:"La tubercolosi non spiega la sinusite distruttiva né i c-ANCA positivi; la TC mostra noduli cavitati.", d3:"Il Churg-Strauss è associato ad asma grave ed eosinofilia marcata; qui assenti.", d4:"Il lupus ha ANA e anti-dsDNA positivi, non c-ANCA, e non dà tipicamente noduli polmonari cavitati." },
+'case-100': { d2:"L'appendicite darebbe dolore localizzato e non spiega l'ascite infetta (PMN > 250).", d3:"La pancreatite darebbe lipasi elevate e dolore a barra; qui quadro tipico di infezione del liquido ascitico.", d4:"Lo scompenso dà liquido trasudatizio con pochi leucociti; qui essudato infetto con neutrofili alti." }
 };
 
 /* ---------- ANAMNESI COERENTE PER CASO ----------
@@ -3692,7 +3962,7 @@ const ANAM_CASO = {
   apr_scatenante:"Sì: sono scivolata sul ghiaccio e sono caduta sulla mano aperta. È la destra, e sono destrimane.",
   sis_neuro:"Nessun mal di testa né capogiri, e non ho perso conoscenza; ho solo un po' di formicolio a pollice e indice, che passa muovendo le dita.",
   sis_muscolo:"Il polso è gonfio e dolente e anche un po' il gomito; altre articolazioni no.",
-  rem_croniche:"Mi hanno detto che ho le ossa fragili.", farm_abit:"Prendo calcio e vitamina D.",
+  rem_croniche:5, farm_abit:5,
   rem_traumi:"Nessuna altra frattura che io ricordi, a parte questo polso.",
   sis_ginec:"Sono in menopausa da quasi vent'anni, nessuna perdita.", sis_gravid:"No, sono in menopausa da quasi vent'anni."
 }, app:[] },
@@ -3749,7 +4019,7 @@ const ANAM_CASO = {
   sis_gen:"Sono stanchissimo, ho poca fame e qualche sudorazione notturna.",
   sis_cute:"Sì, dopo l'amoxicillina mi è venuta un'eruzione su tutto il corpo.",
   sis_nv:"Nausea no, ma deglutire fa male per la gola.",
-  epi_sess:"Sì, da poco ho una ragazza."
+  epi_sess:4
 }, app:[2,5] },
 'case-016': { ids: {
   apr_motivo:1, apr_precedenti:"Sì, è un problema che va e viene da mesi.",
@@ -3791,7 +4061,7 @@ const ANAM_CASO = {
   apr_modulazione:"Peggiora di notte e quando uso molto le mani; mi sveglio e scuoto la mano per stare meglio.",
   sis_neuro:"Formicolii e debolezza alla mano destra (pollice, indice e medio); niente mal di testa né disturbi della vista.",
   sis_muscolo:"A volte un fastidio al polso che sale verso l'avambraccio; il collo non mi fa male.",
-  sti_lavoro:3, rem_croniche:"Sono in cura per la tiroide.", farm_abit:"Prendo levotiroxina per la tiroide.",
+  sti_lavoro:3, rem_croniche:6, farm_abit:6,
   rem_traumi:"No, nessun trauma al polso, mai."
 }, app:[] },
 'case-019': { ids: {
@@ -3924,7 +4194,7 @@ const ANAM_CASO = {
 }, app:[] },
 'case-028': { ids: {
   sis_muscolo:"Il polpaccio sinistro è gonfio e dolente; altri dolori no.",
-  apr_motivo:1, rem_interventi:"Sì, protesi d'anca a sinistra due settimane fa.", sis_resp:4,
+  apr_motivo:1, rem_interventi:2, sis_resp:4,
   apr_esordio:"Tre giorni fa: la gamba sinistra ha iniziato a gonfiarsi e a fare male al polpaccio.",
   apr_evoluzione:"Il gonfiore e il dolore sono aumentati in questi giorni, e la gamba è calda.",
   apr_sede:"Al polpaccio sinistro; la gamba è gonfia e calda.",
@@ -3972,7 +4242,7 @@ const ANAM_CASO = {
   apr_sede:"In basso a destra e nella parte bassa della pancia; la spalla destra mi fa male quando mi sdraio.",
   apr_carattere:"Un dolore forte e costante, direi 8 su 10, con debolezza.",
   apr_modulazione:"Peggiora quando mi muovo; da sdraiata mi fa male la spalla destra.",
-  sis_gravid:"Sì, ieri ho fatto il test di gravidanza ed è positivo.",
+  sis_gravid:6,
   farm_abit:"Ho la spirale da due anni.", rem_infezioni:"A 22 anni ho avuto una clamidia.",
   sis_cardio:"Il cuore va veloce e mi sono sentita svenire; gonfiore alle gambe no.",
   sis_neuro:"Giramenti di testa e mi sono sentita svenire.",
@@ -4052,7 +4322,7 @@ const ANAM_CASO = {
   apr_modulazione:"La luce mi dà fastidio e muovere il collo peggiora; niente mi dà sollievo.",
   apr_scatenante:"Stavo sollevando la spesa.",
   sis_neuro:"Un mal di testa tremendo, collo rigido e luce che dà fastidio; ho avuto un momento di buio e la palpebra sinistra è caduta.",
-  rem_croniche:"Ho la pressione alta.", farm_abit:"Niente anticoagulanti."
+  rem_croniche:6, farm_abit:6
 }, app:[] },
 'case-038': { ids: {
   sis_gen:"Non ho appetito e mi sento debolissimo.", sis_muscolo:"Il collo è rigidissimo e fa molto male; dolori articolari no.",
@@ -4066,7 +4336,7 @@ const ANAM_CASO = {
   sis_resp:"Respiro un po' affannato per la febbre; tosse no.",
   sis_neuro:"Sì, un mal di testa fortissimo, il collo rigido, e sono confuso; la luce mi dà fastidio.",
   sti_vita:"Vivo in collegio con altri ragazzi.", epi_contatti:"Sì, un compagno è stato ricoverato ieri.",
-  rem_infezioni:"Qualche giorno fa un mal di gola; sui vaccini contro meningococco e pneumococco non ricordo, credo di no."
+  rem_infezioni:6
 }, app:[] },
 'case-039': { ids: {
   sis_psico:"Dormo male per i sudori notturni.",
@@ -4132,7 +4402,7 @@ const ANAM_CASO = {
   sis_gen:"Sì, sono sempre più stanca da mesi, ho perso 8 chili e mangio cibi molto salati.",
   sis_nv:"Sì, nausea e vomito da una settimana.",
   sis_cardio:"Il cuore batte veloce e mi gira la testa quando mi alzo; dolore al petto no.",
-  farm_abit:"Nessun farmaco regolare; cortisone mai."
+  farm_abit:5
 }, app:[4] },
 'case-044': { ids: {
   apr_motivo:1, apr_evoluzione:2, rem_croniche:5, fam_gen:6, fam_cv:6,
@@ -4245,7 +4515,7 @@ const ANAM_CASO = {
   rem_cardioresp:"No, nessun problema al cuore o ai polmoni che io sappia."
 }, app:[] },
 'case-052': { ids: {
-  apr_motivo:1, apr_modulazione:3, sis_alvo:2, sis_cute:4, sis_ginec:7, fam_gen:"Mia madre è celiaca.",
+  apr_motivo:1, apr_modulazione:3, sis_alvo:2, sis_cute:4, sis_ginec:7, fam_gen:5,
   apr_esordio:"Circa un anno fa, in modo graduale; non ricordo un giorno preciso.",
   apr_evoluzione:"È peggiorata col tempo: più diarrea, più gonfiore, e ho perso 6 chili.",
   apr_sede:"Crampi e gonfiore in tutta la pancia; non si irradiano.",
@@ -4318,7 +4588,7 @@ const ANAM_CASO = {
   sis_uro:"Urino spesso e in grande quantità; ieri la colica renale.",
   sis_neuro:"Dimentico le cose e mi sento svogliata; mal di testa no.",
   sis_muscolo:"Dolori alle ossa e alla schiena; debolezza ai muscoli delle cosce.",
-  rem_croniche:"Ho la pressione alta.", farm_abit:"Un antipertensivo; nessun integratore di calcio o vitamina D."
+  rem_croniche:5, farm_abit:5
 }, app:[] },
 'case-057': { ids: {
   apr_motivo:1, apr_esordio:2, apr_scatenante:4, sis_neuro:[3,7], rem_infezioni:4,
@@ -4339,7 +4609,7 @@ const ANAM_CASO = {
   apr_modulazione:"Peggiora al mattino e dopo essere stata ferma (rigidità per più di un'ora, anche due); muovendomi va un po' meglio.",
   sis_febbre:"Un po' di febbricola.", sis_gen:3, sis_neuro:4,
   sis_muscolo:"Dolore e rigidità a spalle e cosce, senza vera debolezza; articolazioni gonfie non evidenti.",
-  sis_psico:"Dormo male per il dolore.", rem_croniche:"Ho la pressione alta."
+  sis_psico:"Dormo male per il dolore.", rem_croniche:7
 }, app:[] },
 'case-059': { ids: {
   apr_motivo:1, apr_precedenti:2, farm_abit:6,
@@ -4395,7 +4665,7 @@ const ANAM_CASO = {
   sis_gen:"Sono stanca e ho preso 14 chili in un anno.",
   sis_cute:"Più peli sul viso, acne, smagliature viola e lividi facili.",
   sis_muscolo:"Faccio fatica ad alzarmi da una sedia; dolori alla schiena.",
-  rem_croniche:"Ho la pressione alta da pochi mesi e la glicemia alta.",
+  rem_croniche:6,
   sis_gravid:"No, non credo; il ciclo è irregolare da otto mesi, quasi assente."
 }, app:[] },
 'case-063': { ids: {
@@ -4445,7 +4715,7 @@ const ANAM_CASO = {
   sis_febbre:"Sì, febbre alta con brividi da ieri.",
   sis_alvo:"Feci chiare, come argilla.", sis_uro:"Urine scure come il tè.",
   sis_cardio:"Il cuore batte veloce; dolore al petto no.",
-  sis_gen:"Sono debolissimo e non ho appetito.", rem_croniche:"Ho la pressione alta."
+  sis_gen:"Sono debolissimo e non ho appetito.", rem_croniche:7
 }, app:[] },
 'case-067': { terza:true, ids: {
   apr_motivo:1, sti_alcol:2, apr_scatenante:5, fis_alim:3, rem_traumi:7,
@@ -4517,8 +4787,8 @@ const ANAM_CASO = {
   sis_febbre:"Sì, febbre intorno ai 38.",
   sis_resp:"Naso chiuso con muco giallo-verdastro e denso; non sento quasi più gli odori; tosse no.",
   sis_neuro:"Un mal di testa sordo sulla fronte; vista normale.",
-  rem_croniche:"Ho una rinite allergica e due sinusiti negli ultimi anni.",
-  farm_abit:"Nessuno regolare; da una settimana uno spray nasale decongestionante e paracetamolo.",
+  rem_croniche:5,
+  farm_abit:7,
   farm_allergie:"Rinite allergica in primavera; allergie ai farmaci no."
 }, app:[] },
 'case-073': { ids: {
@@ -4561,7 +4831,7 @@ const ANAM_CASO = {
   fis_attivita:"Corro regolarmente; oggi una lunga corsa."
 }, app:[] },
 'case-076': { ids: {
-  apr_motivo:1, apr_sede:5, apr_scatenante:3, sis_febbre:2, sis_alvo:4, farm_abit:"Solo la pillola anticoncezionale.",
+  apr_motivo:1, apr_sede:5, apr_scatenante:3, sis_febbre:2, sis_alvo:4, farm_abit:7,
   apr_esordio:"Quattro giorni fa, con nausea e stanchezza; l'ittero da ieri.",
   apr_evoluzione:"Sono sempre più stanca e da ieri sono ingiallita.",
   apr_carattere:"Nausea continua, stanchezza enorme e un fastidio sordo in alto a destra; 3 su 10.",
@@ -4570,7 +4840,7 @@ const ANAM_CASO = {
   sis_nv:"Nausea sì, vomito no; deglutisco bene.",
   sis_uro:"Le urine sono scure come il tè.",
   sis_cute:"Sì, sono ingiallita e ho un po' di prurito, soprattutto la sera.",
-  sti_alcol:"Pochissimo.", epi_viaggi:"No, nessun viaggio.", rem_infezioni:"Non sono vaccinata contro l'epatite.",
+  sti_alcol:"Pochissimo.", epi_viaggi:"No, nessun viaggio.", rem_infezioni:7,
   sis_gravid:"Non credo; prendo la pillola."
 }, app:[] },
 'case-077': { ids: {
@@ -4617,7 +4887,7 @@ const ANAM_CASO = {
   sis_cardio:"Gambe e caviglie gonfie; dolore al petto o palpitazioni no.",
   sis_gen:"Ho preso 8 chili in tre settimane per il gonfiore; sono un po' stanca.",
   sis_cute:"Il viso è gonfio e la pelle tesa; nessuna eruzione.",
-  farm_abit:"No, non prendo farmaci.", sis_gravid:"No, non credo."
+  farm_abit:4, sis_gravid:"No, non credo."
 }, app:[] },
 'case-080': { ids: {
   apr_motivo:1, apr_precedenti:7, sis_cardio:5, farm_abit:6,
@@ -4628,7 +4898,7 @@ const ANAM_CASO = {
   apr_modulazione:"Non è cambiato con niente: è passato da solo.",
   apr_scatenante:"No, ero a riposo; nessuno sforzo né trauma.",
   sis_neuro:"Prima debolezza al braccio destro e parola confusa per dieci minuti, e nel pomeriggio un buio all'occhio destro come una tendina; mal di testa no.",
-  sti_fumo:"Fumo 20 sigarette al giorno da 40 anni.", rem_croniche:"Pressione alta e colesterolo alto."
+  sti_fumo:"Fumo 20 sigarette al giorno da 40 anni.", rem_croniche:4
 }, app:[] },
 'case-081': { ids: {
   apr_motivo:1, sis_febbre:2, apr_precedenti:3, sis_gen:4, fam_gen:6,
@@ -4643,7 +4913,7 @@ const ANAM_CASO = {
   sis_cute:"Lividi senza motivo, puntini rossi sulle gambe, gengive che sanguinano e pallore.",
   sis_neuro:"Capogiri quando mi alzo; mal di testa no.",
   rem_infezioni:"Un mal di gola che non passa da due settimane.",
-  rem_croniche:"Tre mesi fa un'epatite acuta, guarita."
+  rem_croniche:3
 }, app:[] },
 'case-082': { ids: {
   apr_motivo:1, apr_evoluzione:2, apr_trattamenti:3, sis_cardio:4, sis_neuro:5, sis_muscolo:4, fam_gen:6, fam_cv:6,
@@ -4656,18 +4926,17 @@ const ANAM_CASO = {
   rem_croniche:"Ipertensione da sei anni.", farm_abit:3
 }, app:[] },
 'case-083': { ids: {
-  apr_motivo:1, apr_trattamenti:2, sti_alcol:4, sis_uro:5, rem_croniche:7,
+  apr_motivo:1, apr_trattamenti:2, sti_alcol:4, sis_uro:5, rem_croniche:7, farm_automed:2,
   apr_esordio:"Da ieri, dopo tre giorni di paracetamolo ad alte dosi.",
   apr_evoluzione:"È peggiorato: vomito, dolore, occhi gialli e confusione da stamattina.",
   apr_sede:"In alto a destra, sotto le costole; non si irradia.",
   apr_carattere:"Dolore sordo con nausea e stanchezza enorme; 5 su 10.",
   apr_modulazione:"Non cambia con niente; il cibo mi dà nausea.",
-  apr_scatenante:"Sì, il paracetamolo da 1000 mg ogni 3-4 ore per tre giorni, forse 8-9 grammi al giorno, più delle bustine per l'influenza.",
+  apr_scatenante:[2,3],
   sis_febbre:"Un po' di febbricola per l'influenza.",
   sis_gen:"Sono stanchissima e senza appetito.", sis_nv:"Sì, nausea e vomito da ieri.",
   sis_cute:"Sì, un po' di giallo negli occhi e qualche livido.",
   sis_neuro:"Un po' di confusione; mal di testa no.",
-  farm_automed:"Paracetamolo 1000 mg ogni 3-4 ore per tre giorni e bustine per l'influenza.",
   sis_gravid:"Non credo."
 }, app:[] },
 'case-084': { ids: {
@@ -4695,9 +4964,24 @@ const ANAM_CASO = {
   sis_resp:"Sì, tosse secca persistente e fiato corto da sforzo; catarro e sangue no.",
   sis_cardio:"Il fiato corto sì; dolore al petto no; le gambe non sono gonfie.",
   sis_cute:"Le punte delle dita sono diventate più arrotondate da qualche mese.",
-  sti_fumo:"Sono ex fumatore (30 pacchetti/anno).", sti_lavoro:"Lavoro in ufficio; nessuna esposizione particolare.",
-  farm_abit:"Nessun farmaco regolare; non prendo amiodarone né nitrofurantoina."
-}, app:[] }
+  sti_fumo:4, sti_lavoro:4,
+  farm_abit:4
+}, app:[] },
+'case-086': { ids: { apr_motivo:1, apr_esordio:"Da circa un anno, peggiorando negli ultimi mesi.", apr_carattere:"Faccio fatica a iniziare a urinare, il getto è debole e devo alzarmi 3-4 volte a notte.", sis_uro:"Getto debole, nicturia e senso di svuotamento incompleto.", rem_croniche:"Ipertensione.", farm_abit:"Un farmaco per la pressione." }, app:[] },
+'case-087': { ids: { apr_motivo:1, apr_esordio:"Da un paio d'anni, peggiorato nell'ultimo inverno.", apr_carattere:"Dolore sordo al ginocchio quando cammino, che passa se mi riposo.", apr_modulazione:"Peggiora scendendo le scale e camminando a lungo; al mattino sono un po' rigida per 10-15 minuti.", sis_muscolo:"Solo le ginocchia, soprattutto il destro.", rem_traumi:"Una vecchia lesione al menisco da giovane." }, app:[] },
+'case-088': { ids: { apr_motivo:1, apr_esordio:"Da alcuni mesi, mi sento sempre più stanco.", sis_gen:"Molta stanchezza e fiato corto se cammino veloce.", sis_neuro:"Formicolii ai piedi e alle mani, e mi sento un po' instabile camminando.", sis_nv:"La lingua mi brucia spesso.", fis_alim:"Sono vegano da molti anni.", rem_croniche:"Nessuna nota." }, app:[] },
+'case-089': { ids: { apr_motivo:1, apr_esordio:"Da cinque giorni, dopo un raffreddore.", apr_carattere:"Tosse che prima era secca e ora è con catarro giallo.", sis_febbre:"Solo un po' di febbricola il primo giorno.", sis_resp:"Tosse produttiva; non mi manca il fiato a riposo.", sis_nv:"No, niente." }, app:[] },
+'case-090': { ids: { apr_motivo:1, apr_esordio:"Da ieri, ma ne soffro spesso nei periodi di lavoro intenso.", apr_carattere:"Un peso che stringe tutta la testa, come un casco.", apr_modulazione:"Lo stress lo peggiora; non ho nausea né fastidio alla luce.", sis_neuro:"Solo il mal di testa; vedo bene e non ho vertigini.", sti_lavoro:"Lavoro molto al computer, sono spesso sotto stress." }, app:[] },
+'case-091': { ids: { apr_motivo:1, apr_esordio:"Da due settimane, con scariche sempre più frequenti.", sis_alvo:"Diarrea con sangue e muco, circa 6-8 volte al giorno, con urgenza.", sis_gen:"Mi sento debole e ho perso 3 chili.", sis_febbre:"Qualche linea di febbre la sera.", rem_croniche:"Nessuna nota." }, app:[] },
+'case-092': { ids: { apr_motivo:1, apr_esordio:"Dall'adolescenza, ma ora l'acne è peggiorata.", sis_ginec:"Cicli molto lunghi, a volte salto 2-3 mesi.", sis_cute:"Acne sul viso e sulla schiena, e peli dove non dovrebbero esserci.", sis_gen:"Faccio fatica a mantenere il peso forma.", fam_gen:"Mia sorella ha problemi simili." }, app:[] },
+'case-093': { ids: { apr_motivo:1, apr_esordio:"Da circa sei mesi, ho notato che la mano destra trema.", apr_carattere:"Un tremore che compare quando sono fermo; mi sento anche più lento nei movimenti.", sis_neuro:"Tremore a riposo, lentezza nel camminare e scrittura diventata piccola.", sis_psico:"Un po' di umore basso.", rem_croniche:"Nessuna nota." }, app:[] },
+'case-094': { ids: { apr_motivo:1, apr_esordio:"Da alcuni mesi, mi manca il fiato se cammino in salita.", sis_cardio:"Fiato corto sotto sforzo; una volta mi è girata forte la testa e sono quasi svenuto.", sis_resp:"Affanno quando faccio le scale.", rem_croniche:"Ipertensione e colesterolo.", farm_abit:"Pasticche per pressione e colesterolo." }, app:[] },
+'case-095': { ids: { apr_motivo:1, apr_esordio:"Da mesi, ma nell'ultimo mese la stanchezza è aumentata.", sis_gen:"Stanchezza, poco appetito e prurito diffuso.", sis_cardio:"Caviglie gonfie la sera.", rem_croniche:"Diabete di tipo 2 da 15 anni e pressione alta.", farm_abit:"Insulina e farmaci per la pressione." }, app:[] },
+'case-096': { ids: { apr_motivo:1, apr_esordio:"Da tre giorni, mi sento strano e ho nausea.", sis_neuro:"Confusione, faccio fatica a concentrarmi.", sis_nv:"Nausea continua, non ho vomitato.", sti_fumo:"Fumo da sempre, due pacchetti al giorno.", rem_croniche:"Tosse cronica del fumatore." }, app:[] },
+'case-097': { ids: { apr_motivo:1, apr_esordio:"Da sei mesi, ho iniziato a inciampare e a sentire la gamba debole.", apr_evoluzione:"La debolezza è aumentata e ora anche la mano sinistra è debole.", sis_neuro:"Debolezza ai muscoli, crampi e piccoli scatti sotto la pelle (fascicolazioni).", sis_resp:"A volte sento il respiro un po' più faticoso.", rem_croniche:"Nessuna nota." }, app:[] },
+'case-098': { ids: { apr_motivo:1, apr_esordio:"Da un anno le mani cambiano colore; da mesi la pelle è tesa.", sis_cute:"Pelle delle dita dura e lucida, non riesco a chiudere bene il pugno.", sis_nv:"Faccio fatica a mandare giù i bocconi secchi.", sis_cardio:"Le dita diventano bianche e poi viola col freddo.", rem_croniche:"Nessuna nota." }, app:[] },
+'case-099': { ids: { apr_motivo:1, apr_esordio:"Da due mesi, pensavo fosse una sinusite che non passava.", sis_resp:"Tosse con qualche traccia di sangue e naso sempre chiuso con croste.", sis_uro:"Urine un po' scure.", sis_febbre:"Febbricola persistente.", sis_gen:"Ho perso 4 chili." }, app:[] },
+'case-100': { ids: { apr_motivo:1, apr_esordio:"Da ieri sera, con dolore alla pancia e febbre.", sis_febbre:"Sì, febbre a 38.5 con brividi.", sis_neuro:"Mi sento più confuso del solito.", rem_croniche:"Cirrosi epatica nota.", sis_gen:"Molta debolezza." }, app:[] }
 };
 /* Defaults in terza persona (risponde un familiare, es. case-029) */
 const DEF3 = {
@@ -4911,7 +5195,7 @@ function renderLibrary() {
           <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-600/30">${icon('stethoscope','w-5 h-5')}</div>
           <div><h1 class="text-xl font-extrabold tracking-tight leading-none">KONAN</h1><p class="text-[11px] text-slate-500 leading-tight mt-1">Simulatore di casi clinici</p></div>
         </div>
-              </div>
+      </div>
       ${ui.vista === 'lista' ? `<div class="mt-3 flex flex-col gap-2 md:flex-row">
         <div class="relative flex-1">
           <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">${icon('search','w-4 h-4')}</span>
@@ -5459,8 +5743,8 @@ function htmlLab() {
       <div class="mt-2 flex items-center justify-between text-xs text-emerald-700 font-semibold">${icon('check-circle-2','w-4 h-4')}<span class="flex-1 ml-1.5">Richiesto</span><span class="text-slate-500 font-medium">−${e.costo} pt</span></div></article>`;
   };
   return `<p class="text-xs text-slate-500 mb-3">Richiedi i pannelli pertinenti: ogni pannello mostra tutti i parametri della categoria con valore, unità e intervallo di riferimento.</p>
-    <div class="grid gap-3 sm:grid-cols-2">${pan.map(card).join('')}</div>
-    ${spec.length ? `<h4 class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mt-5 mb-2">Test specifici e microbiologia</h4><div class="grid gap-3 sm:grid-cols-2">${spec.map(card).join('')}</div>` : ''}`;
+    <div class="grid gap-3 sm:grid-cols-2 items-start">${pan.map(card).join('')}</div>
+    ${spec.length ? `<h4 class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mt-5 mb-2">Test specifici e microbiologia</h4><div class="grid gap-3 sm:grid-cols-2 items-start">${spec.map(card).join('')}</div>` : ''}`;
 }
 
 function htmlReferto(e) {
@@ -5483,22 +5767,16 @@ function htmlReferto(e) {
 function htmlStr() {
   const lista = G.caso.esami.strumentali;
   if (!lista.length) return `<p class="text-slate-500 text-sm">Nessun esame strumentale disponibile.</p>`;
-  return `<div class="space-y-3">${lista.map(e => {
+  return `<div class="grid gap-3 sm:grid-cols-2 items-start">${lista.map(e => {
     const p = G.prescritti.includes(e.id);
-    return `<article class="bg-white border ${p ? 'border-blue-200' : 'border-slate-200'} rounded-2xl p-4 shadow-sm">
-      <div class="flex items-start justify-between gap-3">
-        <div class="flex items-start gap-3 min-w-0">
-          <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center flex-none">${icon('scan-line','w-5 h-5')}</div>
-          <div class="min-w-0"><h4 class="font-bold text-sm leading-snug">${esc(e.nome)}</h4><p class="text-xs text-slate-500 mt-0.5">${esc(e.desc)}</p></div>
-        </div>
-        <span class="badge bg-slate-100 text-slate-700 flex-none">${icon('coins','w-3 h-3')} −${e.costo} pt</span>
-      </div>
-      ${p ? `${htmlReferto(e)}
-        <div class="mt-3 flex flex-col sm:flex-row gap-2">
-          ${e.haImmagine && /^ecg/.test(tipoImmagine(e)) ? `<button class="btn btn-primary" data-action="apri-immagine" data-id="${esc(e.id)}">${icon('image','w-4 h-4')} Visualizza Tracciato</button>` : ''}
-          <span class="btn btn-done">${icon('check-circle-2','w-4 h-4')} Prescritto</span>
-        </div>`
-      : `<button class="btn btn-primary mt-3 w-full" data-action="prescrivi" data-id="${esc(e.id)}">${icon('file-plus-2','w-4 h-4')} Prescrivi</button>`}
+    if (!p) return `<article class="border-2 border-dashed border-slate-300 rounded-2xl p-4 bg-slate-50 flex items-center justify-between gap-3 flex-wrap">
+      <div class="min-w-0 flex-1"><h4 class="font-bold text-sm leading-snug">${esc(e.nome)}</h4><p class="text-xs text-slate-500 mt-0.5">${esc(e.desc)}</p></div>
+      <span class="badge bg-slate-200 text-slate-700 flex-none">${icon('coins','w-3 h-3')} −${e.costo} pt</span>
+      <button class="btn btn-primary btn-sm flex-none" data-action="prescrivi" data-id="${esc(e.id)}">${icon('file-plus-2','w-4 h-4')} Prescrivi</button></article>`;
+    return `<article class="bg-white border border-blue-200 rounded-2xl p-4 shadow-sm">
+      ${htmlReferto(e)}
+      ${e.haImmagine && /^ecg/.test(tipoImmagine(e)) ? `<div class="mt-3"><button class="btn btn-primary" data-action="apri-immagine" data-id="${esc(e.id)}">${icon('image','w-4 h-4')} Visualizza Tracciato</button></div>` : ''}
+      <div class="mt-2 flex items-center justify-between text-xs text-emerald-700 font-semibold">${icon('check-circle-2','w-4 h-4')}<span class="flex-1 ml-1.5">Prescritto</span><span class="text-slate-500 font-medium">−${e.costo} pt</span></div>
     </article>`;
   }).join('')}</div>`;
 }

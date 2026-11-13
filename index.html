@@ -6615,9 +6615,22 @@ AZIONI['reset-filtri'] = () => { ui = { search:'', spec:'', diff:'', stato:'', v
 AZIONI['apri-categoria'] = d => { ui = { search:'', spec:'', diff:d.diff || '', stato:'', vista:'lista' }; renderLibrary(); };
 AZIONI['vai-home'] = () => { ui = { search:'', spec:'', diff:'', stato:'', vista:'' }; renderLibrary(); };
 AZIONI['torna-libreria'] = () => {
-  if (G && !G.finito && (G.prescritti.length || G.poste.size || G.esaminati.size) && !confirm('Vuoi uscire dal caso? I progressi della sessione andranno persi.')) return;
+  if (G && !G.finito && (G.prescritti.length || G.poste.size || G.esaminati.size)) {
+    apriModal(`<div class="modal-card" style="max-width:26rem">
+      <div class="px-5 pt-5 pb-3">
+        <div class="flex items-center gap-2 text-blue-600 font-extrabold text-lg">${icon('help-circle','w-5 h-5')} Vuoi uscire dal caso?</div>
+        <p class="text-sm text-slate-600 mt-2">I progressi della sessione attuale andranno persi. Potrai comunque ricominciare il caso in qualsiasi momento.</p>
+      </div>
+      <div class="px-5 pb-5 flex gap-2">
+        <button class="btn btn-outline flex-1" data-action="chiudi-modal">Annulla</button>
+        <button class="btn btn-primary flex-1" data-action="conferma-uscita">Sì, esci</button>
+      </div>
+    </div>`);
+    return;
+  }
   renderLibrary();
 };
+AZIONI['conferma-uscita'] = () => { chiudiModal(); renderLibrary(); };
 AZIONI['tab'] = d => { chiudiDrawer(); setTab(d.tab); };
 AZIONI['sub'] = d => { G.sub = d.sub; renderTab(); };
 AZIONI['apri-drawer'] = () => { const d = $('#drawer'); if (d) { d.classList.add('open'); setTimeout(() => { const i = $('#search-domande'); if (i && window.innerWidth > 640) i.focus(); }, 320); } };
@@ -6830,4 +6843,3 @@ renderLibrary();
 </script>
 </body>
 </html>
-

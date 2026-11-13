@@ -7,6 +7,9 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Cpath d='M10 8v5a5 5 0 0 0 10 0V8M8 8h4M18 8h4M15 18v3a4 4 0 0 0 8 0v-3' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Ccircle cx='23' cy='16' r='2' fill='white'/%3E%3C/svg%3E">
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
+<script>
+(function(){try{var t=localStorage.getItem('konan-tema');if(!t)t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';if(t==='dark')document.documentElement.classList.add('dark');}catch(e){}})();
+</script>
 <style>
   html{scroll-behavior:smooth}
   body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#f8fafc;color:#0f172a;-webkit-tap-highlight-color:transparent}
@@ -96,6 +99,102 @@
   .toast{background:#0f172a;color:#fff;font-size:.85rem;font-weight:500;padding:.6rem 1rem;border-radius:9999px;box-shadow:0 10px 25px rgba(15,23,42,.35);animation:pop .25s ease-out;transition:opacity .3s,transform .3s}
   .toast.out{opacity:0;transform:translateY(8px)}
   .fade-in{animation:fade .25s ease-out}
+
+  /* ===== Modalità scura ===== */
+  html.dark{color-scheme:dark}
+  html.dark body{background:#0b1220;color:#e2e8f0}
+  html.dark .bg-white{background-color:#131c31}
+  html.dark .bg-slate-50{background-color:#1a2438}
+  html.dark .bg-slate-100{background-color:#1e293b}
+  html.dark .bg-slate-200{background-color:#334155}
+  html.dark .bg-slate-300{background-color:#475569}
+  html.dark .bg-slate-900{background-color:#020617}
+  html.dark .bg-blue-50{background-color:rgba(37,99,235,.14)}
+  html.dark .bg-blue-100{background-color:rgba(37,99,235,.24)}
+  html.dark .bg-amber-50{background-color:rgba(245,158,11,.12)}
+  html.dark .bg-amber-100{background-color:rgba(245,158,11,.22)}
+  html.dark .bg-emerald-50{background-color:rgba(16,185,129,.12)}
+  html.dark .bg-emerald-100{background-color:rgba(16,185,129,.22)}
+  html.dark .bg-orange-50{background-color:rgba(249,115,22,.12)}
+  html.dark .bg-orange-100{background-color:rgba(249,115,22,.22)}
+  html.dark .bg-pink-100{background-color:rgba(236,72,153,.22)}
+  html.dark .bg-red-50{background-color:rgba(239,68,68,.12)}
+  html.dark .bg-red-100{background-color:rgba(239,68,68,.22)}
+  html.dark .bg-sky-100{background-color:rgba(14,165,233,.22)}
+  html.dark .bg-violet-50{background-color:rgba(139,92,246,.14)}
+  html.dark .bg-white\/95{background-color:rgba(11,18,32,.92)}
+  html.dark .bg-slate-200\/70{background-color:rgba(51,65,85,.7)}
+  html.dark .bg-orange-50\/60{background-color:rgba(249,115,22,.1)}
+  html.dark .bg-red-50\/40{background-color:rgba(239,68,68,.09)}
+  html.dark .border-slate-100{border-color:#1e293b}
+  html.dark .border-slate-200{border-color:#2a364d}
+  html.dark .border-slate-300{border-color:#3b4a63}
+  html.dark .border-blue-100{border-color:rgba(59,130,246,.25)}
+  html.dark .border-blue-200{border-color:rgba(59,130,246,.4)}
+  html.dark .border-amber-100{border-color:rgba(245,158,11,.25)}
+  html.dark .border-amber-200{border-color:rgba(245,158,11,.4)}
+  html.dark .border-emerald-200{border-color:rgba(16,185,129,.4)}
+  html.dark .border-emerald-300{border-color:rgba(16,185,129,.5)}
+  html.dark .border-orange-200{border-color:rgba(249,115,22,.4)}
+  html.dark .border-red-200{border-color:rgba(239,68,68,.4)}
+  html.dark .border-violet-200{border-color:rgba(139,92,246,.4)}
+  html.dark .text-slate-900{color:#f1f5f9}
+  html.dark .text-slate-800{color:#e2e8f0}
+  html.dark .text-slate-700{color:#cbd5e1}
+  html.dark .text-slate-600{color:#b4c0d2}
+  html.dark .text-slate-500{color:#94a3b8}
+  html.dark .text-slate-400{color:#7d8ca6}
+  html.dark .text-blue-600{color:#60a5fa}
+  html.dark .text-blue-700{color:#93c5fd}
+  html.dark .text-emerald-500{color:#34d399}
+  html.dark .text-emerald-600{color:#34d399}
+  html.dark .text-emerald-700{color:#6ee7b7}
+  html.dark .text-amber-500{color:#fbbf24}
+  html.dark .text-amber-600{color:#fbbf24}
+  html.dark .text-amber-700{color:#fcd34d}
+  html.dark .text-amber-800{color:#fde68a}
+  html.dark .text-orange-600{color:#fb923c}
+  html.dark .text-orange-700{color:#fdba74}
+  html.dark .text-orange-800{color:#fed7aa}
+  html.dark .text-pink-600{color:#f472b6}
+  html.dark .text-red-600{color:#f87171}
+  html.dark .text-red-700{color:#fca5a5}
+  html.dark .text-sky-600{color:#38bdf8}
+  html.dark .text-violet-700{color:#c4b5fd}
+  html.dark .hover\:bg-slate-100:hover{background-color:#1e293b}
+  html.dark .hover\:bg-red-50:hover{background-color:rgba(239,68,68,.16)}
+  html.dark .hover\:border-blue-300:hover{border-color:#3b82f6}
+  html.dark .hover\:text-slate-900:hover{color:#f8fafc}
+  html.dark .scroll-thin::-webkit-scrollbar-thumb{background:#475569}
+  html.dark .btn-outline{background:#1a2438;color:#e2e8f0;border-color:#3b4a63}
+  html.dark .btn-outline:hover{background:#243049}
+  html.dark .btn-primary:disabled{background:#334155;color:#94a3b8}
+  html.dark .btn-icon{background:#1a2438;color:#cbd5e1;border-color:#2a364d}
+  html.dark .btn-icon:hover{background:#243049}
+  html.dark .btn-done{background:rgba(16,185,129,.15);color:#6ee7b7;border-color:rgba(16,185,129,.4)}
+  html.dark .tag{background:rgba(37,99,235,.22);color:#93c5fd}
+  html.dark .field,html.dark .select{background:#0f172a;color:#e2e8f0;border-color:#3b4a63}
+  html.dark .field::placeholder{color:#64748b}
+  html.dark .card-caso:hover{border-color:#3b82f6;box-shadow:0 12px 28px -12px rgba(0,0,0,.6)}
+  html.dark .bubble-pz,html.dark .typing{background:#1a2438;color:#e2e8f0;border-color:#2a364d;box-shadow:none}
+  html.dark .drawer-sheet,html.dark .modal-card{background:#131c31;color:#e2e8f0}
+  html.dark .q-item,html.dark .dx-opt{background:#1a2438;border-color:#2a364d;color:#e2e8f0}
+  html.dark .q-item:hover:not(:disabled),html.dark .dx-opt:hover{background:#1e2c4a;border-color:#3b82f6}
+  html.dark .q-item:disabled{background:#131c31;color:#64748b}
+  html.dark .dx-opt.sel{background:rgba(37,99,235,.22);border-color:#3b82f6}
+  html.dark .hotspot{border-color:#131c31}
+  html.dark .referto{background:#1a2438;color:#e2e8f0;border-color:#3b4a63;border-top-color:#3b82f6;box-shadow:none}
+  html.dark .toast{background:#e2e8f0;color:#0f172a}
+  html.dark .guide-card{background:#1a2438;color:#e2e8f0;border-color:#3b4a63}
+  html.dark .guide-card::before{background:#1a2438;border-color:#3b4a63}
+  html.dark .body-map svg [fill="#eff6ff"]{fill:#1e2c4a;stroke:#1e2c4a}
+  html.dark .body-map svg [fill="#93c5fd"]{fill:#3b82f6;stroke:#3b82f6}
+  html.dark .body-map svg ellipse[fill="#e2e8f0"]{fill:#0b1220}
+  html.dark .body-map svg [stroke="#bfdbfe"]{stroke:#3b5a94}
+  html.dark .body-map svg circle[fill="#bfdbfe"]{fill:#3b5a94}
+  .tema-ico-sun{display:none}
+  html.dark .tema-ico-sun{display:inline-flex}
+  html.dark .tema-ico-moon{display:none}
 
   /* Guida Interattiva */
   .guide-overlay{position:fixed;inset:0;z-index:100;pointer-events:auto;touch-action:none;overscroll-behavior:contain;transition:background .3s}
@@ -4134,6 +4233,7 @@ const CASI_CLINICI = [
 const $ = (s, r = document) => r.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
 const icon = (n, cls = 'w-4 h-4') => `<i data-lucide="${n}" class="${cls}"></i>`;
+const btnTema = () => `<button class="btn-icon" data-action="tema" aria-label="Cambia tema chiaro/scuro" title="Tema chiaro / scuro"><span class="tema-ico-moon inline-flex">${icon('moon','w-5 h-5')}</span><span class="tema-ico-sun">${icon('sun','w-5 h-5')}</span></button>`;
 const refreshIcons = () => { if (window.lucide) window.lucide.createIcons(); };
 const shuffle = a => { const r = [...a]; for (let i = r.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [r[i], r[j]] = [r[j], r[i]]; } return r; };
 const fmt = n => n > 0 ? `+${n}` : n < 0 ? `−${Math.abs(n)}` : '0';
@@ -5832,7 +5932,7 @@ function renderLibrary() {
           <div data-action="egg-icon" class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-600/30">${icon('stethoscope','w-5 h-5')}</div>
           <div><h1 class="text-xl font-extrabold tracking-tight leading-none cursor-default"><span data-action="egg-letter" data-char="K">K</span><span data-action="egg-letter" data-char="O">O</span><span data-action="egg-letter" data-char="N">N</span><span data-action="egg-letter" data-char="A">A</span><span data-action="egg-letter" data-char="N">N</span></h1><p class="text-[11px] text-slate-500 leading-tight mt-1">Simulatore di casi clinici</p></div>
         </div>
-        <button class="btn btn-outline btn-sm border-blue-200 text-blue-600" data-action="avvia-guida">${icon('help-circle','w-4 h-4')} Guida</button>
+        <div class="flex items-center gap-2">${btnTema()}<button class="btn btn-outline btn-sm border-blue-200 text-blue-600" data-action="avvia-guida">${icon('help-circle','w-4 h-4')} Guida</button></div>
       </div>
       ${ui.vista === 'lista' ? `<div class="mt-3 flex flex-col gap-2 md:flex-row">
         <div class="relative flex-1">
@@ -6156,6 +6256,7 @@ function renderGame() {
           <div class="flex items-center gap-2 text-[11px] uppercase tracking-wide text-slate-500 font-semibold">${esc(c.id)} <span class="badge border ${diffClass(c.difficolta)}">${esc(c.difficolta)}</span></div>
           <h2 class="text-sm sm:text-base font-bold truncate">${esc(c.titolo)}</h2>
         </div>
+        ${btnTema()}
         <div id="budget"></div>
       </div>
       <div id="stepper"></div>
@@ -6779,6 +6880,10 @@ document.addEventListener('keydown', e => {
 }, true);
 
 /* ---------- Azioni ---------- */
+AZIONI['tema'] = () => {
+  const dark = document.documentElement.classList.toggle('dark');
+  try { localStorage.setItem('konan-tema', dark ? 'dark' : 'light'); } catch (e) {}
+};
 AZIONI['avvia-guida'] = () => { guidaStep = 0; guidaMostra(); };
 AZIONI['prossimo-guida'] = () => { if (guidaStep >= GUIDA_STEPS.length - 1) { chiudiGuida(); return; } guidaStep++; guidaMostra(); };
 AZIONI['indietro-guida'] = () => { if (guidaStep > 0) { guidaStep--; guidaMostra(); } };

@@ -3544,6 +3544,567 @@ const CASI_CLINICI = [
   esami: { laboratorio: [L("Esame liquido ascitico", "Paracentesi", 4, "Linfociti 100/mm³; Neutrofili (PMN) 450/mm³; Coltura in corso", "PMN < 250", 1, 1), L("Proteina C Reattiva", "Flogosi", 2, "8.5 mg/dL", "< 0.5", 1, 0)], strumentali: [S("Ecografia addome", "Ecografia", 8, 1, "eco", "Dolore addominale in cirrotico", "Fegato cirrotico; ascite abbondante con fini echi interni. Non segni di colecistite né appendicite.")] },
   diagnosiDifferenziale: DX("Peritonite batterica spontanea", "Appendicite acuta", "Pancreatite acuta", "Scompenso cardiaco destro"),
   spiegazioneClinica: "In un paziente cirrotico con ascite, la comparsa di febbre e dolore addominale impone la paracentesi: un numero di neutrofili > 250/mm³ nel liquido ascitico è diagnostico per PBS."
+},
+{
+  id: "case-101",
+  titolo: "Febbre e dolore perineale nell'uomo",
+  descrizioneBreve: "Uomo di 42 anni con febbre alta, brividi, dolore profondo tra retto e scroto e bruciore intenso alla minzione.",
+  difficolta: "Facile",
+  specialita: "Urologia",
+  schedaPaziente: { nome: "Marco Galli", eta: 42, sesso: "M", motivo: "Febbre e disuria", parametriVitali: { PA: "125/80 mmHg", FC: "92 bpm", Temp: "38.8 °C", SpO2: "99%", FR: "16 atti/min" } },
+  anamnesi: Q(["Cosa sente esattamente?", "Ho un dolore forte 'lì sotto', tra lo scroto e l'ano, e brucio tantissimo quando faccio pipì."], ["Ha avuto brividi?", "Sì, stanotte brividi scuotenti."]),
+  esameObiettivo: EO({ renale: [["Esplorazione rettale", "Prostata aumentata di volume, tesa e squisitamente dolente alla palpazione", 0]] }),
+  esami: { laboratorio: [L("Emocromo", "Leucocitosi", 2, "WBC 14.500 /µL", "4.000-11.000", 1, 1), L("Esame Urine", "Infezione", 2, "Leucociti +++, Nitriti positivi", "Negativo", 1, 1)], strumentali: [S("Ecografia prostatica", "Valutazione", 8, 0, "eco", "Dolore pelvico", "Prostata edematosa, iperemica al Doppler. Non ascessi.")] },
+  diagnosiDifferenziale: DX("Prostatite batterica acuta", "Cistite acuta", "Ipertrofia prostatica benigna", "Prostatodinia"),
+  spiegazioneClinica: "Febbre alta, brividi e dolore perineale con prostata dolente all'esplorazione rettale sono segni classici di prostatite batterica acuta. Richiede terapia antibiotica prolungata."
+},
+{
+  id: "case-102",
+  titolo: "Gonfiore e diarrea dopo la colazione",
+  descrizioneBreve: "Ragazza di 24 anni con crampi addominali, meteorismo e scariche diarroiche che compaiono circa un'ora dopo aver bevuto latte.",
+  difficolta: "Facile",
+  specialita: "Gastroenterologia",
+  schedaPaziente: { nome: "Elena Sala", eta: 24, sesso: "F", motivo: "Gonfiore e diarrea", parametriVitali: { PA: "110/70 mmHg", FC: "72 bpm", Temp: "36.5 °C", SpO2: "99%", FR: "14 atti/min" } },
+  anamnesi: Q(["Quando compaiono i sintomi?", "Quasi sempre dopo colazione, se bevo il latte o mangio il cappuccino."], ["Ha perso peso?", "No, il peso è stabile."]),
+  esameObiettivo: EO({ addome: [["Ispezione", "Addome globoso per meteorismo", 0], ["Percussione", "Ipertimpanismo diffuso", 0]] }),
+  esami: { laboratorio: [L("H2-Breath Test al Lattosio", "Test specifico", 4, "Picco di idrogeno > 20 ppm rispetto al basale", "< 20 ppm", 1, 1)], strumentali: [] },
+  diagnosiDifferenziale: DX("Intolleranza al lattosio", "Sindrome dell'intestino irritabile", "Celiachia", "Malattia di Crohn"),
+  spiegazioneClinica: "La correlazione temporale con l'assunzione di latticini e il Breath Test positivo confermano il deficit di lattasi. La gestione prevede la dieta di esclusione o l'uso di enzimi sostitutivi."
+},
+{
+  id: "case-103",
+  titolo: "Prurito e rossore al polso",
+  descrizioneBreve: "Uomo di 30 anni con un'eruzione cutanea arrossata e molto pruriginosa localizzata esattamente sotto il cinturino di un nuovo orologio.",
+  difficolta: "Facile",
+  specialita: "Dermatologia",
+  schedaPaziente: { nome: "Roberto Fabbri", eta: 30, sesso: "M", motivo: "Eruzione cutanea al polso", parametriVitali: { PA: "120/80 mmHg", FC: "70 bpm", Temp: "36.6 °C", SpO2: "99%", FR: "12 atti/min" } },
+  anamnesi: Q(["Quando è comparsa?", "Due giorni dopo aver iniziato a portare questo nuovo orologio in metallo."], ["Prude?", "Sì, moltissimo."]),
+  esameObiettivo: EO({ cute: [["Ispezione", "Area eritematosa, edematosa con piccole vescicole, limitata alla zona di contatto col metallo", 0]] }),
+  esami: { laboratorio: [L("Patch Test", "Allergologia", 4, "Positività per Nichel solfato (++)", "Negativo", 1, 1)], strumentali: [] },
+  diagnosiDifferenziale: DX("Dermatite allergica da contatto (Nichel)", "Psoriasi", "Scabbia", "Dermatite atopica"),
+  spiegazioneClinica: "La localizzazione precisa e la storia di esposizione a un nuovo oggetto metallico suggeriscono una DAC. Il Patch Test conferma la sensibilizzazione al Nichel."
+},
+{
+  id: "case-104",
+  titolo: "Mal di gola e tosse secca",
+  descrizioneBreve: "Studente di 21 anni con gola irritata, naso che cola e tosse secca da due giorni; non ha febbre.",
+  difficolta: "Facile",
+  specialita: "Otorinolaringoiatria",
+  schedaPaziente: { nome: "Alessio Riva", eta: 21, sesso: "M", motivo: "Mal di gola", parametriVitali: { PA: "115/75 mmHg", FC: "74 bpm", Temp: "37.1 °C", SpO2: "99%", FR: "16 atti/min" } },
+  anamnesi: Q(["Ha febbre?", "No, solo un po' di spossatezza."], ["Ha tosse?", "Sì, secca e fastidiosa."]),
+  esameObiettivo: EO({ collo: [["Orofaringe", "Mucosa faringea iperemica, tonsille normotrofiche senza essudato", 1], ["Linfonodi", "Piccole adenopatie sottomandibolari mobili, poco dolenti", 1]] }),
+  esami: { laboratorio: [L("Test rapido Streptococco", "Microbiologia", 3, "Negativo", "Negativo", 0, 1)], strumentali: [] },
+  diagnosiDifferenziale: DX("Faringite virale", "Faringotonsillite streptococcica", "Mononucleosi infettiva", "Reflusso faringo-laringeo"),
+  spiegazioneClinica: "L'assenza di febbre alta e di essudato, associata a sintomi virali (tosse, rinite), orienta verso una forma virale. Il test rapido negativo per Streptococco conferma l'inutilità dell'antibiotico."
+},
+{
+  id: "case-105",
+  titolo: "Senso di peso allo scroto",
+  descrizioneBreve: "Ragazzo di 19 anni che avverte un senso di peso e fastidio al testicolo sinistro, specialmente dopo essere stato a lungo in piedi.",
+  difficolta: "Facile",
+  specialita: "Urologia",
+  schedaPaziente: { nome: "Federico Bruno", eta: 19, sesso: "M", motivo: "Fastidio scrotale", parametriVitali: { PA: "120/70 mmHg", FC: "68 bpm", Temp: "36.6 °C", SpO2: "99%", FR: "14 atti/min" } },
+  anamnesi: Q(["Quando sente il peso?", "Soprattutto la sera, dopo aver camminato molto o fatto sport."], ["Il dolore è forte?", "No, è più un fastidio sordo."]),
+  esameObiettivo: EO({ renale: [["Ispezione scroto", "Presenza di formazioni venose serpiginose palpabili sopra il testicolo sinistro ('sacchetto di vermi')", 0], ["Manovra di Valsalva", "Aumento del turgore venoso durante la manovra", 0]] }),
+  esami: { laboratorio: [], strumentali: [S("Ecocolordoppler funicolare", "Vascolare", 8, 1, "eco", "Sospetto varicocele", "Vene del plesso pampiniforme sinistro dilatate (3.2 mm) con reflusso venoso prolungato durante Valsalva. Varicocele di III grado.")] },
+  diagnosiDifferenziale: DX("Varicocele", "Idrocele", "Ernia inguinale", "Torsione del testicolo"),
+  spiegazioneClinica: "Il varicocele è una dilatazione delle vene del plesso pampiniforme, molto comune a sinistra. La diagnosi è clinica ed ecografica."
+},
+{
+  id: "case-106",
+  titolo: "Bruciore allo stomaco dopo l'aspirina",
+  descrizioneBreve: "Donna di 55 anni con dolore urente in epigastrio comparso dopo aver assunto aspirina per un forte mal di testa.",
+  difficolta: "Facile",
+  specialita: "Gastroenterologia",
+  schedaPaziente: { nome: "Paola Neri", eta: 55, sesso: "F", motivo: "Dolore epigastrico", parametriVitali: { PA: "135/85 mmHg", FC: "76 bpm", Temp: "36.7 °C", SpO2: "98%", FR: "16 atti/min" } },
+  anamnesi: Q(["Cosa ha preso per il mal di testa?", "Due compresse di aspirina a stomaco vuoto."], ["Ha nausea?", "Sì, un po'."]),
+  esameObiettivo: EO({ addome: [["Palpazione", "Dolorabilità superficiale in epigastrio, addome trattabile", 0]] }),
+  esami: { laboratorio: [L("Emocromo", "Controllo anemia", 2, "Nella norma", "12-16", 0, 0)], strumentali: [S("EGDS", "Endoscopia", 10, 1, "endo", "Gastralgia acuta", "Mucosa gastrica diffusamente iperemica con piccole erosioni petecchiali nell'antro. Non ulcere franche.")] },
+  diagnosiDifferenziale: DX("Gastrite acuta da FANS", "Ulcera peptica", "Reflusso gastroesofageo", "Colica biliare"),
+  spiegazioneClinica: "L'assunzione di FANS (aspirina) a stomaco vuoto può causare un danno diretto alla mucosa gastrica, portando a gastrite erosiva acuta."
+},
+{
+  id: "case-107",
+  titolo: "Macchie a 'albero di Natale' sulla schiena",
+  descrizioneBreve: "Ragazzo di 22 anni con numerose macchie ovali rosate sul tronco, comparse dopo una singola macchia più grande sul petto.",
+  difficolta: "Facile",
+  specialita: "Dermatologia",
+  schedaPaziente: { nome: "Luca Gatti", eta: 22, sesso: "M", motivo: "Eruzione cutanea", parametriVitali: { PA: "110/70 mmHg", FC: "72 bpm", Temp: "36.8 °C", SpO2: "99%", FR: "14 atti/min" } },
+  anamnesi: Q(["Come è iniziata?", "Circa 10 giorni fa è comparsa una macchia tonda grande sul petto, poi ne sono nate tante piccole sulla schiena."], ["Prude?", "Solo un pochino."]),
+  esameObiettivo: EO({ cute: [["Ispezione", "Chiazza madre di 4 cm sul petto; numerose chiazze ovali rosate con fine desquamazione periferica sul dorso, disposte lungo le linee di tensione cutanea", 0]] }),
+  esami: { laboratorio: [], strumentali: [] },
+  diagnosiDifferenziale: DX("Pitiriasi rosea di Gibert", "Tinea corporis", "Sifilide secondaria", "Psoriasi guttata"),
+  spiegazioneClinica: "La chiazza madre seguita da un'eruzione a 'albero di Natale' è tipica della Pitiriasi Rosea. È una condizione benigna e autolimitante."
+},
+{
+  id: "case-108",
+  titolo: "Gira tutto quando mi giro nel letto",
+  descrizioneBreve: "Donna di 60 anni con violente crisi di vertigine rotatoria che durano pochi secondi, scatenate dai movimenti della testa.",
+  difficolta: "Facile",
+  specialita: "Otorinolaringoiatria",
+  schedaPaziente: { nome: "Marta Villa", eta: 60, sesso: "F", motivo: "Vertigini", parametriVitali: { PA: "140/85 mmHg", FC: "78 bpm", Temp: "36.6 °C", SpO2: "98%", FR: "16 atti/min" } },
+  anamnesi: Q(["Quanto dura la vertigine?", "Pochissimo, meno di un minuto, ma è fortissima."], ["Cosa la scatena?", "Quando mi sdraio o mi giro sul fianco destro nel letto."]),
+  esameObiettivo: EO({ snc: [["Manovra di Dix-Hallpike", "Positiva a destra: compare nistagmo rotatorio-verticale dopo breve latenza, che si esaurisce in 20 secondi", 0]] }),
+  esami: { laboratorio: [], strumentali: [] },
+  diagnosiDifferenziale: DX("Vertigine parossistica posizionale benigna (VPPB)", "Malattia di Meniere", "Neurite vestibolare", "Insufficienza vertebro-basilare"),
+  spiegazioneClinica: "La brevità degli episodi e lo scatenamento posizionale sono patognomonici della VPPB (otoliti). La manovra di Dix-Hallpike è diagnostica."
+},
+{
+  id: "case-109",
+  titolo: "Perdite di urina con la tosse",
+  descrizioneBreve: "Donna di 52 anni, pluripara, che riferisce involontarie perdite di urina quando tossisce, starnutisce o solleva pesi.",
+  difficolta: "Facile",
+  specialita: "Urologia",
+  schedaPaziente: { nome: "Anna Rossi", eta: 52, sesso: "F", motivo: "Incontinenza urinaria", parametriVitali: { PA: "130/80 mmHg", FC: "72 bpm", Temp: "36.5 °C", SpO2: "99%", FR: "14 atti/min" } },
+  anamnesi: Q(["Quando perde urina?", "Solo se faccio uno sforzo, tossisco o rido forte."], ["Sente il bisogno urgente di correre in bagno?", "No, non è un'urgenza, succede proprio con lo sforzo."]),
+  esameObiettivo: EO({ renale: [["Stress test", "Perdita di gocce di urina durante colpo di tosse in posizione ginecologica", 0]] }),
+  esami: { laboratorio: [L("Esame Urine", "Esclusione infezione", 2, "Nella norma", "Negativo", 0, 0)], strumentali: [S("Ecografia pelvica", "Valutazione", 8, 0, "eco", "Incontinenza", "Vescica e utero in sede, lieve cistocele di I grado.")] },
+  diagnosiDifferenziale: DX("Incontinenza urinaria da sforzo", "Incontinenza da urgenza", "Cistite acuta", "Vescica iperattiva"),
+  spiegazioneClinica: "L'incontinenza da sforzo è legata a un deficit del supporto uretrale o dello sfintere. È comune dopo gravidanze multiple o in menopausa."
+},
+{
+  id: "case-110",
+  titolo: "Mal di pancia che passa dopo essere andati in bagno",
+  descrizioneBreve: "Ragazzo di 26 anni con dolori addominali cronici, gonfiore e alvo alterno, peggiorati nei periodi di esami universitari.",
+  difficolta: "Facile",
+  specialita: "Gastroenterologia",
+  schedaPaziente: { nome: "Simone Belli", eta: 26, sesso: "M", motivo: "Dolore addominale cronico", parametriVitali: { PA: "120/75 mmHg", FC: "74 bpm", Temp: "36.6 °C", SpO2: "99%", FR: "14 atti/min" } },
+  anamnesi: Q(["Cosa fa passare il dolore?", "Di solito sto meglio dopo che sono andato di corpo."], ["Ha notato sangue?", "No, mai."]),
+  esameObiettivo: EO({ addome: [["Palpazione", "Addome meteorico, dolenzia diffusa alla palpazione profonda del colon, senza difesa", 1]] }),
+  esami: { laboratorio: [L("Calprotectina fecale", "Esclusione IBD", 3, "25 µg/g (normale)", "< 50", 0, 1), L("Sangue occulto feci", "Screening", 2, "Negativo", "Negativo", 0, 0)], strumentali: [] },
+  diagnosiDifferenziale: DX("Sindrome dell'intestino irritabile (IBS)", "Malattia di Crohn", "Celiachia", "Intolleranza al lattosio"),
+  spiegazioneClinica: "Dolore addominale ricorrente associato alla defecazione e ad alterazioni dell'alvo, in assenza di segni di allarme e con indici infiammatori normali, è tipico dell'IBS."
+},
+{
+  id: "case-111",
+  titolo: "Dolore addominale improvviso e sproporzionato",
+  descrizioneBreve: "Uomo di 72 anni con fibrillazione atriale che presenta dolore addominale atroce improvviso, ma addome trattabile alla palpazione.",
+  difficolta: "Intermedio",
+  specialita: "Gastroenterologia / Chirurgia Vascolare",
+  schedaPaziente: { nome: "Enzo Riva", eta: 72, sesso: "M", motivo: "Dolore addominale acuto", parametriVitali: { PA: "110/60 mmHg", FC: "115 bpm (aritmico)", Temp: "37.2 °C", SpO2: "96%", FR: "22 atti/min" } },
+  anamnesi: Q(["Com'è iniziato il dolore?", "All'improvviso, un'ora fa, è diventato subito fortissimo."], ["Soffre di cuore?", "Sì, ho la fibrillazione atriale e prendo un anticoagulante, ma ogni tanto lo salto."]),
+  esameObiettivo: EO({ addome: [["Palpazione", "Addome trattabile, non segni di peritonite, ma dolore evocato sproporzionato rispetto ai reperti", 0]], cuore: [["Ritmo", "Aritmico, tachicardico", 0]] }),
+  esami: { laboratorio: [L("Lattati ematici", "Marker ischemia", 2, "4.5 mmol/L", "< 2.0", 1, 1), L("Emocromo", "Leucocitosi", 2, "WBC 16.200 /µL", "4.000-11.000", 1, 0)], strumentali: [S("Angio-TC Addome", "TC con contrasto fase arteriosa", 10, 1, "tc", "Sospetta ischemia", "Difetto di riempimento dell'arteria mesenterica superiore compatibile con embolo. Pareti intestinali assottigliate.")] },
+  diagnosiDifferenziale: DX("Ischemia mesenterica acuta", "Ulcera perforata", "Pancreatite acuta", "Colica renale"),
+  spiegazioneClinica: "Il dolore addominale 'sproporzionato rispetto all'esame obiettivo' in un paziente con fibrillazione atriale è un segno classico di ischemia mesenterica acuta. L'elevazione dei lattati conferma la sofferenza tissutale e l'Angio-TC è l'esame gold standard."
+},
+{
+  id: "case-112",
+  titolo: "Sangue nelle urine senza dolore",
+  descrizioneBreve: "Uomo di 65 anni, forte fumatore, che riferisce la comparsa di urine francamente rosse da due giorni, in assenza di altri sintomi.",
+  difficolta: "Intermedio",
+  specialita: "Urologia",
+  schedaPaziente: { nome: "Renato Gatti", eta: 65, sesso: "M", motivo: "Ematuria macroscopica", parametriVitali: { PA: "135/85 mmHg", FC: "72 bpm", Temp: "36.5 °C", SpO2: "98%", FR: "14 atti/min" } },
+  anamnesi: Q(["Ha dolore quando urina?", "No, nessun dolore, solo il colore rosso vivo."], ["Fuma?", "Sì, da 40 anni, circa un pacchetto al giorno."]),
+  esameObiettivo: EO({ renale: [["Manovra di Giordano", "Negativa bilateralmente", 1]], addome: [["Palpazione", "Trattabile, non masse palpabili", 1]] }),
+  esami: { laboratorio: [L("Esame Urine", "Sedimento", 2, "Emazie campo pieno", "Negativo", 1, 1), L("Citologia urinaria", "Ricerca cellule neoplastiche", 3, "Presenza di cellule uroteliali atipiche", "Negativo", 1, 1)], strumentali: [S("Ecografia apparato urinario", "Valutazione", 8, 1, "eco", "Ematuria", "Formazione vegetante di 2 cm sulla parete laterale destra della vescica, vascolarizzata."), S("Cistoscopia", "Esame endoscopico", 10, 1, "endo", "Conferma lesione", "Lesione papillare peduncolata della parete vescicale.")] },
+  diagnosiDifferenziale: DX("Tumore della vescica", "Calcolosi renale", "Cistite emorragica", "Ipertrofia prostatica benigna"),
+  spiegazioneClinica: "L'ematuria macroscopica indolore in un paziente anziano e fumatore deve sempre far sospettare una neoplasia uroteliale fino a prova contraria. L'ecografia e la cistoscopia sono fondamentali per la diagnosi."
+},
+{
+  id: "case-113",
+  titolo: "Mal di schiena che migliora col movimento",
+  descrizioneBreve: "Ragazzo di 28 anni con dolore lombare cronico che peggiora a riposo e di notte, associato a rigidità mattutina prolungata.",
+  difficolta: "Intermedio",
+  specialita: "Reumatologia",
+  schedaPaziente: { nome: "Matteo Bruni", eta: 28, sesso: "M", motivo: "Lombalgia cronica", parametriVitali: { PA: "120/75 mmHg", FC: "70 bpm", Temp: "36.8 °C", SpO2: "99%", FR: "12 atti/min" } },
+  anamnesi: Q(["Quando sente più dolore?", "Di notte e appena sveglio, devo alzarmi e camminare per stare meglio."], ["Il dolore scende lungo la gamba?", "No, resta alla base della schiena e ai glutei."]),
+  esameObiettivo: EO({ arti: [["Test di Schober", "Ridotta espansione della colonna lombare (2 cm)", 0], ["Articolazioni sacroiliache", "Dolorabilità alla manovra di compressione", 0]] }),
+  esami: { laboratorio: [L("Proteina C Reattiva", "Flogosi", 2, "2.5 mg/dL", "< 0.5", 1, 1), L("Tipizzazione HLA-B27", "Genetica", 4, "Positivo", "Negativo", 1, 1)], strumentali: [S("RM Bacino e Sacroiliache", "Risonanza", 10, 1, "rm", "Sospetta sacroileite", "Edema osseo subcondrale (osteite) a livello delle articolazioni sacroiliache bilateralmente.")] },
+  diagnosiDifferenziale: DX("Spondilite anchilosante", "Ernia del disco", "Fibromialgia", "Artrite reumatoide"),
+  spiegazioneClinica: "Il dolore lombare di tipo infiammatorio (giovane età, peggioramento a riposo, miglioramento con l'esercizio) associato a sacroileite documentata alla RM e positività per HLA-B27 è tipico della spondilite anchilosante."
+},
+{
+  id: "case-114",
+  titolo: "Febbre alta dopo un viaggio in Africa",
+  descrizioneBreve: "Uomo di 35 anni con febbre alta, brividi scuotenti, mal di testa e dolori muscolari, tornato da 10 giorni dalla Nigeria.",
+  difficolta: "Intermedio",
+  specialita: "Malattie Infettive",
+  schedaPaziente: { nome: "Kofi Mensah", eta: 35, sesso: "M", motivo: "Febbre e brividi", parametriVitali: { PA: "115/70 mmHg", FC: "105 bpm", Temp: "39.4 °C", SpO2: "97%", FR: "20 atti/min" } },
+  anamnesi: Q(["Ha fatto la profilassi antimalarica?", "No, non ho preso nulla."], ["Ha altri sintomi?", "Solo molta stanchezza e un po' di nausea."]),
+  esameObiettivo: EO({ addome: [["Palpazione", "Milza palpabile al margine costale (splenomegalia lieve)", 0]], occhi: [["Sclere", "Lieve subittero", 0]] }),
+  esami: { laboratorio: [L("Goccia densa e striscio sottile", "Ricerca parassiti", 4, "Positivo per Plasmodium falciparum (parassitemia 2%)", "Negativo", 1, 1), L("Emocromo", "Anemia e piastrine", 2, "Hb 10.5 g/dL; PLT 85.000 /µL", "Hb > 13.5; PLT > 150k", 1, 1)], strumentali: [] },
+  diagnosiDifferenziale: DX("Malaria", "Febbre tifoide", "Epatite virale", "Febbre gialla"),
+  spiegazioneClinica: "In ogni paziente febbrile di ritorno da zone endemiche, la malaria deve essere esclusa d'urgenza. La combinazione di febbre alta, brividi, anemia, piastrinopenia e splenomegalia è fortemente suggestiva. La diagnosi di certezza si ottiene con l'esame microscopico del sangue."
+},
+{
+  id: "case-115",
+  titolo: "Prurito e stanchezza in una donna",
+  descrizioneBreve: "Donna di 52 anni con prurito diffuso, specialmente notturno, e astenia marcata da diversi mesi; esami del sangue con colestasi.",
+  difficolta: "Intermedio",
+  specialita: "Gastroenterologia / Epatologia",
+  schedaPaziente: { nome: "Elena Rossi", eta: 52, sesso: "F", motivo: "Prurito e astenia", parametriVitali: { PA: "120/80 mmHg", FC: "72 bpm", Temp: "36.6 °C", SpO2: "99%", FR: "14 atti/min" } },
+  anamnesi: Q(["Dove prude?", "Dappertutto, ma soprattutto alle mani e ai piedi, di notte non mi fa dormire."], ["Ha notato altri cambiamenti?", "Sono sempre stanca e ho gli occhi un po' secchi."]),
+  esameObiettivo: EO({ cute: [["Ispezione", "Segni di grattamento diffusi; xantelasmi palpebrali", 0]], occhi: [["Sclere", "Lieve ittero", 0]] }),
+  esami: { laboratorio: [L("Anticorpi anti-mitocondrio (AMA)", "Autoimmunità", 4, "Positivi (titolo 1:320)", "Negativo", 1, 1), L("Fosfatasi Alcalina e GGT", "Colestasi", 2, "ALP 450 U/L; GGT 180 U/L", "ALP < 120; GGT < 40", 1, 1)], strumentali: [S("Ecografia Addome", "Valutazione fegato", 8, 1, "eco", "Prurito cronico", "Fegato di dimensioni normali, ecostruttura lievemente disomogenea. Vie biliari intra ed extra-epatiche non dilatate.")] },
+  diagnosiDifferenziale: DX("Cirrosi biliare primitiva (Colangite biliare primitiva)", "Calcolosi del coledoco", "Epatite autoimmune", "Cirrosi epatica scompensata"),
+  spiegazioneClinica: "Il prurito cronico associato a stanchezza e indici di colestasi elevati in una donna di mezza età, con vie biliari normali all'ecografia, suggerisce fortemente la CBP. La positività degli anticorpi AMA è il criterio diagnostico principale."
+},
+{
+  id: "case-116",
+  titolo: "Mal di testa e dolore alla masticazione",
+  descrizioneBreve: "Uomo di 75 anni con cefalea temporale di nuova insorgenza, dolore alla mascella mentre mangia e stanchezza.",
+  difficolta: "Intermedio",
+  specialita: "Reumatologia",
+  schedaPaziente: { nome: "Giuseppe Riva", eta: 75, sesso: "M", motivo: "Cefalea e dolore mandibolare", parametriVitali: { PA: "145/90 mmHg", FC: "80 bpm", Temp: "37.5 °C", SpO2: "98%", FR: "16 atti/min" } },
+  anamnesi: Q(["Dove sente il mal di testa?", "Sulla tempia destra, la pelle scotta e mi fa male anche solo pettinarmi."], ["Cosa succede quando mangia?", "Dopo pochi morsi mi fa male la mascella e devo fermarmi."]),
+  esameObiettivo: EO({ snc: [["Arterie temporali", "Arteria temporale destra indurita, nodulare e non pulsante", 0]], collo: [["Palpazione", "Non adenopatie"]] }),
+  esami: { laboratorio: [L("VES", "Indice flogosi", 2, "105 mm/h", "< 20", 1, 1), L("Proteina C Reattiva", "Flogosi", 2, "8.2 mg/dL", "< 0.5", 1, 1)], strumentali: [S("Ecocolordoppler arterie temporali", "Vascolare", 8, 1, "eco", "Sospetta arterite", "Segno dell'alone (edema della parete arteriosa) a livello dell'arteria temporale destra."), S("Biopsia arteria temporale", "Istologia", 10, 0, "gen", "Conferma", "Infiltrato infiammatorio granulomatoso con cellule giganti nella tonaca media.", { servizio: "Servizio di Anatomia Patologica" })] },
+  diagnosiDifferenziale: DX("Arterite a cellule giganti (Arterite di Horton)", "Emicrania", "Sinusite mascellare", "Nevralgia del trigemino"),
+  spiegazioneClinica: "La cefalea di nuova insorgenza nell'anziano, associata a claudicatio mandibolare e VES molto elevata, è un'emergenza medica per il rischio di cecità. Il 'segno dell'alone' all'ecografia è molto specifico per l'arterite di Horton."
+},
+{
+  id: "case-117",
+  titolo: "Le scarpe non mi entrano più",
+  descrizioneBreve: "Donna di 45 anni che riferisce un aumento della taglia delle scarpe e dei guanti, sudorazione eccessiva e lineamenti del viso cambiati.",
+  difficolta: "Intermedio",
+  specialita: "Endocrinologia",
+  schedaPaziente: { nome: "Laura Gatti", eta: 45, sesso: "F", motivo: "Cambiamento dei tratti somatici", parametriVitali: { PA: "150/95 mmHg", FC: "74 bpm", Temp: "36.7 °C", SpO2: "99%", FR: "14 atti/min" } },
+  anamnesi: Q(["Cosa ha notato di preciso?", "Ho dovuto cambiare tutte le scarpe e non riesco più a togliere la fede dal dito."], ["Ha altri disturbi?", "Sudo tantissimo e ho spesso mal di testa."]),
+  esameObiettivo: EO({ cute: [["Mani e piedi", "Mani e piedi aumentati di volume, dita tozze", 0]], collo: [["Viso", "Prognatismo, bozze frontali prominenti, macroglossia", 0]] }),
+  esami: { laboratorio: [L("IGF-1 sierico", "Fattore di crescita", 4, "850 ng/mL", "110-300", 1, 1), L("GH dopo carico di glucosio", "Test soppressione", 4, "GH 12 ng/mL (mancata soppressione)", "< 1", 1, 1)], strumentali: [S("RM Sella Turcica", "Risonanza", 10, 1, "rm", "Sospetto adenoma", "Macroadenoma ipofisario di 1.5 cm con espansione sovrasellare.")] },
+  diagnosiDifferenziale: DX("Acromegalia", "Ipotiroidismo", "Sindrome di Cushing", "Ipertrofia ossea idiopatica"),
+  spiegazioneClinica: "La crescita delle estremità e il cambiamento dei tratti del viso nell'adulto sono segni classici di eccesso di ormone della crescita (GH). L'IGF-1 elevato è il test di screening, mentre la RM conferma la presenza dell'adenoma ipofisario."
+},
+{
+  id: "case-118",
+  titolo: "Rossore al volto e prurito dopo la doccia",
+  descrizioneBreve: "Uomo di 60 anni con colorito rosso acceso del volto, mal di testa e prurito intenso che compare dopo il bagno caldo.",
+  difficolta: "Intermedio",
+  specialita: "Ematologia",
+  schedaPaziente: { nome: "Pietro Rossi", eta: 60, sesso: "M", motivo: "Eritrosi e prurito", parametriVitali: { PA: "155/95 mmHg", FC: "78 bpm", Temp: "36.8 °C", SpO2: "97%", FR: "16 atti/min" } },
+  anamnesi: Q(["Quando prude?", "Soprattutto dopo la doccia calda, è un prurito insopportabile."], ["Ha altri sintomi?", "Spesso mi sento la testa pesante e ho ronzii alle orecchie."]),
+  esameObiettivo: EO({ addome: [["Palpazione", "Milza palpabile 3 cm sotto l'arcata costale (splenomegalia)", 0]], cute: [["Ispezione", "Eritrosi del volto e delle congiuntive", 0]] }),
+  esami: { laboratorio: [L("Emocromo", "Analisi sangue", 2, "Hb 19.5 g/dL; Hct 58%", "Hb < 17.5; Hct < 50%", 1, 1), L("Mutazione JAK2 V617F", "Genetica", 4, "Presente", "Assente", 1, 1), L("Eritropoietina sierica", "Ormone", 3, "2 mUI/mL (molto bassa)", "4-24", 1, 1)], strumentali: [] },
+  diagnosiDifferenziale: DX("Policitemia Vera", "Eritrocitosi secondaria (fumo/ipossia)", "Disidratazione grave", "Leucemia mieloide cronica"),
+  spiegazioneClinica: "L'aumento della massa eritrocitaria (Hb e Hct elevati) associato a prurito acquagenico e splenomegalia è tipico della Policitemia Vera. La mutazione JAK2 e l'EPO bassa confermano la natura primitiva (mieloproliferativa) della malattia."
+},
+{
+  id: "case-119",
+  titolo: "Urine rosse dopo un raffreddore",
+  descrizioneBreve: "Ragazzo di 20 anni che nota urine color lavatura di carne durante un episodio di faringite virale.",
+  difficolta: "Intermedio",
+  specialita: "Nefrologia",
+  schedaPaziente: { nome: "Marco Belli", eta: 20, sesso: "M", motivo: "Ematuria macroscopica", parametriVitali: { PA: "135/85 mmHg", FC: "74 bpm", Temp: "37.2 °C", SpO2: "99%", FR: "14 atti/min" } },
+  anamnesi: Q(["Quando ha visto il sangue?", "Oggi, insieme al mal di gola e al raffreddore."], ["Le era già successo?", "Sì, un anno fa, sempre durante un'influenza."]),
+  esameObiettivo: EO({ renale: [["Manovra di Giordano", "Negativa bilateralmente", 1]], collo: [["Orofaringe", "Mucosa iperemica, tonsille senza essudato", 1]] }),
+  esami: { laboratorio: [L("Esame Urine", "Sedimento", 2, "Emazie dismorfiche ++++; cilindri eritrocitari", "Negativo", 1, 1), L("Complemento C3 e C4", "Immunologia", 3, "Nella norma", "C3 90-180", 1, 1), L("Creatinina", "Funzione renale", 2, "1.0 mg/dL", "0.7-1.2", 0, 0)], strumentali: [S("Ecografia Reni", "Morfologia", 8, 0, "eco", "Ematuria", "Reni di dimensioni e spessore corticale normali.")] },
+  diagnosiDifferenziale: DX("Nefropatia a IgA (Malattia di Berger)", "Glomerulonefrite post-streptococcica", "Cistite emorragica", "Calcolosi urinaria"),
+  spiegazioneClinica: "L'ematuria macroscopica 'sinfaringitica' (che compare contemporaneamente all'infezione respiratoria) in un giovane, con complemento normale, è la presentazione classica della nefropatia a IgA. Nella post-streptococcica l'ematuria compare dopo 2-3 settimane e il C3 è basso."
+},
+{
+  id: "case-120",
+  titolo: "Dolore alle gambe quando cammino",
+  descrizioneBreve: "Uomo di 68 anni, fumatore, che deve fermarsi dopo 200 metri di cammino per un dolore crampiforme al polpaccio.",
+  difficolta: "Intermedio",
+  specialita: "Chirurgia Vascolare / Angiologia",
+  schedaPaziente: { nome: "Antonio Serra", eta: 68, sesso: "M", motivo: "Claudicatio intermittens", parametriVitali: { PA: "150/90 mmHg", FC: "72 bpm", Temp: "36.5 °C", SpO2: "98%", FR: "16 atti/min" } },
+  anamnesi: Q(["Cosa succede quando cammina?", "Dopo un po' il polpaccio destro diventa un sasso e fa malissimo, devo fermarmi e dopo un minuto passa."], ["Fuma?", "Sì, da sempre, circa 20 sigarette al giorno."]),
+  esameObiettivo: EO({ arti: [["Polsi periferici", "Polso popliteo, tibiale posteriore e pedidio assenti a destra", 0], ["Temperatura cutanea", "Piede destro più freddo del sinistro", 0]] }),
+  esami: { laboratorio: [L("Profilo lipidico", "Colesterolo", 2, "LDL 185 mg/dL", "< 100", 1, 0)], strumentali: [S("Indice Caviglia-Braccio (ABI)", "Test funzionale", 5, 1, "gen", "Sospetta AOSI", "ABI destro 0.6 (ridotto); ABI sinistro 0.9.", { servizio: "Servizio di Angiologia" }), S("Ecocolordoppler arti inferiori", "Vascolare", 8, 1, "eco", "Valutazione stenosi", "Stenosi serrata dell'arteria femorale superficiale destra al terzo medio con flusso a valle monofasico.")] },
+  diagnosiDifferenziale: DX("Arteriopatia obliterante arti inferiori (AOSI)", "Stenosi del canale lombare", "Trombosi venosa profonda", "Crampi muscolari benigni"),
+  spiegazioneClinica: "Il dolore da sforzo che scompare col riposo (claudicatio), associato all'assenza di polsi periferici in un fumatore, è tipico dell'AOSI. L'indice ABI è il primo test diagnostico per confermare l'ischemia cronica."
+},
+{
+  id: "case-121",
+  titolo: "Ematuria macroscopica e dolore sordo al fianco",
+  descrizioneBreve: "Uomo di 62 anni, forte fumatore, con dolore gravativo al fianco destro, sangue nelle urine e febbricola persistente.",
+  difficolta: "Avanzato",
+  specialita: "Urologia / Oncologia",
+  schedaPaziente: { nome: "Roberto Gatti", eta: 62, sesso: "M", motivo: "Ematuria e dolore al fianco", parametriVitali: { PA: "155/95 mmHg", FC: "88 bpm", Temp: "37.6 °C", SpO2: "98%", FR: "18 atti/min" } },
+  anamnesi: Q(
+    ["Da quanto tempo ha questi disturbi?", "Da circa due mesi ho un dolore sordo al fianco destro e mi sento sempre stanco."],
+    ["Ha visto sangue nelle urine?", "Sì, diverse volte nell'ultimo mese, urine rosso vivo senza dolore quando urino."],
+    ["Ha perso peso?", "Sì, circa 6 chili senza fare dieta."],
+    ["Ha febbre?", "Sì, quasi ogni sera ho 37.5-38."],
+    ["Fuma?", "Sì, un pacchetto al giorno da 40 anni."]
+  ),
+  esameObiettivo: EO({
+    addome: [["Palpazione", "Massa palpabile profonda in ipocondrio destro, dura e poco mobile", 0]],
+    renale: [["Manovra di Giordano", "Positiva a destra (dolore sordo)", 0]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Emocromo", "Anemia", 2, "Hb 10.2 g/dL; normocitica", "13.5-17.5", 1, 1),
+      L("Calcemia", "Ipercalcemia paraneoplastica", 2, "11.8 mg/dL", "8.5-10.5", 1, 1),
+      L("VES e PCR", "Flogosi", 2, "VES 85 mm/h; PCR 4.2 mg/dL", "< 20; < 0.5", 1, 0),
+      L("Esame Urine", "Ematuria", 2, "Emazie campo pieno", "Negativo", 1, 1)
+    ],
+    strumentali: [
+      S("TC Addome con contrasto", "Stadiazione", 10, 1, "tc", "Massa renale", "Formazione espansiva di 7 cm al polo superiore del rene destro, con aree di necrosi e disomogeneo enhancement. Trombo neoplastico nella vena renale destra. Adenopatie ilari."),
+      S("Ecografia Renale", "Screening", 5, 0, "eco", "Massa solida", "Lesione solida ipo-isocogena di 72 mm al rene destro.")
+    ]
+  },
+  diagnosiDifferenziale: DX("Carcinoma renale a cellule chiare", "Pielonefrite acuta", "Linfoma renale", "Calcolosi renale ostruente"),
+  spiegazioneClinica: "La triade classica (dolore al fianco, ematuria, massa palpabile) associata a sintomi sistemici (febbre, calo peso) e sindromi paraneoplastiche (ipercalcemia, anemia) in un forte fumatore è altamente suggestiva di carcinoma renale. La TC con contrasto è l'esame fondamentale per la diagnosi e la stadiazione."
+},
+{
+  id: "case-122",
+  titolo: "Tremore e ittero in un giovane adulto",
+  descrizioneBreve: "Ragazzo di 24 anni con tremore alle mani, difficoltà a parlare, colorito giallastro e alterazione dei test epatici.",
+  difficolta: "Avanzato",
+  specialita: "Gastroenterologia / Neurologia",
+  schedaPaziente: { nome: "Marco Riva", eta: 24, sesso: "M", motivo: "Tremore e ittero", parametriVitali: { PA: "120/75 mmHg", FC: "76 bpm", Temp: "36.8 °C", SpO2: "99%", FR: "16 atti/min" } },
+  anamnesi: Q(
+    ["Quando sono iniziati i tremori?", "Circa tre mesi fa, prima solo alle mani, ora faccio fatica anche a scrivere."],
+    ["Ha notato cambiamenti nel parlare?", "Sì, mia madre dice che parlo in modo strano, come se avessi la lingua pesante."],
+    ["Ha avuto problemi di fegato?", "Mi hanno detto che ho le transaminasi alte e da qualche giorno ho gli occhi gialli."],
+    ["Ci sono malattie in famiglia?", "Un mio fratello ha avuto problemi di fegato da giovane."]
+  ),
+  esameObiettivo: EO({
+    snc: [["Movimenti", "Tremore posturale e intenzionale 'a battito d'ali'; disartria", 0]],
+    occhi: [["Lampada a fessura", "Anello di colore bruno-verdastro alla periferia della cornea (anello di Kayser-Fleischer)", 0]],
+    addome: [["Palpazione", "Fegato di consistenza aumentata, margine irregolare; milza palpabile", 0]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Ceruloplasmina", "Proteina di trasporto del rame", 3, "8 mg/dL", "20-40", 1, 1),
+      L("Rame urinario (24h)", "Escrezione rame", 3, "150 µg/24h", "< 60", 1, 1),
+      L("Transaminasi", "Danno epatico", 2, "AST 120 U/L; ALT 95 U/L", "< 40", 1, 0)
+    ],
+    strumentali: [
+      S("RM Encefalo", "Neuroimaging", 10, 1, "rm", "Sintomi neurologici", "Iperintensità in T2 a livello dei nuclei della base (segno della faccia del panda gigante nel mesencefalo)."),
+      S("Biopsia Epatica", "Istologia", 10, 0, "gen", "Quantificazione rame", "Contenuto di rame parenchimale > 250 µg/g di peso secco.")
+    ]
+  },
+  diagnosiDifferenziale: DX("Malattia di Wilson", "Epatite autoimmune", "Sclerosi multipla", "Parkinsonismo giovanile idiopatico"),
+  spiegazioneClinica: "La Malattia di Wilson è un disturbo ereditario del metabolismo del rame. Il deposito di rame nel fegato e nel cervello causa cirrosi e sintomi neurologici. L'anello di Kayser-Fleischer è patognomonico. La diagnosi si basa su ceruloplasmina bassa e rame urinario elevato."
+},
+{
+  id: "case-123",
+  titolo: "Bolle sulle mani e urine color vino",
+  descrizioneBreve: "Uomo di 54 anni con fragilità cutanea, bolle sulle zone esposte al sole, ipertricosi e urine scure; storia di abuso alcolico e HCV.",
+  difficolta: "Avanzato",
+  specialita: "Gastroenterologia / Dermatologia",
+  schedaPaziente: { nome: "Antonio Rossi", eta: 54, sesso: "M", motivo: "Lesioni cutanee e urine scure", parametriVitali: { PA: "130/85 mmHg", FC: "72 bpm", Temp: "36.6 °C", SpO2: "98%", FR: "14 atti/min" } },
+  anamnesi: Q(
+    ["Cosa succede alla pelle?", "Appena prendo un po' di sole mi vengono delle bolle sulle mani che poi lasciano croste e cicatrici."],
+    ["Ha notato altri cambiamenti?", "Ho notato che mi sono cresciuti più peli sulle tempie e vicino agli occhi."],
+    ["Di che colore sono le urine?", "Molto scure, sembrano quasi color vino o tè forte."],
+    ["Beve alcolici?", "Sì, bevo regolarmente vino e birra tutti i giorni."],
+    ["Ha malattie note?", "Mi hanno detto anni fa di avere l'epatite C, ma non l'ho mai curata."]
+  ),
+  esameObiettivo: EO({
+    cute: [["Mani", "Erosioni, croste e piccole cisti bianche (milia) sul dorso delle mani; fragilità cutanea", 0], ["Viso", "Ipertricosi malare e temporale", 0]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Porfirine urinarie", "Metabolismo porfirine", 4, "Uroporfirina I e III marcatamente elevate", "Negativo", 1, 1),
+      L("Sierologia HCV", "Epatite", 3, "HCV-RNA Positivo", "Negativo", 1, 1),
+      L("Ferritina", "Accumulo ferro", 2, "850 ng/mL", "24-336", 1, 0)
+    ],
+    strumentali: [
+      S("Biopsia cutanea", "Istologia", 8, 0, "gen", "Lesione bollosa", "Bolla subepidermica con papille dermiche che protrudono nel lume (festonamento). Assenza di infiltrato infiammatorio.")
+    ]
+  },
+  diagnosiDifferenziale: DX("Porfiria cutanea tarda", "Pseudoporfiria da farmaci", "Pemfigoide bolloso", "Dermatite da contatto"),
+  spiegazioneClinica: "La Porfiria Cutanea Tarda (PCT) è la porfiria più comune, spesso associata a HCV, alcol e sovraccarico di ferro. La carenza dell'enzima UROD causa accumulo di porfirine che determinano fotosensibilità cutanea e urine scure."
+},
+{
+  id: "case-124",
+  titolo: "Ascite improvvisa e dolore addominale",
+  descrizioneBreve: "Donna di 42 anni con dolore all'ipocondrio destro, fegato ingrossato e comparsa rapida di ascite; storia di policitemia vera.",
+  difficolta: "Avanzato",
+  specialita: "Gastroenterologia / Epatologia",
+  schedaPaziente: { nome: "Elena Bianchi", eta: 42, sesso: "F", motivo: "Dolore addominale e gonfiore", parametriVitali: { PA: "110/70 mmHg", FC: "92 bpm", Temp: "37.2 °C", SpO2: "97%", FR: "20 atti/min" } },
+  anamnesi: Q(
+    ["Quando è iniziato il dolore?", "Tre giorni fa, un dolore forte sotto le costole a destra."],
+    ["La pancia si è gonfiata subito?", "Sì, in pochissimo tempo è diventata enorme e tesa."],
+    ["Soffre di altre malattie?", "Sì, ho la policitemia vera e prendo l'aspirinetta."]
+  ),
+  esameObiettivo: EO({
+    addome: [["Palpazione", "Epatomegalia marcata e dolente; ascite con segno del fiotto positivo", 0]],
+    collo: [["Giugulari", "Non turgide", 1]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Transaminasi", "Danno epatico", 2, "AST 450 U/L; ALT 510 U/L", "< 40", 1, 1),
+      L("Liquido ascitico", "Paracentesi", 3, "Proteine 3.2 g/dL; SAAG 1.5 g/dL", "—", 1, 1)
+    ],
+    strumentali: [
+      S("Ecocolordoppler vene sovraepatiche", "Vascolare", 8, 1, "eco", "Sospetta ostruzione", "Assenza di flusso nelle vene sovraepatiche; materiale trombotico endoluminale. Vena cava inferiore compressa dal lobo caudato ipertrofico."),
+      S("TC Addome trifasica", "Imaging", 10, 1, "tc", "Budd-Chiari", "Ipertrofia del lobo caudato, enhancement a 'macchia di leopardo' del parenchima epatico, ascite.")
+    ]
+  },
+  diagnosiDifferenziale: DX("Sindrome di Budd-Chiari", "Cirrosi epatica scompensata", "Scompenso cardiaco destro acuto", "Trombosi portale"),
+  spiegazioneClinica: "La sindrome di Budd-Chiari è causata dall'ostruzione del deflusso venoso epatico. L'ascite rapida, l'epatomegalia dolente e l'ipertrofia del lobo caudato sono segni tipici. È spesso associata a stati di ipercoagulabilità."
+},
+{
+  id: "case-125",
+  titolo: "Crisi ipertensiva durante la minzione",
+  descrizioneBreve: "Uomo di 48 anni con episodi di cefalea, palpitazioni e pressione altissima che compaiono esclusivamente durante o dopo la minzione.",
+  difficolta: "Avanzato",
+  specialita: "Urologia / Endocrinologia",
+  schedaPaziente: { nome: "Paolo Neri", eta: 48, sesso: "M", motivo: "Crisi ipertensive parossistiche", parametriVitali: { PA: "210/115 mmHg (durante crisi)", FC: "125 bpm", Temp: "36.7 °C", SpO2: "99%", FR: "18 atti/min" } },
+  anamnesi: Q(
+    ["Cosa scatena questi attacchi?", "Succede quasi sempre quando vado in bagno a fare pipì."],
+    ["Cosa sente durante l'attacco?", "Il cuore batte a mille, mi scoppia la testa e sudo freddo. Dura pochi minuti."],
+    ["Ha visto sangue nelle urine?", "Sì, ieri dopo un attacco le urine erano rosse."]
+  ),
+  esameObiettivo: EO({
+    addome: [["Palpazione", "Trattabile, non masse palpabili; la pressione sale durante la palpazione profonda sovrapubica", 0]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Metanefrine urinarie", "Catecolamine", 4, "Elevate (3 volte il limite)", "Normale", 1, 1),
+      L("Esame Urine", "Ematuria", 2, "Emazie +++", "Negativo", 1, 0)
+    ],
+    strumentali: [
+      S("Cistoscopia", "Endoscopia", 10, 1, "endo", "Massa vescicale", "Formazione sottomucosa di 2.5 cm alla cupola vescicale, ricoperta da mucosa normale ma iperemica."),
+      S("RM Addome", "Imaging", 10, 1, "rm", "Localizzazione", "Massa nella parete vescicale con segnale molto elevato in T2 ('light bulb sign').")
+    ]
+  },
+  diagnosiDifferenziale: DX("Paraganglioma vescicale", "Cistite acuta", "Ipertrofia prostatica benigna", "Carcinoma uroteliale"),
+  spiegazioneClinica: "Il paraganglioma vescicale è un raro tumore cromaffine extra-surrenalico. La contrazione del muscolo detrusore durante la minzione causa il rilascio di catecolamine, scatenando la crisi adrenergica tipica."
+},
+{
+  id: "case-126",
+  titolo: "Lingua ingrossata, edemi e affanno",
+  descrizioneBreve: "Uomo di 66 anni con sindrome nefrosica, cardiomiopatia restrittiva, macroglossia e porpora periorbitaria.",
+  difficolta: "Avanzato",
+  specialita: "Nefrologia / Cardiologia",
+  schedaPaziente: { nome: "Giovanni Bruni", eta: 66, sesso: "M", motivo: "Edemi e dispnea", parametriVitali: { PA: "100/60 mmHg", FC: "82 bpm", Temp: "36.5 °C", SpO2: "95%", FR: "20 atti/min" } },
+  anamnesi: Q(
+    ["Ha notato cambiamenti alla lingua?", "Sì, mi sembra più grossa e faccio fatica a parlare e a deglutire."],
+    ["Ha problemi di cuore?", "Mi manca il fiato anche se cammino poco e ho le gambe molto gonfie."],
+    ["Ha notato macchie sul viso?", "Sì, dei lividi intorno agli occhi comparsi dopo aver tossito."]
+  ),
+  esameObiettivo: EO({
+    cute: [["Viso", "Porpora periorbitaria bilaterale ('occhi da procione')", 0], ["Lingua", "Macroglossia con impronte dentarie ai margini", 0]],
+    cuore: [["Toni", "Toni cardiaci parafonici; pressione bassa", 0]],
+    arti: [["Edemi", "Edema improntabile massivo", 0]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Proteinuria 24h", "Sindrome nefrosica", 3, "6.5 g/24h", "< 0.15", 1, 1),
+      L("Elettroforesi/Immunofissazione", "Componente monoclonale", 4, "Catene leggere libere Lambda elevate; picco monoclonale sierico", "Negativo", 1, 1),
+      L("NT-proBNP", "Scompenso", 3, "4200 pg/mL", "< 125", 1, 0)
+    ],
+    strumentali: [
+      S("Ecocardiogramma", "Cardiologia", 8, 1, "ecocardio", "Cardiomiopatia", "Ipertrofia ventricolare sinistra severa con aspetto 'brillante' (sparkling) del miocardio; funzione diastolica compromessa (pattern restrittivo)."),
+      S("Biopsia grasso addominale", "Istologia", 10, 1, "gen", "Conferma", "Depositi di materiale amorfo Rosso Congo positivi con birifrangenza verde mela a luce polarizzata.")
+    ]
+  },
+  diagnosiDifferenziale: DX("Amiloidosi sistemica AL", "Ipotiroidismo grave (mixedema)", "Sindrome nefrosica idiopatica", "Sarcoidosi cardiaca"),
+  spiegazioneClinica: "L'amiloidosi AL è causata dal deposito di catene leggere immunoglobuliniche. Il coinvolgimento multiorgano (rene, cuore, lingua) e i segni clinici come la macroglossia e la porpora periorbitaria sono caratteristici."
+},
+{
+  id: "case-127",
+  titolo: "Asma grave e formicolii ai piedi",
+  descrizioneBreve: "Donna di 45 anni con asma di difficile controllo, eosinofilia marcata, dolore e debolezza ai piedi (mononeurite multipla).",
+  difficolta: "Avanzato",
+  specialita: "Pneumologia / Reumatologia",
+  schedaPaziente: { nome: "Laura Gialli", eta: 45, sesso: "F", motivo: "Asma e debolezza arti", parametriVitali: { PA: "135/80 mmHg", FC: "88 bpm", Temp: "37.4 °C", SpO2: "94%", FR: "22 atti/min" } },
+  anamnesi: Q(
+    ["Soffre di asma?", "Sì da anni, ma negli ultimi mesi è peggiorata tantissimo e gli spray non bastano più."],
+    ["Cosa sente ai piedi?", "Un formicolio forte e ora non riesco più a tirare su la punta del piede destro."],
+    ["Ha avuto sinusiti?", "Sì, soffro di sinusite cronica e polipi nasali."]
+  ),
+  esameObiettivo: EO({ 
+    snc: [["Forza", "Deficit del nervo peroneo comune destro (piede cadente)", 0]],
+    torace: [["Auscultazione", "Sibili espiratori diffusi", 0]],
+    cute: [["Ispezione", "Porpora palpabile alle caviglie", 0]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Emocromo", "Eosinofilia", 2, "Eosinofili 25% (conta assoluta 3.500/µL)", "< 500", 1, 1),
+      L("ANCA (p-ANCA)", "Vasculite", 4, "p-ANCA (anti-MPO) positivi", "Negativi", 1, 1),
+      L("IgE totali", "Atopia", 2, "1200 kUI/L", "< 100", 1, 0)
+    ],
+    strumentali: [
+      S("RX Torace", "Imaging", 5, 1, "rx", "Asma", "Opacità parenchimali fugaci e migranti."),
+      S("EMG", "Neurofisiologia", 10, 1, "emg", "Debolezza", "Mononeurite multipla con danno assonale dei nervi sciatico popliteo esterno destro e ulnare sinistro.")
+    ]
+  },
+  diagnosiDifferenziale: DX("Granulomatosi eosinofila con poliangioite (EGPA)", "Asma bronchiale allergico", "Sindrome ipereosinofila", "Poliarterite nodosa"),
+  spiegazioneClinica: "L'EGPA (ex Churg-Strauss) è una vasculite dei piccoli vasi caratterizzata da asma, eosinofilia periferica e coinvolgimento sistemico (mononeurite multipla, infiltrati polmonari, sinusite)."
+},
+{
+  id: "case-128",
+  titolo: "Ulcere gastriche multiple e diarrea cronica",
+  descrizioneBreve: "Uomo di 50 anni con ulcere peptiche recidivanti e multiple, diarrea acquosa che migliora con aspirazione gastrica e ipergastrinemia.",
+  difficolta: "Avanzato",
+  specialita: "Gastroenterologia / Endocrinologia",
+  schedaPaziente: { nome: "Stefano Belli", eta: 50, sesso: "M", motivo: "Dolore addominale e diarrea", parametriVitali: { PA: "125/80 mmHg", FC: "74 bpm", Temp: "36.6 °C", SpO2: "99%", FR: "14 atti/min" } },
+  anamnesi: Q(
+    ["Ha già avuto ulcere?", "Sì, tre negli ultimi due anni, nonostante prenda sempre i protettori dello stomaco."],
+    ["Com'è l'alvo?", "Ho una diarrea liquida continua da settimane."],
+    ["Il dolore passa col cibo?", "Solo per poco, poi torna fortissimo."]
+  ),
+  esameObiettivo: EO({ addome: [["Palpazione", "Dolorabilità marcata in epigastrio", 0]] }),
+  esami: {
+    laboratorio: [
+      L("Gastrina sierica", "Ormone", 4, "1200 pg/mL (molto elevata)", "< 100", 1, 1),
+      L("pH-metria gastrica", "Acidità", 4, "pH 1.2 (iperacidità)", "> 2.0", 1, 1),
+      L("Cromogranina A", "Marker neuroendocrino", 3, "Elevata", "Normale", 1, 0)
+    ],
+    strumentali: [
+      S("EGDS", "Endoscopia", 10, 1, "endo", "Ulcere", "Ulcere multiple nel bulbo duodenale e nella seconda porzione del duodeno; pliche gastriche ipertrofiche."),
+      S("Scintigrafia recettori somatostatina (Octreoscan)", "Imaging funzionale", 10, 1, "gen", "Ricerca tumore", "Area di ipercaptazione a livello della testa del pancreas.")
+    ]
+  },
+  diagnosiDifferenziale: DX("Sindrome di Zollinger-Ellison (Gastrinoma)", "Malattia di Crohn", "Ulcera peptica da H. pylori", "Celiachia"),
+  spiegazioneClinica: "La sindrome di Zollinger-Ellison è causata da un tumore secernente gastrina. L'ipersecrezione acida causa ulcere gravi, multiple e spesso in sedi atipiche, oltre a diarrea da inattivazione degli enzimi pancreatici."
+},
+{
+  id: "case-129",
+  titolo: "Ipertensione resistente e soffio addominale",
+  descrizioneBreve: "Uomo di 58 anni con ipertensione non controllata da 4 farmaci, soffio addominale e peggioramento della creatinina dopo ACE-inibitore.",
+  difficolta: "Avanzato",
+  specialita: "Urologia / Nefrologia",
+  schedaPaziente: { nome: "Enzo Riva", eta: 58, sesso: "M", motivo: "Ipertensione resistente", parametriVitali: { PA: "185/110 mmHg", FC: "72 bpm", Temp: "36.6 °C", SpO2: "98%", FR: "16 atti/min" } },
+  anamnesi: Q(
+    ["Da quanto è iperteso?", "Da vent'anni, ma nell'ultimo anno la pressione è impazzita e non scende più."],
+    ["Che farmaci prende?", "Quattro pastiglie diverse, incluso un diuretico."],
+    ["Ha notato cambiamenti recenti?", "Il medico mi ha dato un nuovo farmaco (enalapril) e dopo una settimana mi sono sentito malissimo e debole."]
+  ),
+  esameObiettivo: EO({
+    addome: [["Auscultazione", "Soffio vascolare sisto-diastolico in sede paraombelicale sinistra", 0]],
+    cuore: [["Pressione", "185/110 mmHg", 0]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Creatinina", "Funzione renale", 2, "1.9 mg/dL (era 1.1 un mese fa)", "0.7-1.2", 1, 1),
+      L("Attività Reninica Plasmatica", "Asse RAA", 3, "Elevata", "Normale", 1, 1),
+      L("Potassio", "Elettroliti", 2, "3.2 mmol/L", "3.5-5.0", 1, 0)
+    ],
+    strumentali: [
+      S("Ecocolordoppler arterie renali", "Vascolare", 8, 1, "eco", "Sospetta stenosi", "Stenosi serrata (>70%) all'origine dell'arteria renale sinistra con velocità di picco 350 cm/s e indice di resistenza ridotto a valle."),
+      S("Angio-TC Arterie Renali", "Imaging", 10, 1, "tc", "Conferma", "Placca ateromasica calcifica ostruente l'arteria renale sinistra. Rene sinistro di dimensioni ridotte (9 cm) rispetto al destro (12 cm).")
+    ]
+  },
+  diagnosiDifferenziale: DX("Stenosi dell'arteria renale (Ipertensione renovascolare)", "Iperaldosteronismo primitivo", "Ipertensione essenziale", "Coartazione aortica"),
+  spiegazioneClinica: "L'ipertensione renovascolare è causata dall'attivazione del sistema renina-angiotensina dovuta alla ridotta perfusione renale. Il soffio addominale e il peggioramento della funzione renale dopo ACE-inibitore sono segni classici."
+},
+{
+  id: "case-130",
+  titolo: "Dolore perineale atroce e febbre in diabetico",
+  descrizioneBreve: "Uomo di 62 anni diabetico con dolore, gonfiore e arrossamento dello scroto e del perineo, con crepitio alla palpazione e segni di shock.",
+  difficolta: "Avanzato",
+  specialita: "Urologia / Chirurgia d'Urgenza",
+  schedaPaziente: { nome: "Giacomo Fegato", eta: 62, sesso: "M", motivo: "Dolore e gonfiore perineale", parametriVitali: { PA: "90/55 mmHg", FC: "115 bpm", Temp: "39.5 °C", SpO2: "94%", FR: "24 atti/min" } },
+  anamnesi: Q(
+    ["Quando è iniziato il dolore?", "Ieri sera, è diventato subito insopportabile."],
+    ["Ha febbre?", "Sì, altissima con brividi."],
+    ["Soffre di altre malattie?", "Sì, ho il diabete da molti anni e non lo curo bene."]
+  ),
+  esameObiettivo: EO({
+    renale: [["Ispezione scroto", "Scroto e perineo edematosi, eritematosi con aree di necrosi cutanea nerastra", 0], ["Palpazione", "Crepitio sottocutaneo alla pressione (enfisema); dolore estremo", 0]],
+    cute: [["Stato", "Paziente in shock, cute marezzata", 0]]
+  }),
+  esami: {
+    laboratorio: [
+      L("Emocromo", "Leucocitosi", 2, "WBC 28.000 /µL", "4.000-11.000", 1, 1),
+      L("Lattati", "Shock", 2, "5.2 mmol/L", "< 2.0", 1, 1),
+      L("Glicemia", "Scompenso", 2, "350 mg/dL", "70-100", 1, 0)
+    ],
+    strumentali: [
+      S("TC Addome e Pelvi", "Imaging d'urgenza", 10, 1, "tc", "Sospetta gangrena", "Presenza di gas nei tessuti molli dello scroto, del perineo e lungo le fasce muscolari della parete addominale. Raccolte fluide fluide disomogenee."),
+      S("Ecografia Scrotale", "Imaging", 5, 0, "eco", "Dolore", "Testicoli normali; massivo edema dei tessuti molli con spot iperecogeni riferibili a bolle di gas.")
+    ]
+  },
+  diagnosiDifferenziale: DX("Gangrena di Fournier", "Ascesso perianale", "Cellulite scrotale", "Torsione del testicolo"),
+  spiegazioneClinica: "La gangrena di Fournier è una fascite necrotizzante del perineo e dei genitali esterni, un'emergenza urologica gravata da alta mortalità. Il crepitio sottocutaneo indica la presenza di batteri produttori di gas."
 }
 ];
 </script>
@@ -3807,7 +4368,37 @@ const MOTIVI_DIFF = {
 'case-097': { d2:"La miastenia dà affaticabilità fluttuante senza fascicolazioni né segni piramidali; qui presenti.", d3:"La SM ha lesioni demielinizzanti alla RM; qui EMG mostra denervazione diffusa del motoneurone.", d4:"L'ernia darebbe un deficit limitato a un solo territorio radicolare; qui coinvolgimento di più distretti." },
 'case-098': { d2:"Il lupus non causa sclerodattilia né fibrosi cutanea così marcata; gli anti-Scl70 sono specifici.", d3:"L'artrite reumatoide non spiega il Raynaud né la disfagia o la pelle tesa del volto.", d4:"La dermatomiosite ha debolezza muscolare e papule di Gottron, non la fibrosi cutanea della sclerodermia." },
 'case-099': { d2:"La tubercolosi non spiega la sinusite distruttiva né i c-ANCA positivi; la TC mostra noduli cavitati.", d3:"Il Churg-Strauss è associato ad asma grave ed eosinofilia marcata; qui assenti.", d4:"Il lupus ha ANA e anti-dsDNA positivi, non c-ANCA, e non dà tipicamente noduli polmonari cavitati." },
-'case-100': { d2:"L'appendicite darebbe dolore localizzato e non spiega l'ascite infetta (PMN > 250).", d3:"La pancreatite darebbe lipasi elevate e dolore a barra; qui quadro tipico di infezione del liquido ascitico.", d4:"Lo scompenso dà liquido trasudatizio con pochi leucociti; qui essudato infetto con neutrofili alti." }
+'case-100': { d2:"L'appendicite darebbe dolore localizzato e non spiega l'ascite infetta (PMN > 250).", d3:"La pancreatite darebbe lipasi elevate e dolore a barra; qui quadro tipico di infezione del liquido ascitico.", d4:"Lo scompenso dà liquido trasudatizio con pochi leucociti; qui essudato infetto con neutrofili alti." },
+'case-101': { d2:"La cistite non dà febbre alta e brividi nell'uomo; qui dolore perineale e prostata dolente.", d3:"L'IPB è cronica e non febbrile; qui esordio acuto con febbre e sintomi irritativi.", d4:"La prostatodinia non ha segni di infezione (febbre, leucocituria)." },
+'case-102': { d2:"L'IBS è legata allo stress e non solo ai latticini; qui correlazione stretta col latte.", d3:"La celiachia dà anemia e atrofia dei villi; qui solo sintomi dopo lattosio.", d4:"Le IBD danno sangue e calprotectina alta; qui esami normali." },
+'case-103': { d2:"L'eczema atopico è cronico e in sedi tipiche; qui localizzazione al polso dopo nuovo orologio.", d3:"La scabbia dà prurito notturno e solchi; qui rash localizzato.", d4:"La psoriasi ha squame argentee e sedi estensorie." },
+'case-104': { d2:"Mancano febbre alta, essudato e linfonodi dolenti (Centor 0-1); presenza di tosse e rinite.", d3:"Mancano splenomegalia e astenia marcata; decorso breve." },
+'case-105': { d2:"L'idrocele è una raccolta fluida transilluminabile; qui vene dilatate a 'sacchetto di vermi'.", d3:"L'ernia aumenta con la manovra di Valsalva ma ha un impegno inguinale diverso.", d4:"La torsione è un'urgenza con dolore atroce improvviso." },
+'case-106': { d2:"L'ulcera dà dolore più severo e spesso notturno; qui bruciore correlato all'uso di aspirina.", d3:"Il reflusso è retrosternale; qui dolore epigastrico.", d4:"La calcolosi dà dolore in ipocondrio destro." },
+'case-107': { d2:"La tinea ha bordi più netti e non la distribuzione a 'albero di Natale'.", d3:"La sifilide coinvolge palmi e piante; qui risparmiati.", d4:"La psoriasi è cronica e con squame spesse." },
+'case-108': { d2:"La Meniere dà ipoacusia e acufeni; qui solo vertigine posizionale breve.", d3:"La neurite dà vertigine continua per giorni, non solo nei movimenti." },
+'case-109': { d2:"L'urgenza dà bisogno improvviso non legato allo sforzo fisico.", d3:"La cistite dà bruciore e frequenza; qui perdita solo con tosse/sforzo." },
+'case-110': { d2:"Le IBD hanno calprotectina alta e segni sistemici; qui esami normali.", d3:"La celiachia ha anticorpi positivi.", d4:"Il tumore dà calo di peso e sangue occulto." },
+'case-111': { d2:"Manca l'aria libera sottodiaframmatica e l'addome non è a tavola.", d3:"Il dolore è più improvviso e l'addome è trattabile; l'Angio-TC mostra l'embolo.", d4:"Il dolore non è a ondate e i lattati sono elevati." },
+'case-112': { d2:"Manca il dolore colico e l'ecografia mostra una massa vescicale.", d3:"Manca il bruciore e la febbre; il paziente è un forte fumatore.", d4:"L'ematuria è macroscopica e la citologia è positiva." },
+'case-113': { d2:"Il dolore migliora col movimento e peggiora a riposo; la RM mostra sacroileite.", d3:"Il dolore è localizzato e infiammatorio, con PCR mossa.", d4:"L'artrite reumatoide colpisce le piccole articolazioni, non la colonna lombare." },
+'case-114': { d2:"Manca la bradicardia relativa e la goccia densa è positiva per parassiti.", d3:"Le transaminasi sono solo lievemente mosse e c'è anemia/piastrinopenia.", d4:"Manca l'esposizione specifica e la diagnosi parassitologica è dirimente." },
+'case-115': { d2:"Le vie biliari sono normali all'ecografia; gli AMA sono positivi.", d3:"Le transaminasi sono meno elevate rispetto alla colestasi (ALP/GGT).", d4:"Mancano i segni di insufficienza epatica e l'ipertensione portale." },
+'case-116': { d2:"Il dolore è temporale e associato a claudicatio mandibolare; la VES è altissima.", d3:"L'emicrania ha caratteristiche diverse e non compare per la prima volta a 75 anni.", d4:"Manca la rigidità nucale e la febbre alta." },
+'case-117': { d2:"Mancano i segni di ipercortisolismo; i tratti somatici sono grossolani.", d3:"Il GH e l'IGF-1 sono elevati; la tiroide è normale.", d4:"I sintomi sono cronici e legati alla crescita ossea/tessutale." },
+'case-118': { d2:"L'eritrocitosi è assoluta e associata a splenomegalia e mutazione JAK2.", d3:"La saturazione è normale; l'emoglobina è patologicamente alta.", d4:"Manca la leucocitosi con blasti; è una proliferazione della linea rossa." },
+'case-119': { d2:"L'intervallo tra infezione ed ematuria è brevissimo (1-2 giorni) e il C3 è normale.", d3:"Mancano i segni di infezione urinaria e il dolore al fianco.", d4:"Manca la proteinuria massiva e l'edema generalizzato." },
+  'case-120': { d2:"Il dolore è legato al cammino e scompare col riposo; i polsi sono assenti.", d3:"Manca il gonfiore e il dolore è scatenato dallo sforzo.", d4:"Il dolore è muscolare da ischemia, non articolare." },
+  'case-121': { d2:"Mancano i sintomi urinari irritativi e la leucocituria; la massa palpabile e l'ipercalcemia orientano verso la neoplasia.", d3:"Il linfoma renale è raro come primitiva e solitamente bilaterale/infiltrativo; il fumo e l'ematuria macroscopica sono tipici del carcinoma.", d4:"Il dolore della calcolosi è acuto e colico, non sordo e cronico; non spiega il calo ponderale e la massa solida alla TC." },
+  'case-122': { d2:"L'epatite autoimmune non spiega i sintomi neurologici (tremore, disartria) né l'anello corneale.", d3:"La SM non causa ittero né insufficienza epatica; il quadro è multisistemico epato-lenticolare.", d4:"Il tremore di Parkinson è tipicamente di riposo e non si associa a patologia epatica nel giovane." },
+  'case-123': { d2:"Manca l'assunzione di farmaci scatenanti (es. naprossene); la porfiria ha l'associazione tipica con alcol/HCV e ipertricosi.", d3:"Il pemfigoide ha bolle tese su base eritematosa e non è limitato alle zone fotoesposte; non spiega le urine scure.", d4:"La DAC è pruriginosa e legata a un contatto specifico, non causa alterazioni del colore delle urine." },
+  'case-124': { d2:"L'ascite nella cirrosi è solitamente graduale; qui l'esordio è acuto con dolore e fegato da stasi in paziente con ipercoagulabilità.", d3:"Mancano i segni di turgore giugulare e la dispnea; il problema è localizzato al deflusso venoso epatico.", d4:"La trombosi portale causa ipertensione portale ma non l'epatomegalia dolente da stasi venosa tipica del Budd-Chiari." },
+  'case-125': { d2:"La cistite non spiega le crisi ipertensive sistemiche scatenate dalla contrazione vescicale.", d3:"L'IPB causa ostruzione cronica, non parossismi adrenergici durante la minzione.", d4:"Il carcinoma uroteliale spiega l'ematuria ma non la triade di cefalea, sudore e ipertensione parossistica." },
+  'case-126': { d2:"Il mixedema può dare macroglossia ma non la sindrome nefrosica massiva né il basso voltaggio ECG con pareti cardiache ispessite.", d3:"La sindrome nefrosica non spiega il coinvolgimento cardiaco restrittivo né la macroglossia.", d4:"La sarcoidosi può colpire il cuore ma raramente causa sindrome nefrosica e macroglossia contemporaneamente." },
+  'case-127': { d2:"L'asma allergico non spiega l'eosinofilia così marcata (>1500) né la mononeurite multipla (deficit sensitivo-motori).", d3:"La sindrome ipereosinofila non presenta tipicamente le manifestazioni vasculitiche (mononeurite, porpora) dell'EGPA.", d4:"La PAN non è associata ad asma né a eosinofilia; colpisce vasi di calibro maggiore." },
+  'case-128': { d2:"Il Crohn può dare ulcere e diarrea, ma non l'ipergastrinemia estrema né ulcere duodenali multiple resistenti alla terapia.", d3:"L'H. pylori causa ulcere singole e non spiega la diarrea cronica né i livelli di gastrina così elevati.", d4:"La celiachia spiega la diarrea ma non le ulcere gastriche/duodenali né l'iperacidità." },
+  'case-129': { d2:"L'iperaldosteronismo primitivo ha renina soppressa; qui la renina è elevata (iperaldosteronismo secondario) e c'è un soffio addominale.", d3:"L'ipertensione essenziale non spiega il soffio addominale né il peggioramento della funzione renale con ACE-inibitori.", d4:"La coartazione dà ipertensione agli arti superiori e ipotensione agli inferiori; non spiega il soffio addominale né la renina alta." },
+  'case-130': { d2:"L'ascite perianale è localizzata e non causa l'enfisema sottocutaneo (crepitio) né la necrosi estesa dei tessuti molli perineali.", d3:"La cellulite è superficiale; qui c'è un coinvolgimento profondo delle fasce con segni di tossicità sistemica grave.", d4:"La torsione ha un esordio improvviso ma il dolore è testicolare puro, senza crepitii cutanei né necrosi della pelle dello scroto." }
 };
 
 /* ---------- ANAMNESI COERENTE PER CASO ----------
@@ -4981,7 +5572,37 @@ const ANAM_CASO = {
 'case-097': { ids: { apr_motivo:1, apr_esordio:"Da sei mesi, ho iniziato a inciampare e a sentire la gamba debole.", apr_evoluzione:"La debolezza è aumentata e ora anche la mano sinistra è debole.", sis_neuro:"Debolezza ai muscoli, crampi e piccoli scatti sotto la pelle (fascicolazioni).", sis_resp:"A volte sento il respiro un po' più faticoso.", rem_croniche:"Nessuna nota." }, app:[] },
 'case-098': { ids: { apr_motivo:1, apr_esordio:"Da un anno le mani cambiano colore; da mesi la pelle è tesa.", sis_cute:"Pelle delle dita dura e lucida, non riesco a chiudere bene il pugno.", sis_nv:"Faccio fatica a mandare giù i bocconi secchi.", sis_cardio:"Le dita diventano bianche e poi viola col freddo.", rem_croniche:"Nessuna nota." }, app:[] },
 'case-099': { ids: { apr_motivo:1, apr_esordio:"Da due mesi, pensavo fosse una sinusite che non passava.", sis_resp:"Tosse con qualche traccia di sangue e naso sempre chiuso con croste.", sis_uro:"Urine un po' scure.", sis_febbre:"Febbricola persistente.", sis_gen:"Ho perso 4 chili." }, app:[] },
-'case-100': { ids: { apr_motivo:1, apr_esordio:"Da ieri sera, con dolore alla pancia e febbre.", sis_febbre:"Sì, febbre a 38.5 con brividi.", sis_neuro:"Mi sento più confuso del solito.", rem_croniche:"Cirrosi epatica nota.", sis_gen:"Molta debolezza." }, app:[] }
+'case-100': { ids: { apr_motivo:1, apr_esordio:"Da ieri sera, con dolore alla pancia e febbre.", sis_febbre:"Sì, febbre a 38.5 con brividi.", sis_neuro:"Mi sento più confuso del solito.", rem_croniche:"Cirrosi epatica nota.", sis_gen:"Molta debolezza." }, app:[] },
+'case-101': { ids: { apr_motivo:1, apr_esordio:"Da ieri, in modo improvviso con febbre alta.", apr_carattere:"Un dolore profondo e bruciante.", sis_febbre:2, sis_uro:1, rem_croniche:"Nessuna nota." }, app:[] },
+'case-102': { ids: { apr_motivo:1, apr_esordio:"Da alcuni mesi, ogni volta che faccio colazione.", apr_scatenante:1, sis_alvo:1, sis_gen:2 }, app:[] },
+'case-103': { ids: { apr_motivo:1, apr_esordio:1, apr_carattere:2, sis_cute:"Rossore e prurito solo al polso sinistro." }, app:[] },
+'case-104': { ids: { apr_motivo:1, apr_esordio:"Da due giorni.", sis_febbre:1, sis_resp:2, sis_nv:"No, solo gola irritata." }, app:[] },
+'case-105': { ids: { apr_motivo:1, apr_esordio:"Lo noto da qualche mese.", apr_carattere:2, apr_modulazione:1, rem_croniche:"Nessuna nota." }, app:[] },
+'case-106': { ids: { apr_motivo:1, apr_scatenante:1, sis_nv:2, rem_croniche:"Nessuna nota." }, app:[] },
+'case-107': { ids: { apr_motivo:1, apr_esordio:1, sis_cute:1, sis_gen:"Mi sento bene, a parte le macchie." }, app:[] },
+'case-108': { ids: { apr_motivo:1, apr_esordio:"Da tre giorni.", apr_carattere:1, apr_scatenante:2, sis_neuro:"Solo vertigini quando mi muovo, non ho fischi alle orecchie." }, app:[] },
+'case-109': { ids: { apr_motivo:1, apr_scatenante:1, apr_modulazione:2, fis_gravid:"Ho avuto tre figli con parto naturale." }, app:[] },
+'case-110': { ids: { apr_motivo:1, apr_modulazione:1, apr_scatenante:"Peggiora quando sono sotto stress per l'università.", sis_alvo:"A volte sono stitico, altre volte ho diarrea.", sis_gen:2 }, app:[] },
+'case-111': { ids: { apr_motivo:1, apr_esordio:1, rem_cardioresp:2, sis_alvo:"Nausea, ma non ho ancora evacuato.", sis_gen:"Mi sento malissimo e debole." }, app:[] },
+'case-112': { ids: { apr_motivo:1, sis_uro:1, sti_fumo:2, sis_gen:"Mi sento bene, a parte il sangue nelle urine." }, app:[] },
+'case-113': { ids: { apr_motivo:1, apr_modulazione:1, apr_sede:2, sis_gen:"Mi sento un po' rigido, ma per il resto bene." }, app:[] },
+'case-114': { ids: { apr_motivo:1, apr_scatenante:1, sis_febbre:"Sì, febbre altissima con brividi scuotenti.", epi_viaggi:"Sì, sono tornato dalla Nigeria 10 giorni fa." }, app:[] },
+'case-115': { ids: { apr_motivo:1, apr_esordio:"Da circa 4 mesi.", sis_cute:"Ho un prurito fastidioso ovunque, peggio di notte.", sis_gen:"Sono sempre stanchissima." }, app:[] },
+'case-116': { ids: { apr_motivo:1, apr_carattere:1, apr_modulazione:2, sis_neuro:"Ho un mal di testa nuovo, mai avuto così.", sis_gen:"Mi sento un po' giù di corda e ho perso 2 chili." }, app:[] },
+'case-117': { ids: { apr_motivo:1, apr_esordio:1, sis_neuro:2, sis_gen:"Sudo molto e mi sento le mani gonfie." }, app:[] },
+'case-118': { ids: { apr_motivo:1, apr_scatenante:1, sis_cute:"Ho la faccia sempre rossa e prude dopo la doccia.", sis_neuro:2 }, app:[] },
+'case-119': { ids: { apr_motivo:1, apr_esordio:1, apr_scatenante:2, sis_uro:"Urine rosse, ma non bruciano." }, app:[] },
+  'case-120': { ids: { apr_motivo:1, apr_modulazione:1, sti_fumo:2, sis_gen:"Le gambe sono sempre fredde." }, app:[] },
+  'case-121': { ids: { apr_motivo:1, sis_uro:2, sis_gen:3, sis_febbre:4, sti_fumo:5 }, app:[] },
+  'case-122': { ids: { apr_motivo:1, apr_esordio:"Da circa tre mesi, peggiorando nelle ultime settimane.", sis_neuro:"Tremore alle mani e parlo in modo strano, come se avessi la lingua pesante.", sis_cute:"Sono un po' giallo negli occhi.", fam_gen:"Un fratello ha avuto problemi di fegato da giovane." }, app:[] },
+  'case-123': { ids: { apr_motivo:1, apr_scatenante:"Compaiono dopo che sto al sole.", sis_cute:"Bollicine e croste sul dorso delle mani; ho notato che ho più peli sulle tempie.", sis_uro:"Le urine sembrano più scure, quasi color vino.", sti_alcol:"Bevo regolarmente vino e birra tutti i giorni." }, app:[] },
+  'case-124': { ids: { apr_motivo:1, apr_esordio:"Tutto è iniziato tre giorni fa con un dolore forte alla pancia.", sis_gen:"Mi sento gonfio e debolissimo.", sis_cute:"La pancia è diventata enorme in pochi giorni.", rem_croniche:"Soffro di una malattia del sangue (policitemia)." }, app:[] },
+  'case-125': { ids: { apr_motivo:1, apr_scatenante:"Succede quasi sempre quando vado in bagno a fare pipì.", apr_carattere:"Un attacco di cuore a mille, mal di testa fortissimo e sudo freddo; dura pochi minuti.", sis_uro:"Ho notato un po' di sangue nelle urine ieri." }, app:[] },
+  'case-126': { ids: { apr_motivo:1, sis_gen:"Sono stanchissimo e ho perso appetito.", sis_cardio:"Affanno anche per piccoli sforzi e gambe gonfie.", apr_altri:"La lingua mi sembra più grossa del solito e faccio fatica a parlare.", sis_uro:"Urine molto schiumose." }, app:[] },
+  'case-127': { ids: { apr_motivo:1, sis_resp:"Ho un'asma che non riesco a controllare con gli spray abituali.", sis_neuro:"Formicolii e perdita di sensibilità ai piedi e alle mani.", sis_cute:"Qualche macchia rossa sulle gambe.", sis_febbre:"Febbricola persistente." }, app:[] },
+  'case-128': { ids: { apr_motivo:1, sis_nv:"Bruciore di stomaco atroce che non passa con nulla.", sis_alvo:"Diarrea liquida da settimane.", apr_trattamenti:"Ho preso inibitori di pompa ma il dolore torna subito.", rem_croniche:"Ho già avuto tre ulcere negli ultimi due anni." }, app:[] },
+  'case-129': { ids: { apr_motivo:1, rem_croniche:"Pressione alta da quando avevo 30 anni, ora non scende più.", farm_abit:"Prendo quattro farmaci diversi per la pressione.", apr_scatenante:"La funzione dei reni è peggiorata dopo che ho iniziato un nuovo farmaco (enalapril)." }, app:[] },
+  'case-130': { ids: { apr_motivo:1, apr_esordio:"Da ieri sera un dolore insopportabile tra le gambe.", sis_febbre:"Sì, febbre alta e brividi.", sis_cute:"Lo scroto è gonfio, nero e sento come delle bolle d'aria sotto la pelle se premo.", rem_croniche:"Diabete di tipo 2 mal controllato." }, app:[] }
 };
 /* Defaults in terza persona (risponde un familiare, es. case-029) */
 const DEF3 = {

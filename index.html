@@ -96,6 +96,18 @@
   .toast{background:#0f172a;color:#fff;font-size:.85rem;font-weight:500;padding:.6rem 1rem;border-radius:9999px;box-shadow:0 10px 25px rgba(15,23,42,.35);animation:pop .25s ease-out;transition:opacity .3s,transform .3s}
   .toast.out{opacity:0;transform:translateY(8px)}
   .fade-in{animation:fade .25s ease-out}
+
+  /* Guida Interattiva */
+  .guide-overlay{position:fixed;inset:0;z-index:100;pointer-events:auto;touch-action:none;overscroll-behavior:contain;transition:background .3s}
+  .guide-overlay.dim{background:rgba(15,23,42,.75)}
+  .guide-spotlight{position:fixed;border-radius:1rem;box-shadow:0 0 0 9999px rgba(15,23,42,.75);pointer-events:none}
+  .guide-card{position:fixed;z-index:101;background:#fff;border-radius:1rem;padding:1.25rem;box-shadow:0 20px 25px -5px rgba(0,0,0,.25);pointer-events:auto;border:1px solid #e2e8f0;animation:pop .3s ease-out}
+  .guide-overlay.anim .guide-spotlight,.guide-overlay.anim .guide-card{transition:left .38s cubic-bezier(.4,0,.2,1),top .38s cubic-bezier(.4,0,.2,1),width .38s cubic-bezier(.4,0,.2,1),height .38s cubic-bezier(.4,0,.2,1)}
+  .guide-card::before{content:'';position:absolute;width:12px;height:12px;background:#fff;transform:rotate(45deg);border:1px solid #e2e8f0;display:none}
+  .guide-card.top::before{display:block;bottom:-7px;left:var(--ax,50%);margin-left:-6px;border-top:0;border-left:0}
+  .guide-card.bottom::before{display:block;top:-7px;left:var(--ax,50%);margin-left:-6px;border-bottom:0;border-right:0}
+  .guide-card.dx::before{display:block;left:-7px;top:var(--ay,50%);margin-top:-6px;border-top:0;border-right:0}
+  .guide-card.sx::before{display:block;right:-7px;top:var(--ay,50%);margin-top:-6px;border-bottom:0;border-left:0}
 </style>
 </head>
 <body>
@@ -104,6 +116,7 @@
 <div id="modal-root"></div>
 <div id="lightbox-root"></div>
 <div id="toast-root" class="fixed bottom-24 left-1/2 -translate-x-1/2 z-[90] flex flex-col items-center gap-2 pointer-events-none"></div>
+<div id="guide-root"></div>
 
 <!-- =====================================================================
      DATABASE CASI CLINICI
@@ -5819,6 +5832,7 @@ function renderLibrary() {
           <div data-action="egg-icon" class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-600/30">${icon('stethoscope','w-5 h-5')}</div>
           <div><h1 class="text-xl font-extrabold tracking-tight leading-none cursor-default"><span data-action="egg-letter" data-char="K">K</span><span data-action="egg-letter" data-char="O">O</span><span data-action="egg-letter" data-char="N">N</span><span data-action="egg-letter" data-char="A">A</span><span data-action="egg-letter" data-char="N">N</span></h1><p class="text-[11px] text-slate-500 leading-tight mt-1">Simulatore di casi clinici</p></div>
         </div>
+        <button class="btn btn-outline btn-sm border-blue-200 text-blue-600" data-action="avvia-guida">${icon('help-circle','w-4 h-4')} Guida</button>
       </div>
       ${ui.vista === 'lista' ? `<div class="mt-3 flex flex-col gap-2 md:flex-row">
         <div class="relative flex-1">
@@ -5915,11 +5929,11 @@ function htmlCard(c) {
     ? `<span class="badge bg-emerald-50 text-emerald-700 border border-emerald-200">${icon('check-circle-2','w-3.5 h-3.5')} Completato</span>`
     : st ? `<span class="badge bg-orange-50 text-orange-700 border border-orange-200">${icon('rotate-ccw','w-3.5 h-3.5')} Da riprovare</span>`
     : `<span class="badge bg-slate-100 text-slate-600 border border-slate-200">Da svolgere</span>`;
-  const stato = stato0 + (daRipassare(c) ? `<span class="badge bg-violet-50 text-violet-700 border border-violet-200">${icon('repeat','w-3.5 h-3.5')} Da ripassare</span>` : '');
+  const stato = `<div class="flex flex-wrap justify-end gap-1">${stato0}${daRipassare(c) ? `<span class="badge bg-violet-50 text-violet-700 border border-violet-200 whitespace-nowrap">${icon('repeat','w-3.5 h-3.5')} Da ripassare</span>` : ''}</div>`;
   return `
   <article class="card-caso bg-white border border-slate-200 rounded-2xl p-4 flex flex-col gap-3 cursor-pointer shadow-sm" data-action="apri-caso" data-id="${esc(c.id)}">
-    <div class="flex items-center justify-between gap-2">
-      <span class="badge border ${diffClass(c.difficolta)}">${esc(c.difficolta)}</span>${stato}
+    <div class="flex items-start justify-between gap-2">
+      <span class="badge border flex-none ${diffClass(c.difficolta)}">${esc(c.difficolta)}</span>${stato}
     </div>
     <div>
       <h3 class="font-bold leading-snug">${esc(c.titolo)}</h3>
@@ -6609,7 +6623,166 @@ function apriOverlay(html) {
   document.body.appendChild(overlay);
 }
 
+/* ---------- Guida Interattiva ---------- */
+let guidaStep = 0, guidaToken = 0, guidaAttiva = false, guidaRaf = 0;
+const guidaHome = () => { ui = { search:'', spec:'', diff:'', stato:'', vista:'' }; renderLibrary(); };
+const GUIDA_STEPS = [
+  { target: '[data-action="egg-icon"]', title: "Benvenuto su Konan", text: "Questa è la tua palestra clinica. Qui potrai affrontare casi medici simulati per migliorare il tuo ragionamento diagnostico.", action: guidaHome },
+  { target: '[data-action="apri-livelli"]', title: "Il tuo Profilo", text: "Accumula punti risolvendo i casi. Più sarai appropriato nelle prescrizioni, più alto sarà il tuo punteggio e il tuo grado medico.", action: guidaHome },
+  { target: '.grid.gap-4.sm\\:grid-cols-3', title: "Difficoltà", text: "Scegli il livello di sfida. I casi Facili sono ottimi per iniziare e imparare il metodo.", action: guidaHome },
+  { target: '[data-action="apri-categoria"][data-diff="Facile"]', title: "Esplora i Casi", text: "Clicca qui per visualizzare i casi facili e scegliere il tuo primo paziente.", action: guidaHome },
+  { target: '.card-caso', title: "Scegli il paziente", text: "Ogni scheda è un caso clinico. Aprine una per iniziare: ti mostriamo ora come si svolge.", action: () => { ui = { search:'', spec:'', diff:'Facile', stato:'', vista:'lista' }; renderLibrary(); } },
+  { target: '#chat', title: "Fase 1: Anamnesi", text: "Qui compare il colloquio con il paziente. Le sue risposte appaiono man mano che gli poni le domande: cerca di capire l'esordio e la natura dei sintomi.", action: () => { avviaCaso('case-002'); if (G && G.tab !== 'anamnesi') setTab('anamnesi'); } },
+  { target: '.fab', title: "Fai una domanda", text: "Per interrogare il paziente tocca questo pulsante: si apre l'elenco delle domande disponibili. Scegli quelle utili a inquadrare il caso.", action: () => { if (!G) avviaCaso('case-002'); G.tab = 'anamnesi'; renderStepper(); renderTab(); } },
+  { target: '#game-body .grid.md\\:grid-cols-2 > div:first-child', title: "Fase 2: Esame Obiettivo", text: "Nella scheda Esami tocca un distretto sulla sagoma per cercare segni patologici (es. segno di McBurney positivo). L'esame obiettivo non ha costo.", action: () => { if (!G) avviaCaso('case-002'); G.tab = 'esami'; G.sub = 'obiettivo'; renderStepper(); renderTab(); } },
+  { target: '#game-body article', title: "Fase 3: Indagini", text: "Prescrivi solo gli esami necessari (es. Ecografia) per confermare il sospetto clinico senza sprecare punti budget.", action: () => { if (!G) avviaCaso('case-002'); G.tab = 'esami'; G.sub = 'laboratorio'; renderStepper(); renderTab(); } },
+  { target: '[role="radiogroup"]', title: "Fase 4: Diagnosi", text: "Quando hai raccolto prove sufficienti, vai nell'ultima scheda e seleziona la diagnosi corretta per completare il caso.", action: () => { if (!G) avviaCaso('case-002'); setTab('diagnosi'); } }
+];
+
+function guidaTrova(step) {
+  const el = document.querySelector(step.target);
+  return (el && el.getClientRects().length > 0 && el.getBoundingClientRect().width > 0 && getComputedStyle(el).visibility !== 'hidden') ? el : null;
+}
+
+/* Bordo inferiore di header/barre sticky: la parte alta dello schermo non utilizzabile */
+function guidaInset() {
+  let b = 0;
+  document.querySelectorAll('header, .sticky').forEach(h => {
+    const cs = getComputedStyle(h);
+    if ((cs.position === 'sticky' || cs.position === 'fixed') && parseFloat(cs.top) <= 1) b = Math.max(b, h.getBoundingClientRect().bottom);
+  });
+  return Math.max(0, Math.min(b, window.innerHeight * 0.4));
+}
+const guidaFisso = el => { for (let n = el; n && n !== document.body; n = n.parentElement) { const p = getComputedStyle(n).position; if (p === 'fixed' || p === 'sticky') return true; } return false; };
+
+function guidaScorri(el) {
+  if (guidaFisso(el)) return;                       /* pulsanti fissi / header: niente scroll */
+  const card = document.querySelector('#guide-root .guide-card'), ch = card ? card.offsetHeight : 200;
+  const r = el.getBoundingClientRect(), vh = window.innerHeight, inset = guidaInset(), regione = vh - inset;
+  /* se c'è spazio, lascia sotto il target lo spazio per la card; altrimenti allinea in alto */
+  const margineAlto = r.height + ch + 60 <= regione ? Math.max(16, (regione - r.height - ch - 40) / 2) : 16;
+  const y = window.scrollY + r.top - inset - margineAlto;
+  window.scrollTo({ top: Math.max(0, y), behavior: 'instant' });
+}
+
+/* Esegue l'azione dello step (una volta), trova il target, scorre e anima spotlight + card */
+function guidaMostra() {
+  const step = GUIDA_STEPS[guidaStep];
+  const token = ++guidaToken;
+  guidaAttiva = true;
+  try { if (step.action) step.action(); } catch (e) { console.error('Guida:', e); }
+  let tent = 0;
+  const prova = () => {
+    if (token !== guidaToken) return;
+    const el = guidaTrova(step);
+    if (!el && tent++ < 20) { setTimeout(prova, 40); return; }
+    guidaContenuto(step);
+    if (el) guidaScorri(el);
+    guidaPosiziona(true);
+    setTimeout(() => { if (token === guidaToken) guidaPosiziona(true); }, 420);
+  };
+  prova();
+}
+
+/* Overlay persistente: creato una volta sola, poi si aggiorna solo il contenuto */
+function guidaContenuto(step) {
+  const root = document.getElementById('guide-root');
+  let card = root.querySelector('.guide-card');
+  const nuovo = !card;
+  if (nuovo) {
+    root.innerHTML = `<div class="guide-overlay"><div class="guide-spotlight"></div><div class="guide-card" role="dialog" aria-live="polite"></div></div>`;
+    card = root.querySelector('.guide-card');
+    const ov = root.querySelector('.guide-overlay');
+    /* blocca ogni interazione con la pagina sotto: clic, rotella, touch */
+    ov.addEventListener('click', e => { if (e.target === ov) { e.stopPropagation(); e.preventDefault(); } });
+    ov.addEventListener('wheel', e => e.preventDefault(), { passive: false });
+    ov.addEventListener('touchmove', e => e.preventDefault(), { passive: false });
+    if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+  }
+  root.dataset.step = guidaStep;
+  const ultimo = guidaStep === GUIDA_STEPS.length - 1;
+  card.innerHTML = `
+    <h4 class="font-bold text-blue-600 mb-1">${step.title}</h4>
+    <p class="text-sm text-slate-600 mb-4">${step.text}</p>
+    <div class="flex items-center justify-between gap-2">
+      <span class="text-xs text-slate-400 font-medium">${guidaStep + 1} / ${GUIDA_STEPS.length}</span>
+      <div class="flex gap-1.5">
+        <button class="btn btn-outline btn-sm px-2" data-action="chiudi-guida" title="Esci dalla guida">${icon('x','w-4 h-4')}</button>
+        ${guidaStep > 0 ? `<button class="btn btn-outline btn-sm" data-action="indietro-guida">Indietro</button>` : ''}
+        <button class="btn btn-primary btn-sm" data-action="prossimo-guida">${ultimo ? 'Fine' : 'Avanti'}</button>
+      </div>
+    </div>`;
+  if (window.lucide) window.lucide.createIcons();
+  if (nuovo) guidaPosiziona(false);
+}
+
+/* Posiziona spotlight e card dentro il viewport. anima=true solo ai cambi di step */
+let guidaAnimTimer = 0;
+function guidaPosiziona(anima = false) {
+  const root = document.getElementById('guide-root');
+  if (!guidaAttiva || !root) return;
+  const ov = root.querySelector('.guide-overlay'), sp = root.querySelector('.guide-spotlight'), card = root.querySelector('.guide-card');
+  if (!ov || !sp || !card) return;
+  clearTimeout(guidaAnimTimer);
+  if (anima) { ov.classList.add('anim'); guidaAnimTimer = setTimeout(() => ov.classList.remove('anim'), 450); }
+  else ov.classList.remove('anim');
+  const step = GUIDA_STEPS[guidaStep], vw = window.innerWidth, vh = window.innerHeight, m = 12, pad = 8, gap = 14;
+  const cw = Math.min(320, vw - 2 * m);
+  card.style.width = cw + 'px';
+  const ch = card.offsetHeight;
+  const el = guidaTrova(step);
+  const r = el ? el.getBoundingClientRect() : null;
+  const inset = el && guidaFisso(el) ? 0 : guidaInset();
+  const visibile = r && r.bottom > inset + m && r.top < vh - m && r.right > m && r.left < vw - m;
+  card.classList.remove('top', 'bottom', 'dx', 'sx');
+  if (!visibile) {
+    sp.style.display = 'none'; ov.classList.add('dim');
+    card.style.left = Math.round((vw - cw) / 2) + 'px';
+    card.style.top = Math.round(Math.max(m, (vh - ch) / 2)) + 'px';
+    return;
+  }
+  sp.style.display = ''; ov.classList.remove('dim');
+  const t = Math.max(inset, r.top - pad), b = Math.min(vh, r.bottom + pad), l = Math.max(0, r.left - pad), rr = Math.min(vw, r.right + pad);
+  sp.style.left = l + 'px'; sp.style.top = t + 'px'; sp.style.width = (rr - l) + 'px'; sp.style.height = (b - t) + 'px';
+  const sotto = vh - b, sopra = t, destra = vw - rr, sinistra = l;
+  const cx = Math.max(m, Math.min(vw - cw - m, (l + rr) / 2 - cw / 2));
+  const cy = Math.max(m, Math.min(vh - ch - m, (t + b) / 2 - ch / 2));
+  let left, top, cls = '';
+  if (sotto >= ch + gap + m)        { left = cx; top = b + gap; cls = 'bottom'; card.style.setProperty('--ax', Math.max(22, Math.min(cw - 22, (l + rr) / 2 - left)) + 'px'); }
+  else if (sopra >= ch + gap + m)   { left = cx; top = t - gap - ch; cls = 'top'; card.style.setProperty('--ax', Math.max(22, Math.min(cw - 22, (l + rr) / 2 - left)) + 'px'); }
+  else if (destra >= cw + gap + m)  { left = rr + gap; top = cy; cls = 'dx'; card.style.setProperty('--ay', Math.max(22, Math.min(ch - 22, (t + b) / 2 - top)) + 'px'); }
+  else if (sinistra >= cw + gap + m){ left = l - gap - cw; top = cy; cls = 'sx'; card.style.setProperty('--ay', Math.max(22, Math.min(ch - 22, (t + b) / 2 - top)) + 'px'); }
+  else                              { left = (vw - cw) / 2; top = vh - ch - m; }   /* target enorme: card fissa in basso al centro */
+  card.style.left = Math.round(left) + 'px';
+  card.style.top = Math.round(Math.max(m, top)) + 'px';
+  if (cls) card.classList.add(cls);
+}
+
+function chiudiGuida() {
+  guidaToken++; guidaAttiva = false;
+  clearTimeout(guidaAnimTimer);
+  const r = document.getElementById('guide-root'); if (r) { r.innerHTML = ''; r.removeAttribute('data-step'); }
+  guidaStep = 0;
+  guidaHome();
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+const guidaAggiorna = () => { if (!guidaAttiva || guidaRaf) return; guidaRaf = requestAnimationFrame(() => { guidaRaf = 0; guidaPosiziona(false); }); };
+window.addEventListener('resize', guidaAggiorna);
+window.addEventListener('scroll', guidaAggiorna, { passive: true });
+document.addEventListener('keydown', e => {
+  if (!guidaAttiva) return;
+  const dentro = e.target && e.target.closest && e.target.closest('.guide-card');
+  if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); chiudiGuida(); return; }
+  if (e.key === 'ArrowRight') { e.preventDefault(); e.stopPropagation(); AZIONI['prossimo-guida'](); return; }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); e.stopPropagation(); AZIONI['indietro-guida'](); return; }
+  if (!dentro) { e.preventDefault(); e.stopPropagation(); }   /* niente tastiera verso la pagina sotto */
+}, true);
+
 /* ---------- Azioni ---------- */
+AZIONI['avvia-guida'] = () => { guidaStep = 0; guidaMostra(); };
+AZIONI['prossimo-guida'] = () => { if (guidaStep >= GUIDA_STEPS.length - 1) { chiudiGuida(); return; } guidaStep++; guidaMostra(); };
+AZIONI['indietro-guida'] = () => { if (guidaStep > 0) { guidaStep--; guidaMostra(); } };
+AZIONI['chiudi-guida'] = chiudiGuida;
 AZIONI['apri-caso'] = d => avviaCaso(d.id);
 AZIONI['reset-filtri'] = () => { ui = { search:'', spec:'', diff:'', stato:'', vista:'lista' }; renderLibrary(); };
 AZIONI['apri-categoria'] = d => { ui = { search:'', spec:'', diff:d.diff || '', stato:'', vista:'lista' }; renderLibrary(); };

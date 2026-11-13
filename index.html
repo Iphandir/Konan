@@ -15,6 +15,7 @@
 
   /* Bottoni e componenti base */
   :where(button:not(:disabled),[data-action]:not(:disabled),[role=button]){cursor:pointer}
+  [data-action^="egg-"]{cursor:default !important}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;font-weight:600;font-size:.875rem;border-radius:.75rem;padding:.6rem 1rem;transition:all .15s;cursor:pointer;border:1px solid transparent;line-height:1.2}
   .btn-primary{background:#2563eb;color:#fff;box-shadow:0 4px 12px -4px rgba(37,99,235,.55)}
   .btn-primary:hover{background:#1d4ed8}
@@ -5793,6 +5794,8 @@ function costruisciLab(caso, PL) {
 
 let ui = { search:'', spec:'', diff:'', stato:'', vista:'' };
 let G = null;
+let eggProgress = 0;
+const eggTarget = ['icon', 'icon', 'icon', 'K', 'O', 'N', 'A', 'N'];
 const app = $('#app');
 const AZIONI = {};
 
@@ -5810,11 +5813,11 @@ function renderLibrary() {
   const sel = (v, cur) => v === cur ? 'selected' : '';
   app.innerHTML = `
   <header class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-slate-200">
-    <div class="max-w-6xl mx-auto px-4 py-3">
+    <div class="max-w-4xl mx-auto px-4 py-3">
       <div class="flex items-center justify-between gap-3">
         <div class="flex items-center gap-2.5">
-          <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-600/30">${icon('stethoscope','w-5 h-5')}</div>
-          <div><h1 class="text-xl font-extrabold tracking-tight leading-none">KONAN</h1><p class="text-[11px] text-slate-500 leading-tight mt-1">Simulatore di casi clinici</p></div>
+          <div data-action="egg-icon" class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-600/30">${icon('stethoscope','w-5 h-5')}</div>
+          <div><h1 class="text-xl font-extrabold tracking-tight leading-none cursor-default"><span data-action="egg-letter" data-char="K">K</span><span data-action="egg-letter" data-char="O">O</span><span data-action="egg-letter" data-char="N">N</span><span data-action="egg-letter" data-char="A">A</span><span data-action="egg-letter" data-char="N">N</span></h1><p class="text-[11px] text-slate-500 leading-tight mt-1">Simulatore di casi clinici</p></div>
         </div>
       </div>
       ${ui.vista === 'lista' ? `<div class="mt-3 flex flex-col gap-2 md:flex-row">
@@ -5830,7 +5833,7 @@ function renderLibrary() {
       </div>` : ''}
     </div>
   </header>
-  <main class="max-w-6xl mx-auto px-4 py-5 fade-in">
+  <main class="max-w-4xl mx-auto px-4 py-5 fade-in">
     <section class="grid gap-3 sm:grid-cols-3 mb-6">
       <div data-action="apri-livelli" class="bg-white border border-slate-200 hover:border-blue-300 rounded-2xl p-4 shadow-sm cursor-pointer" title="Vedi tutti i livelli">
         <div class="flex items-center justify-between"><span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Livello · tocca per i dettagli</span>${icon(lv.ic,'w-4 h-4 text-blue-600')}</div>
@@ -6133,7 +6136,7 @@ function renderGame() {
   app.innerHTML = `
   <div class="min-h-screen flex flex-col">
     <header class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-slate-200">
-      <div class="max-w-5xl mx-auto px-4 py-2.5 flex items-center gap-3">
+      <div class="max-w-4xl mx-auto px-4 py-2.5 flex items-center gap-3">
         <button class="btn-icon" data-action="torna-libreria" aria-label="Torna alla libreria">${icon('arrow-left','w-5 h-5')}</button>
         <div class="min-w-0 flex-1">
           <div class="flex items-center gap-2 text-[11px] uppercase tracking-wide text-slate-500 font-semibold">${esc(c.id)} <span class="badge border ${diffClass(c.difficolta)}">${esc(c.difficolta)}</span></div>
@@ -6143,7 +6146,7 @@ function renderGame() {
       </div>
       <div id="stepper"></div>
     </header>
-    <main class="flex-1 max-w-5xl w-full mx-auto px-4 py-4 pb-28">
+    <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-4 pb-28">
       ${htmlScheda()}
       <div id="game-body"></div>
     </main>
@@ -6170,7 +6173,7 @@ function renderStepper() {
     { k:'diagnosi', n:3, l:'Diagnosi', info:G.scelta ? 'scelta' : '' }
   ];
   const idx = steps.findIndex(s => s.k === G.tab);
-  el.innerHTML = `<div class="max-w-5xl mx-auto px-4 pb-3"><div class="flex items-center">` + steps.map((s, i) => {
+  el.innerHTML = `<div class="max-w-4xl mx-auto px-4 pb-3"><div class="flex items-center">` + steps.map((s, i) => {
     const attivo = i === idx, passato = i < idx;
     return `${i > 0 ? `<div class="flex-1 h-0.5 mx-1.5 rounded ${i <= idx ? 'bg-blue-600' : 'bg-slate-200'}"></div>` : ''}
       <button data-action="tab" data-tab="${s.k}" class="flex items-center gap-2 rounded-full pl-1 pr-3 py-1 border transition ${attivo ? 'bg-blue-600 text-white border-blue-600 shadow-md shadow-blue-600/25' : 'bg-white text-slate-600 border-slate-200 hover:border-blue-300'}">
@@ -6778,6 +6781,20 @@ AZIONI['prossimo-caso'] = () => {
   const i = CASI.findIndex(c => c.id === G.caso.id), n = CASI.length;
   for (let k = 1; k <= n; k++) { const c = CASI[(i + k) % n]; if (!(progress.casi[c.id] && progress.casi[c.id].completato)) return avviaCaso(c.id); }
   avviaCaso(CASI[(i + 1) % n].id);
+};
+AZIONI['egg-icon'] = () => {
+  if (eggTarget[eggProgress] === 'icon') eggProgress++; else eggProgress = 1;
+};
+AZIONI['egg-letter'] = d => {
+  if (eggTarget[eggProgress] === d.char) {
+    eggProgress++;
+    if (eggProgress === eggTarget.length) {
+      eggProgress = 0;
+      apriModal(`<div class="modal-card p-8 text-center" style="max-width:24rem"><div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">${icon('code-2','w-8 h-8')}</div><h2 class="text-2xl font-black text-slate-900 mb-2">Crafted by iPhandir</h2><p class="text-slate-500 text-sm mb-6">Grazie per aver esplorato Konan.</p><button class="btn btn-primary w-full" data-action="chiudi-modal">Chiudi</button></div>`);
+    }
+  } else {
+    eggProgress = 0;
+  }
 };
 
 /* ---------- Eventi globali ---------- */
